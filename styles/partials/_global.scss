@@ -1,0 +1,168 @@
+@use 'typography' as *;
+@use 'colors' as colors;
+@use 'mixins' as *;
+@use 'variables' as *;
+
+html {
+    font-size: $root-font-size;
+    line-height: 1.4;
+    font-family: $font-stack;
+}
+body {
+    margin: 0;
+}
+p {
+    color: colors.$primary-dark;
+}
+nav {
+    letter-spacing: $nav-font-spacing;
+}
+
+.nav {
+    background-color: colors.$primary-dark;    
+    
+    &__logo {
+        @include nav-link;
+        color: colors.$secondary-mid;
+        display: block;
+        padding-top: 0.7rem;
+        font-size: 1.5rem;
+        
+        @include tablet-half {
+            // padding: 1rem 0;
+            padding-left: 2rem;
+            padding-right: 3rem;
+        }
+    }
+    
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        padding-top: 0.2rem;
+        
+        @include tablet-half {
+            padding-top: 0;
+        }
+    }
+    
+    &__list-item {
+        @include nav-link;
+        color: colors.$secondary-mid;
+        display: inline-block;
+        width: 50%;
+        font-size: 0.8rem;
+        padding-bottom: 0.5rem;
+
+        @include tablet-half {
+            margin: 0 1.75rem;
+            padding: 1.5rem 0 1.3rem;
+        }
+        
+        &--active {
+            @extend .nav__list-item;
+            color: colors.$primary-light;
+            border-bottom: 3px solid colors.$primary-light;
+            font-weight: 600;
+
+        }
+    }
+    
+    @include tablet-half {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+footer {
+    padding: 0.85rem 0;
+    @include side-padding;
+    background-color: colors.$primary-dark;
+}
+.footer {
+    &-primary {
+        color: colors.$primary-light;
+        
+        &__title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.03rem;
+            margin: 0.5rem 0 0.7rem;
+
+            @include tablet-half {
+                @include section-title;
+            }
+        }
+        &__social-container {
+            width: 45%;
+            display: flex;
+            justify-content: space-between;
+        }
+        &__social {
+            height: 1.5rem;
+        }
+        @include tablet-half {
+            display: flex;
+            justify-content: space-between;
+        }
+    }  
+    &-secondary {
+        
+        &__details-container {
+            margin: 1.7rem 0;
+        }
+
+        &__details {
+            font-size: 0.85rem;
+            line-height: 0.2rem;
+            color: colors.$secondary-mid;
+            
+            &--strong {
+                @extend .footer-secondary__details;
+                font-weight: 500;
+                color: colors.$secondary-light;
+            }
+        }
+
+        @include tablet-half {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+    }
+
+    &__email {
+        text-decoration: none;
+        color: colors.$secondary-mid;
+        font-size: 0.8rem;
+    }
+    &__logo {
+        
+        &--tablet {
+            display: none;
+            
+            @include tablet {
+                display: inline-block;
+                @include footer-logo; 
+            }
+        }
+        &--mobile {
+            @include footer-logo;
+            display: inline-block;
+            margin-top: 3.9rem;
+
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+
+    &__copyright {
+        color: colors.$secondary-mid;
+        font-size: 0.69rem;
+        margin-bottom: 0 ;
+    }
+};

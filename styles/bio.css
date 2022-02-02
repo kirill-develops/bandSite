@@ -1,0 +1,396 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/AvenirNextLTPro-Bold.otf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/AvenirNextLTPro-Demi.otf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/AvenirNextLTPro-Rugular.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Avenir-Alt";
+  src: url("../assets/fonts/alternatives/AvenirNextLtProBold.ttf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Avenir-Alt";
+  src: url("../assets/fonts/alternatives/AvenirNextLtProDemi.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Avenir-Alt";
+  src: url("../assets/fonts/alternatives/AvenirNextLtPro.ttf");
+  font-weight: 400;
+}
+html {
+  font-size: 16px;
+  line-height: 1.4;
+  font-family: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  color: #323232;
+}
+
+nav {
+  letter-spacing: 0.04rem;
+}
+
+.nav {
+  background-color: #323232;
+}
+.nav__logo {
+  text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
+  color: #e1e1e1;
+  display: block;
+  padding-top: 0.7rem;
+  font-size: 1.5rem;
+}
+@media screen and (min-width: 26.563rem) {
+  .nav__logo {
+    padding-left: 2rem;
+    padding-right: 3rem;
+  }
+}
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  padding-top: 0.2rem;
+}
+@media screen and (min-width: 26.563rem) {
+  .nav__list {
+    padding-top: 0;
+  }
+}
+.nav__list-item, .nav__list-item--active {
+  text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
+  color: #e1e1e1;
+  display: inline-block;
+  width: 50%;
+  font-size: 0.8rem;
+  padding-bottom: 0.5rem;
+}
+@media screen and (min-width: 26.563rem) {
+  .nav__list-item, .nav__list-item--active {
+    margin: 0 1.75rem;
+    padding: 1.5rem 0 1.3rem;
+  }
+}
+.nav__list-item--active {
+  color: #ffffff;
+  border-bottom: 3px solid #ffffff;
+  font-weight: 600;
+}
+@media screen and (min-width: 26.563rem) {
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+footer {
+  padding: 0.85rem 0;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+  background-color: #323232;
+}
+
+.footer-primary {
+  color: #ffffff;
+}
+.footer-primary__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.03rem;
+  margin: 0.5rem 0 0.7rem;
+}
+@media screen and (min-width: 26.563rem) {
+  .footer-primary__title {
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+    font-size: 4.3vw;
+    font-weight: 550;
+    letter-spacing: 0.02rem;
+  }
+}
+.footer-primary__social-container {
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-primary__social {
+  height: 1.5rem;
+}
+@media screen and (min-width: 26.563rem) {
+  .footer-primary {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.footer-secondary__details-container {
+  margin: 1.7rem 0;
+}
+.footer-secondary__details, .footer-secondary__details--strong {
+  font-size: 0.85rem;
+  line-height: 0.2rem;
+  color: #e1e1e1;
+}
+.footer-secondary__details--strong {
+  font-weight: 500;
+  color: #fafafa;
+}
+@media screen and (min-width: 26.563rem) {
+  .footer-secondary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+.footer__email {
+  text-decoration: none;
+  color: #e1e1e1;
+  font-size: 0.8rem;
+}
+.footer__logo--tablet {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .footer__logo--tablet {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #e1e1e1;
+    text-decoration: none;
+  }
+}
+.footer__logo--mobile {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #e1e1e1;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 3.9rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__logo--mobile {
+    display: none;
+  }
+}
+.footer__copyright {
+  color: #e1e1e1;
+  font-size: 0.69rem;
+  margin-bottom: 0;
+}
+
+.hero {
+  width: 100%;
+  background-image: url(../assets/images/hero-bio.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+.hero--overlay {
+  position: absolute;
+  -webkit-backdrop-filter: brightness(55%);
+          backdrop-filter: brightness(55%);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+}
+.hero__title {
+  display: block;
+  color: #fafafa;
+  letter-spacing: 0.04rem;
+  font-weight: 600;
+  font-size: 7.7vw;
+  margin: 0%;
+  padding-right: 0.5rem;
+}
+@media screen and (min-width: 26.563rem) {
+  .hero__title {
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+  }
+}
+.bio-intro {
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+}
+.bio-intro__title {
+  color: #323232;
+  margin-bottom: 0.5rem;
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+@media screen and (min-width: 26.563rem) {
+  .bio-intro__title {
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+    font-size: 4.3vw;
+    font-weight: 550;
+    letter-spacing: 0.02rem;
+  }
+}
+.bio-intro__media {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+@media screen and (min-width: 26.563rem) {
+  .bio-intro__media {
+    display: block;
+    width: 78%;
+    margin: 1rem auto;
+    aspect-ratio: 1.95/1;
+  }
+}
+.bio-intro__quote, .bio-intro__quote--artist-tag {
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.01rem;
+  line-height: 1.4rem;
+  color: #323232;
+  margin: 0.4rem auto;
+}
+@media screen and (min-width: 26.563rem) {
+  .bio-intro__quote, .bio-intro__quote--artist-tag {
+    width: 78%;
+    margin: 2rem auto 1rem;
+    font-size: 2.8vw;
+    line-height: 1.8rem;
+    letter-spacing: 0.03rem;
+  }
+  .bio-intro__quote--artist-tag {
+    font-size: 2vw;
+    margin-top: 1rem;
+  }
+}
+@media screen and (min-width: 26.563rem) {
+  .bio-intro {
+    padding-top: 1.2rem;
+  }
+}
+
+.bio-main {
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+}
+.bio-main__title {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+@media screen and (min-width: 26.563rem) {
+  .bio-main__title {
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+    font-size: 3.25vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio-main__title {
+    width: 78%;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 26.563rem) {
+  .bio-main__details-container {
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio-main__details-container {
+    display: flex;
+    justify-content: space-between;
+    width: 78%;
+    margin: auto;
+  }
+}
+.bio-main__details {
+  font-size: 0.82rem;
+  line-height: 1.2rem;
+}
+@media screen and (min-width: 26.563rem) {
+  .bio-main__details {
+    font-size: 0.88rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio-main__details {
+    width: 48%;
+  }
+}
+.gallery {
+  padding-top: 1rem;
+  padding-bottom: 0.3rem;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+  background-color: #fafafa;
+}
+.gallery__title {
+  padding-left: 1.45rem;
+  padding-right: 1.45rem;
+  font-size: 4.3vw;
+  font-weight: 550;
+  letter-spacing: 0.02rem;
+}
+@media screen and (min-width: 26.563rem) {
+  .gallery__title {
+    margin-bottom: 1.1rem;
+  }
+}
+.gallery__container {
+  box-sizing: border-box;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .gallery__container {
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+    display: flex;
+    flex-wrap: wrap;
+    aspect-ratio: 16/9;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+  }
+}
+.gallery__media {
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin: 0.3rem 0;
+}
+@media screen and (min-width: 26.563rem) {
+  .gallery__media {
+    box-sizing: border-box;
+    width: 31%;
+    margin: 0;
+  }
+}
+@media screen and (min-width: 26.563rem) {
+  .gallery {
+    padding-bottom: 1.5rem;
+  }
+}/*# sourceMappingURL=bio.css.map */

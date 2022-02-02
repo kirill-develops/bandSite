@@ -1,2 +1,15 @@
+@use 'typography';
+
+// Media Breakpoints
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
+
+// Fonts 
+$font-stack: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
+$root-font-size: 16px;
+$nav-font-spacing: 0.04rem;
+$section-title-font-size: 4.3vw;
+
+//sizes
+
+$tablet-main-width: 78%;

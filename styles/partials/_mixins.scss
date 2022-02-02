@@ -1,4 +1,12 @@
 @use 'variables' as *;
+@use 'colors' as colors;
+
+@mixin tablet-half {
+    @media screen and (min-width: 26.563rem ) {
+        @content;
+    }
+}
+
 
 @mixin tablet {
     @media screen and (min-width: $tablet-breakpoint) {
@@ -10,4 +18,34 @@
     @media screen and (min-width: $desktop-breakpoint) {
         @content;
     }
+}
+
+@mixin nav-link {
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+@mixin footer-logo {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: colors.$secondary-mid;
+    text-decoration: none;
+}
+
+@mixin side-padding {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+}
+
+@mixin tablet-padding {
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+}
+
+@mixin section-title {
+    @include tablet-padding;
+    font-size: $section-title-font-size;
+    font-weight: 550;
+    letter-spacing: 0.02rem;
 }
