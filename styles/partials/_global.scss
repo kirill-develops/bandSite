@@ -54,11 +54,6 @@ nav {
         width: 50%;
         font-size: 0.8rem;
         padding-bottom: 0.5rem;
-
-        @include tablet-half {
-            margin: 0 1.75rem;
-            padding: 1.5rem 0 1.3rem;
-        }
         
         &--active {
             @extend .nav__list-item;
@@ -67,6 +62,11 @@ nav {
             font-weight: 600;
 
         }
+        
+        @include tablet-half {
+            margin: 0 1.75rem;
+            padding: 1.5rem 0 1.3rem;
+        }        
     }
     
     @include tablet-half {
@@ -76,42 +76,92 @@ nav {
     }
 }
 
-footer {
+.footer {
     padding: 0.85rem 0;
     @include side-padding;
     background-color: colors.$primary-dark;
-}
-.footer {
+    
     &-primary {
         color: colors.$primary-light;
         
+        &__container {
+            
+            @include tablet-half {
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
+                width: 100%;
+                justify-items: space-between;
+            }
+            @include tablet-footer {
+                justify-items: flex-start;
+
+            }
+        }
+
         &__title {
             font-size: 1.5rem;
             font-weight: 500;
             letter-spacing: 0.03rem;
             margin: 0.5rem 0 0.7rem;
 
-            @include tablet-half {
+            @include tablet-footer {
                 @include section-title;
+                padding: 0.1rem 1rem 0.15rem 0;
             }
         }
+
         &__social-container {
             width: 45%;
             display: flex;
             justify-content: space-between;
+
+            @include tablet-half {
+                @include tablet-padding;
+                width: 8rem;
+            }
         }
+
         &__social {
             height: 1.5rem;
         }
+
         @include tablet-half {
+            // @include side-padding;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding-right: 0.7rem;
+
         }
     }  
+
     &-secondary {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         
+        &__block {
+            margin: 0;
+
+            @include tablet-half {
+                display: flex;
+                flex-direction: column;
+            }
+
+            @include tablet-footer {        
+                // margin: 0 1rem;
+                box-sizing: border-box;
+                width: 31%;
+            }
+        }
+
         &__details-container {
             margin: 1.7rem 0;
+            
+            @include tablet-half {
+                margin: 0.5rem 0;
+            }
         }
 
         &__details {
@@ -124,38 +174,43 @@ footer {
                 font-weight: 500;
                 color: colors.$secondary-light;
             }
-        }
 
-        @include tablet-half {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            @include tablet {
+                font-size: 0.9rem;
+            }
         }
-
     }
 
     &__email {
         text-decoration: none;
         color: colors.$secondary-mid;
         font-size: 0.8rem;
+        
+        @include tablet {
+            margin: 0.5rem 0 2rem;
+            font-size: 0.9rem;
+        }
     }
+
     &__logo {
         
-        &--tablet {
-            display: none;
-            
-            @include tablet {
-                display: inline-block;
-                @include footer-logo; 
-            }
-        }
         &--mobile {
             @include footer-logo;
             display: inline-block;
             margin-top: 3.9rem;
 
-            @include tablet {
+            @include tablet-footer {
                 display: none;
+            }
+        }
+
+        &--tablet {
+            display: none;
+            
+            @include tablet-footer {
+                display: inline-block;
+                @include footer-logo; 
+                justify-self: flex-end;
             }
         }
     }
@@ -163,6 +218,18 @@ footer {
     &__copyright {
         color: colors.$secondary-mid;
         font-size: 0.69rem;
-        margin-bottom: 0 ;
+        margin-bottom: 0;
+
+        @include tablet {
+            padding-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    @include tablet-half {
+        @include tablet-footer-padding;
+        box-sizing: border-box;
+        width: 100%;
+        padding-top: 2.1rem;
     }
 };
