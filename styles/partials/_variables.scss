@@ -7,12 +7,16 @@ $desktop-breakpoint: 1280px;
 // Fonts 
 $font-stack: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
 $root-font-size: 16px;
-$nav-font-spacing: 0.04rem;
+
 $section-title-font-size: 4.5vw;
 
 //widths
-$tablet-main-width: 78%;
+$tablet-main-width: 83%;
+$tablet-half-main-width: 89%;
 $desktop-main-width: 67%;
 
-$tablet-main-padding: 9.8vw;
+$tablet-main-max-width: 36.063rem;
+
+$mobile-main-padding:  1.45rem;
+$tablet-main-padding: 4.5vw;
 $desktop-main-padding: 9.8vw;

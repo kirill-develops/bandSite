@@ -18,7 +18,7 @@ p {
 }
 
 .nav {
-    letter-spacing: $nav-font-spacing;
+    letter-spacing: 0.04rem;
     background-color: colors.$primary-dark;    
     
     &__logo {
@@ -89,10 +89,7 @@ p {
         display: flex;
         align-items:center;
         justify-content: flex-start;
-    }
-
-    @include tablet-half {
-        padding-left: 4vw;
+        @include tablet-padding;
     }
 
     @include desktop {
@@ -103,7 +100,7 @@ p {
 
 .footer {
     padding: 0.85rem 0;
-    @include side-padding;
+    @include mobile-padding;
     background-color: colors.$primary-dark;
     
     &-primary {
@@ -152,19 +149,16 @@ p {
         }
 
         @include tablet-half {
-            // @include side-padding;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-right: 0.7rem;
-
         }
     }  
 
     &-secondary {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         
         &__block {
             margin: 0;
@@ -172,10 +166,11 @@ p {
             @include tablet-half {
                 display: flex;
                 flex-direction: column;
+                margin: 0 0.5rem;
             }
 
             @include tablet-footer {        
-                // margin: 0 1rem;
+                justify-content: space-between;
                 box-sizing: border-box;
                 width: 31%;
             }
@@ -204,6 +199,17 @@ p {
                 font-size: 0.9rem;
             }
         }
+
+        @include tablet-half {
+            margin: 0 -0.5rem;
+        }
+
+        @include tablet {
+            max-width: 43.375rem;
+        }
+        @include desktop {
+            max-width: 74%;
+        }
     }
 
     &__email {
@@ -224,7 +230,7 @@ p {
             display: inline-block;
             margin-top: 3.9rem;
 
-            @include tablet-footer {
+            @include tablet-footer-logo {
                 display: none;
             }
         }
@@ -232,7 +238,7 @@ p {
         &--tablet {
             display: none;
             
-            @include tablet-footer {
+            @include tablet-footer-logo {
                 display: inline-block;
                 @include footer-logo; 
                 justify-self: flex-end;
@@ -252,9 +258,11 @@ p {
     }
 
     @include tablet-half {
-        @include tablet-footer-padding;
-        box-sizing: border-box;
-        width: 100%;
+        @include tablet-padding;
         padding-top: 2.1rem;
+    }
+
+    @include desktop {
+        @include desktop-padding;
     }
 };
