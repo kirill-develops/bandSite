@@ -8,17 +8,17 @@ html {
     line-height: 1.4;
     font-family: $font-stack;
 }
+
 body {
     margin: 0;
 }
+
 p {
     color: colors.$primary-dark;
 }
-nav {
-    letter-spacing: $nav-font-spacing;
-}
 
 .nav {
+    letter-spacing: $nav-font-spacing;
     background-color: colors.$primary-dark;    
     
     &__logo {
@@ -27,11 +27,16 @@ nav {
         display: block;
         padding-top: 0.7rem;
         font-size: 1.5rem;
+        margin: auto 0;
         
         @include tablet-half {
             // padding: 1rem 0;
-            padding-left: 2rem;
-            padding-right: 3rem;
+            
+            
+        }
+        
+        @include desktop {
+            
         }
     }
     
@@ -43,7 +48,13 @@ nav {
         padding-top: 0.2rem;
         
         @include tablet-half {
-            padding-top: 0;
+            padding-top: 0.6rem;
+            padding-left: 2.5rem;
+            width: 25%;
+        }
+
+        @include desktop {
+            padding-top: 0.9rem;
         }
     }
     
@@ -64,15 +75,29 @@ nav {
         }
         
         @include tablet-half {
-            margin: 0 1.75rem;
             padding: 1.5rem 0 1.3rem;
-        }        
+            margin: 0 1.75rem;
+        }  
+        
+        @include desktop {
+            padding: 1.4rem 0 1.4rem;
+            margin: 0 1.2rem;
+        }
     }
     
     @include tablet-half {
         display: flex;
-        align-items: center;
+        align-items:center;
         justify-content: flex-start;
+    }
+
+    @include tablet-half {
+        padding-left: 4vw;
+    }
+
+    @include desktop {
+        height: 5rem;
+        padding-left: 10vw;
     }
 }
 

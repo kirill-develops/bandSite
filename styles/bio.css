@@ -42,11 +42,8 @@ p {
   color: #323232;
 }
 
-nav {
-  letter-spacing: 0.04rem;
-}
-
 .nav {
+  letter-spacing: 0.04rem;
   background-color: #323232;
 }
 .nav__logo {
@@ -57,12 +54,7 @@ nav {
   display: block;
   padding-top: 0.7rem;
   font-size: 1.5rem;
-}
-@media screen and (min-width: 26.563rem) {
-  .nav__logo {
-    padding-left: 2rem;
-    padding-right: 3rem;
-  }
+  margin: auto 0;
 }
 .nav__list {
   display: flex;
@@ -73,7 +65,14 @@ nav {
 }
 @media screen and (min-width: 26.563rem) {
   .nav__list {
-    padding-top: 0;
+    padding-top: 0.6rem;
+    padding-left: 2.5rem;
+    width: 25%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav__list {
+    padding-top: 0.9rem;
   }
 }
 .nav__list-item, .nav__list-item--active {
@@ -93,8 +92,14 @@ nav {
 }
 @media screen and (min-width: 26.563rem) {
   .nav__list-item, .nav__list-item--active {
-    margin: 0 1.75rem;
     padding: 1.5rem 0 1.3rem;
+    margin: 0 1.75rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav__list-item, .nav__list-item--active {
+    padding: 1.4rem 0 1.4rem;
+    margin: 0 1.2rem;
   }
 }
 @media screen and (min-width: 26.563rem) {
@@ -102,6 +107,17 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+  }
+}
+@media screen and (min-width: 26.563rem) {
+  .nav {
+    padding-left: 4vw;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav {
+    height: 5rem;
+    padding-left: 10vw;
   }
 }
 
@@ -281,6 +297,7 @@ nav {
   position: absolute;
   -webkit-backdrop-filter: brightness(55%);
           backdrop-filter: brightness(55%);
+  filter: brightness(92.5%);
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -304,6 +321,13 @@ nav {
     padding-right: 1.45rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero__title {
+    padding-left: 9.8vw;
+    font-size: 4rem;
+  }
+}
+
 .bio-intro {
   padding-left: 0.85rem;
   padding-right: 0.85rem;
@@ -324,6 +348,12 @@ nav {
     word-spacing: 0.2rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .bio-intro__title {
+    padding-left: 9.8vw;
+    font-size: 2.7vw;
+  }
+}
 .bio-intro__media {
   width: 100%;
   aspect-ratio: 16/9;
@@ -334,6 +364,11 @@ nav {
     width: 78%;
     margin: 1rem auto;
     aspect-ratio: 1.95/1;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-intro__media {
+    width: 67%;
   }
 }
 .bio-intro__quote, .bio-intro__quote--artist-tag {
@@ -355,6 +390,11 @@ nav {
   .bio-intro__quote--artist-tag {
     font-size: 2vw;
     margin-top: 1rem;
+  }
+}
+@media screen and (min-width: 26.563rem) and (min-width: 1280px) {
+  .bio-intro__quote, .bio-intro__quote--artist-tag {
+    width: 67%;
   }
 }
 @media screen and (min-width: 26.563rem) {
@@ -384,6 +424,11 @@ nav {
     margin: auto;
   }
 }
+@media screen and (min-width: 1280px) {
+  .bio-main__title {
+    width: 67%;
+  }
+}
 @media screen and (min-width: 26.563rem) {
   .bio-main__details-container {
     padding-left: 1.45rem;
@@ -396,6 +441,11 @@ nav {
     justify-content: space-between;
     width: 78%;
     margin: auto;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-main__details-container {
+    width: 67%;
   }
 }
 .bio-main__details {
@@ -433,6 +483,7 @@ nav {
 }
 @media screen and (min-width: 26.563rem) {
   .gallery__title {
+    padding: 0;
     margin-bottom: 1.1rem;
   }
 }
@@ -446,10 +497,15 @@ nav {
     padding-right: 1.45rem;
     display: flex;
     flex-wrap: wrap;
-    aspect-ratio: 16/9;
+    aspect-ratio: 15.5/9;
     justify-content: space-between;
     align-items: center;
     align-content: space-between;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .gallery__container {
+    padding: 0 0;
   }
 }
 .gallery__media {
@@ -467,5 +523,11 @@ nav {
 @media screen and (min-width: 26.563rem) {
   .gallery {
     padding-bottom: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .gallery {
+    padding-left: 9.8vw;
+    padding-right: 9.8vw;
   }
 }/*# sourceMappingURL=bio.css.map */
