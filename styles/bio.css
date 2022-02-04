@@ -108,8 +108,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -169,8 +169,8 @@ footer {
 }
 @media screen and (min-width: 26.6rem) {
   .footer-primary__social-container {
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
     width: 8rem;
   }
 }
@@ -294,8 +294,8 @@ footer {
 }
 @media screen and (min-width: 26.6rem) {
   .footer {
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
     padding-top: 2.1rem;
   }
 }
@@ -338,7 +338,7 @@ footer {
 }
 @media screen and (min-width: 26.6rem) {
   .hero__title {
-    padding-left: 4.5vw;
+    padding-left: 3.5vw;
   }
 }
 @media screen and (min-width: 768px) {
@@ -398,7 +398,7 @@ footer {
   line-height: 1.2rem;
 }
 .gallery {
-  padding: 1rem 4.5vw 0.3rem;
+  padding: 1rem 3.5vw 0.3rem;
   background-color: #fafafa;
 }
 .gallery__title {
@@ -431,15 +431,15 @@ footer {
     font-weight: 550;
     letter-spacing: 0.03rem;
     word-spacing: 0.2rem;
-    max-width: 30rem;
-    margin: inherit auto;
+    max-width: 42rem;
+    margin: 1.204rem auto 0.5rem;
   }
 
   .bio-intro__media {
     display: block;
     margin: 1rem auto;
     aspect-ratio: 1.95/1;
-    max-width: 30.063rem;
+    max-width: 36rem;
   }
 
   .bio-intro__quote {
@@ -467,8 +467,8 @@ footer {
 }
 @media screen and (min-width: 26.6rem) {
   .bio-main {
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
     margin: 0 auto;
   }
 }
@@ -495,14 +495,13 @@ footer {
 }
 @media screen and (min-width: 26.6rem) {
   .gallery {
-    padding-top: 2.5rem;
     padding-bottom: 1.5rem;
   }
 }
 @media screen and (min-width: 26.6rem) {
   .gallery__title {
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
     padding: 0;
     margin-bottom: 1.1rem;
     font-size: 4.5vw;
@@ -535,7 +534,7 @@ footer {
 }
 @media screen and (min-width: 41.563rem) {
   .bio-intro__quote {
-    width: 83%;
+    width: 78%;
     max-width: 52.416rem;
     padding: 0 0;
     font-size: 1.344rem;
@@ -545,14 +544,15 @@ footer {
   }
 
   .bio-main__title {
-    width: 83%;
+    width: 78%;
   }
   .bio-main__details-container {
     display: flex;
     justify-content: space-between;
-    width: 83%;
+    width: 78%;
     margin: auto;
-    max-width: 48.75rem;
+    max-width: 52.75rem;
+    min-width: 36rem;
   }
   .bio-main__details {
     width: 48%;
@@ -565,9 +565,15 @@ footer {
     margin: 0 auto;
   }
 
+  .bio-intro__title {
+    font-size: 2.16rem;
+    width: 91%;
+    max-width: 64rem;
+    margin: 2.5vw auto 0.5rem;
+  }
   .bio-intro__media {
-    width: 83%;
-    max-width: 52.5rem;
+    width: 78%;
+    max-width: 53rem;
   }
   .bio-intro__quote {
     line-height: 1.8rem;
@@ -591,17 +597,18 @@ footer {
 }
 @media screen and (min-width: 1280px) {
   .bio-intro__title {
-    padding-left: 10vw;
+    max-width: 82%;
+    margin: 1.204rem auto 0.5rem;
     font-size: 2.7vw;
   }
   .bio-intro__media {
-    width: 72%;
+    width: 67.5%;
     max-width: initial;
   }
   .bio-intro__quote {
     margin-left: 16vw;
     max-width: 55%;
-    width: 72%;
+    width: 67.5%;
   }
   .bio-intro__quote--artist-tag {
     max-width: 29.5%;
@@ -609,10 +616,10 @@ footer {
   }
 
   .bio-main__title {
-    width: 72%;
+    width: 67.5%;
   }
   .bio-main__details-container {
-    width: 72%;
+    width: 67.5%;
   }
 
   .gallery {
