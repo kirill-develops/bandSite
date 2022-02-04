@@ -29,6 +29,7 @@
   font-weight: 400;
 }
 html {
+  box-sizing: border-box;
   font-size: 16px;
   line-height: 1.4;
   font-family: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
@@ -118,14 +119,19 @@ p {
   }
 }
 
+footer {
+  background-color: #323232;
+}
+
 .footer {
   padding: 0.85rem 0;
   padding-left: 0.85rem;
   padding-right: 0.85rem;
-  background-color: #323232;
 }
 .footer-primary {
   color: #ffffff;
+  max-width: 64.375rem;
+  margin: 0 auto;
 }
 @media screen and (min-width: 26.6rem) {
   .footer-primary__container {
@@ -183,6 +189,10 @@ p {
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+.footer-secondary__container {
+  max-width: 64.375rem;
+  margin: 0 auto;
+}
 .footer-secondary__block {
   margin: 0;
 }
@@ -223,11 +233,6 @@ p {
   }
 }
 @media screen and (min-width: 26.6rem) {
-  .footer-secondary {
-    margin: 0 -0.5rem;
-  }
-}
-@media screen and (min-width: 768px) {
   .footer-secondary {
     max-width: 43.375rem;
   }
@@ -283,6 +288,8 @@ p {
   .footer__copyright {
     padding-bottom: 2rem;
     font-size: 0.9rem;
+    max-width: 64.375rem;
+    margin: 0 auto;
   }
 }
 @media screen and (min-width: 26.6rem) {
@@ -294,8 +301,8 @@ p {
 }
 @media screen and (min-width: 1280px) {
   .footer {
-    padding-left: 9.8vw;
-    padding-right: 9.8vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
   }
 }
 
@@ -321,24 +328,24 @@ p {
   justify-content: center;
 }
 .hero__title {
-  display: block;
-  margin: 0%;
-  padding-left: 0.85rem;
-  padding-right: 0.85rem;
   color: #fafafa;
   font-size: 7.7vw;
-  letter-spacing: 0.04rem;
   font-weight: 600;
+  letter-spacing: 0.04rem;
+  width: 100%;
+  margin: auto;
+  padding-left: 5vw;
 }
 @media screen and (min-width: 26.6rem) {
   .hero__title {
     padding-left: 4.5vw;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .hero__title {
-    padding-left: 9.8vw;
-    font-size: 4rem;
+    font-size: 3.696rem;
+    max-width: 68rem;
+    margin: auto;
   }
 }
 
@@ -352,44 +359,14 @@ p {
   font-size: 1.45rem;
   font-weight: 600;
 }
-@media screen and (min-width: 26.6rem) {
-  .bio-intro__title {
-    font-size: 4.5vw;
-    font-weight: 550;
-    letter-spacing: 0.03rem;
-    word-spacing: 0.2rem;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .bio-intro__title {
-    padding-left: 9.8vw;
-    font-size: 2.7vw;
-  }
-}
 .bio-intro__media {
+  display: block;
   width: 100%;
+  margin: 0 auto;
+  max-width: 389px;
   aspect-ratio: 16/9;
 }
-@media screen and (min-width: 26.6rem) {
-  .bio-intro__media {
-    display: block;
-    margin: 1rem auto;
-    aspect-ratio: 1.95/1;
-    max-width: 36.063rem;
-  }
-}
-@media screen and (min-width: 768px) {
-  .bio-intro__media {
-    width: 83%;
-    max-width: initial;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .bio-intro__media {
-    width: 67%;
-  }
-}
-.bio-intro__quote, .bio-intro__quote--artist-tag {
+.bio-intro__quote {
   font-weight: 600;
   font-size: 0.85rem;
   letter-spacing: 0.01rem;
@@ -398,45 +375,14 @@ p {
   color: #323232;
   margin: 0.4rem auto;
 }
-@media screen and (min-width: 26.6rem) {
-  .bio-intro__quote, .bio-intro__quote--artist-tag {
-    width: 89%;
-    margin: 4vw auto 1vw;
-    font-size: 2.8vw;
-    line-height: 4vw;
-    letter-spacing: 0.03rem;
-  }
-  .bio-intro__quote--artist-tag {
-    margin: 1rem auto 1.5rem;
-  }
-}
-@media screen and (min-width: 26.6rem) and (min-width: 39.063rem) {
-  .bio-intro__quote--artist-tag {
-    font-size: 2vw;
-  }
-}
-@media screen and (min-width: 768px) {
-  .bio-intro__quote, .bio-intro__quote--artist-tag {
-    width: 83%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .bio-intro__quote, .bio-intro__quote--artist-tag {
-    margin-left: 16vw;
-    max-width: 55%;
-    width: 67%;
-  }
-  .bio-intro__quote--artist-tag {
-    max-width: 29.5%;
-    margin-left: 16vw;
-  }
-}
-@media screen and (min-width: 26.6rem) {
-  .bio-intro {
-    padding-top: 1.2rem;
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
-  }
+.bio-intro__quote--artist-tag {
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.01rem;
+  word-spacing: 0.04rem;
+  line-height: 1.4rem;
+  color: #323232;
+  margin: 0.4rem auto;
 }
 
 .bio-main {
@@ -447,68 +393,10 @@ p {
   font-size: 0.85rem;
   font-weight: 500;
 }
-@media screen and (min-width: 26.6rem) {
-  .bio-main__title {
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
-    margin: auto;
-    font-size: 3.25vw;
-  }
-}
-@media screen and (min-width: 768px) {
-  .bio-main__title {
-    width: 83%;
-    margin: auto;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .bio-main__title {
-    width: 67%;
-  }
-}
-@media screen and (min-width: 26.6rem) {
-  .bio-main__details-container {
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
-  }
-}
-@media screen and (min-width: 41.563rem) {
-  .bio-main__details-container {
-    display: flex;
-    justify-content: space-between;
-    width: 83%;
-    margin: auto;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .bio-main__details-container {
-    width: 67%;
-  }
-}
 .bio-main__details {
   font-size: 0.82rem;
   line-height: 1.2rem;
 }
-@media screen and (min-width: 26.6rem) {
-  .bio-main__details {
-    font-size: 0.88rem;
-    word-spacing: 0.01rem;
-    line-height: 1.35rem;
-    margin-bottom: 2rem;
-  }
-}
-@media screen and (min-width: 41.563rem) {
-  .bio-main__details {
-    width: 48%;
-  }
-}
-@media screen and (min-width: 26.6rem) {
-  .bio-main {
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
-  }
-}
-
 .gallery {
   padding: 1rem 4.5vw 0.3rem;
   background-color: #fafafa;
@@ -522,62 +410,225 @@ p {
   font-size: 1.5rem;
   margin: 0.3rem 0 0.3rem;
 }
+.gallery__container {
+  box-sizing: border-box;
+}
+.gallery__media {
+  aspect-ratio: 16/9;
+  width: 100%;
+  margin: 0.85rem auto;
+  max-width: 21.301rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-evenly;
+}
+
+@media screen and (min-width: 26.6rem) {
+  .bio-intro__title {
+    font-size: 4.5vw;
+    font-weight: 550;
+    letter-spacing: 0.03rem;
+    word-spacing: 0.2rem;
+    max-width: 30rem;
+    margin: inherit auto;
+  }
+
+  .bio-intro__media {
+    display: block;
+    margin: 1rem auto;
+    aspect-ratio: 1.95/1;
+    max-width: 30.063rem;
+  }
+
+  .bio-intro__quote {
+    width: 89%;
+    margin: 4vw auto 1vw;
+    font-size: 2.8vw;
+    line-height: 4vw;
+    letter-spacing: 0.03rem;
+    max-width: 36.063rem;
+  }
+  .bio-intro__quote--artist-tag {
+    margin: 1rem auto 1.5rem;
+    width: 89%;
+    margin: 4vw auto 1vw;
+    font-size: 2.8vw;
+    line-height: 4vw;
+    letter-spacing: 0.03rem;
+    max-width: 36.063rem;
+  }
+}
+@media screen and (min-width: 26.6rem) and (min-width: 39.063rem) {
+  .bio-intro__quote--artist-tag {
+    font-size: 2vw;
+  }
+}
+@media screen and (min-width: 26.6rem) {
+  .bio-main {
+    padding-left: 4.5vw;
+    padding-right: 4.5vw;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 26.6rem) {
+  .bio-main__title {
+    margin: auto;
+    font-size: 3.25vw;
+    max-width: 36.063rem;
+  }
+}
+@media screen and (min-width: 26.6rem) {
+  .bio-main__details-container {
+    max-width: 36.063rem;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 26.6rem) {
+  .bio-main__details {
+    font-size: 0.88rem;
+    word-spacing: 0.01rem;
+    line-height: 1.35rem;
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (min-width: 26.6rem) {
+  .gallery {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
 @media screen and (min-width: 26.6rem) {
   .gallery__title {
     padding-left: 4.5vw;
     padding-right: 4.5vw;
     padding: 0;
     margin-bottom: 1.1rem;
+    font-size: 4.5vw;
   }
 }
-.gallery__container {
-  box-sizing: border-box;
+@media screen and (min-width: 26.6rem) {
+  .gallery__media {
+    max-width: initial;
+  }
 }
 @media screen and (min-width: 39.063rem) {
+  .gallery {
+    margin: auto;
+  }
   .gallery__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    align-content: space-between;
+    justify-items: space-between;
+    max-width: 63.75rem;
+    margin: 0 auto;
   }
-}
-@media screen and (min-width: 1280px) {
-  .gallery__container {
-    padding: 0 0;
-  }
-}
-.gallery__media {
-  aspect-ratio: 16/9;
-  width: 100%;
-  margin: 0.3rem 0;
-}
-@media screen and (min-width: 39.063rem) {
   .gallery__media {
+    display: inline-block;
     box-sizing: border-box;
-    width: 31%;
-    margin: 1.3vw 0;
+    width: 32%;
+    margin: 1vw 0.1vw;
   }
 }
 @media screen and (min-width: 41.563rem) {
-  .gallery__media {
-    width: 31%;
-    margin: 1.3vw 0;
+  .bio-intro__quote {
+    width: 83%;
+    max-width: 52.416rem;
+    padding: 0 0;
+    font-size: 1.344rem;
+  }
+  .bio-intro__quote--artist-tag {
+    font-size: 0.96rem;
+  }
+
+  .bio-main__title {
+    width: 83%;
+  }
+  .bio-main__details-container {
+    display: flex;
+    justify-content: space-between;
+    width: 83%;
+    margin: auto;
+    max-width: 48.75rem;
+  }
+  .bio-main__details {
+    width: 48%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .herotitle__ {
+    font-size: 4rem;
+    max-width: 1075px;
+    margin: 0 auto;
+  }
+
+  .bio-intro__media {
+    width: 83%;
+    max-width: 52.5rem;
+  }
+  .bio-intro__quote {
+    line-height: 1.8rem;
+  }
+  .bio-intro__details-container {
+    max-width: 52.416rem;
+    padding: 0 0;
+  }
+
+  .gallery__title {
+    font-size: 2.156rem;
+    margin: inherit auto;
+  }
+}
+@media screen and (min-width: 1097px) {
+  .gallery__title {
+    box-sizing: content-box;
+    width: 1018.31px;
+    margin: 0 auto;
   }
 }
 @media screen and (min-width: 1280px) {
+  .bio-intro__title {
+    padding-left: 10vw;
+    font-size: 2.7vw;
+  }
+  .bio-intro__media {
+    width: 72%;
+    max-width: initial;
+  }
+  .bio-intro__quote {
+    margin-left: 16vw;
+    max-width: 55%;
+    width: 72%;
+  }
+  .bio-intro__quote--artist-tag {
+    max-width: 29.5%;
+    margin-left: 16vw;
+  }
+
+  .bio-main__title {
+    width: 72%;
+  }
+  .bio-main__details-container {
+    width: 72%;
+  }
+
+  .gallery {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+  .gallery__title {
+    width: 100%;
+  }
+  .gallery__container {
+    box-sizing: border-box;
+    max-width: initial;
+    width: 100%;
+  }
   .gallery__media {
-    width: 31.7%;
-  }
-}
-@media screen and (min-width: 26.6rem) {
-  .gallery {
-    padding-bottom: 1.5rem;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .gallery {
-    padding-left: 9.8vw;
-    padding-right: 9.8vw;
+    box-sizing: border-box;
+    width: 32%;
   }
 }/*# sourceMappingURL=bio.css.map */

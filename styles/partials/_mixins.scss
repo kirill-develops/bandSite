@@ -20,9 +20,14 @@
 }
 
 
-
 @mixin tablet {
     @media screen and (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop-half{
+    @media screen and (min-width: 1097px) {
         @content;
     }
 }
@@ -59,6 +64,11 @@
 @mixin tablet-padding {
     padding-left: $tablet-main-padding;
     padding-right: $tablet-main-padding;
+}
+
+@mixin tablet-padding-object {
+    max-width:52.416rem;
+    padding: 0 0;
 }
 
 @mixin desktop-padding {
