@@ -1,4 +1,5 @@
 @use 'typography' as *;
+@use 'breakpoints' as *;
 @use 'colors' as colors;
 @use 'mixins' as *;
 @use 'variables' as *;
@@ -19,12 +20,29 @@ p {
 }
 
 .nav {
-    letter-spacing: 0.04rem;
     background-color: colors.$primary-dark;    
     
+    &__container {
+        @include tablet-half {
+            display: flex;
+            align-items:center;
+            justify-content: flex-start;
+
+            padding: 0 3.5%;
+            max-width: 62.5rem;
+            margin: auto
+        }
+
+        @include desktop {
+            min-width: 62.5rem;
+            max-width: initial;
+            width: 78%;
+        }
+    }
     &__logo {
         @include nav-link;
         color: colors.$secondary-mid;
+        text-align: center;
         display: block;
         padding-top: 0.7rem;
         font-size: 1.5rem;
@@ -49,23 +67,29 @@ p {
         padding-top: 0.2rem;
         
         @include tablet-half {
-            padding-top: 0.6rem;
+            padding-top: 0.9rem;
             padding-left: 2.5rem;
             width: 25%;
+            max-width: 11.334rem;
         }
+    }
 
-        @include desktop {
-            padding-top: 0.9rem;
-        }
+    &__item-container {
+        width: 50%;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        @include tablet-half {
+            width: fit-content;
+            margin: 0 1.75rem;
+        }  
+        
     }
     
     &__list-item {
         @include nav-link;
-        color: colors.$secondary-mid;
-        display: inline-block;
-        width: 50%;
-        font-size: 0.8rem;
-        padding-bottom: 0.5rem;
+        @include nav-list-item;
         
         &--active {
             @extend .nav__list-item;
@@ -73,29 +97,28 @@ p {
             border-bottom: 3px solid colors.$primary-light;
             font-weight: 600;
 
+            @include desktop {
+                font-size: 1.02vw;   
+            }
         }
-        
+
         @include tablet-half {
             padding: 1.5rem 0 1.3rem;
-            margin: 0 1.75rem;
-        }  
+        }
+
+        @include tablet {
+            padding: 1.7vw 0 1.7vw;
+        }
         
         @include desktop {
-            padding: 1.4rem 0 1.4rem;
-            margin: 0 1.2rem;
+            padding: 1.7vw 0 1.7vw;
+            // margin: 0 1.2rem;
+            font-size: 1.02vw;
         }
     }
     
-    @include tablet-half {
-        display: flex;
-        align-items:center;
-        justify-content: flex-start;
-        @include tablet-padding;
-    }
-
     @include desktop {
-        height: 5rem;
-        padding-left: 10vw;
+        height: 6.28vw;
     }
 }
 
@@ -172,12 +195,11 @@ footer {
         }
         
         &__block {
-            margin: 0;
-
+            margin: 0 0.5rem;
+            display: flex;
+            flex-direction: column;
+            
             @include tablet-half {
-                display: flex;
-                flex-direction: column;
-                margin: 0 0.5rem;
             }
 
             @include tablet-footer {        
@@ -188,7 +210,6 @@ footer {
         }
 
         &__details-container {
-            margin: 1.7rem 0;
             
             @include tablet-half {
                 margin: 0.5rem 0;
@@ -197,7 +218,7 @@ footer {
 
         &__details {
             font-size: 0.85rem;
-            line-height: 0.2rem;
+            line-height: 0.85vw;
             color: colors.$secondary-mid;
             
             &--strong {
@@ -212,12 +233,10 @@ footer {
         }
 
         @include tablet-half {
-            // margin: 0 -0.5rem;
-            max-width: 43.375rem;
+            margin: 0 -0.5rem;
+            max-width: 47.637rem;
         }
 
-        @include tablet {
-        }
         @include desktop {
             max-width: 74%;
         }
@@ -262,12 +281,15 @@ footer {
         font-size: 0.69rem;
         margin-bottom: 0;
 
+        @include tablet-half {
+            margin-top: 2.25vw;
+            margin-bottom: 2vw;
+        }
+
         @include tablet {
-            padding-bottom: 2rem;
             font-size: 0.9rem;
             max-width: 64.375rem;
-        margin: 0 auto;
-        
+            margin: 2.25vw auto 2vw;
         }
     }
 

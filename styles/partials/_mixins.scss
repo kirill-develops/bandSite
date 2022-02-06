@@ -1,47 +1,19 @@
 @use 'variables' as *;
 @use 'colors' as colors;
+@use 'breakpoints' as *;
 
-@mixin tablet-half {
-    @media screen and (min-width: 26.6rem ) {
-        @content;
-    }
-}
-
-@mixin tablet-footer-logo {
-    @media screen and (min-width: 39.063rem){
-        @content;
-    }
-}
-
-@mixin tablet-footer {
-    @media screen and (min-width: 41.563rem ) {
-        @content;
-    }
-}
-
-
-@mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-        @content;
-    }
-}
-
-@mixin desktop-half{
-    @media screen and (min-width: 1097px) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
-        @content;
-    }
-}
 
 @mixin nav-link {
     text-decoration: none;
-    text-align: center;
     box-sizing: border-box;
+    display: inline-block;
+}
+@mixin nav-list-item {
+    width: 100%;
+    color: colors.$secondary-mid;
+    font-size: 0.8rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
 }
 
 @mixin footer-logo {
@@ -56,7 +28,7 @@
     padding-right: 0.85rem;
 }
 
-@mixin tablet-padding {
+@mixin mobile-padding {
     padding-left: $mobile-main-padding;
     padding-right: $mobile-main-padding;
 }
@@ -83,3 +55,4 @@
     letter-spacing: 0.03rem;
     word-spacing: 0.2rem;
 }
+

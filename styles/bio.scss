@@ -2,6 +2,7 @@
 @use 'partials/colors';
 @use 'partials/variables' as *;
 @use 'partials/mixins' as *;
+@use 'partials/breakpoints' as *;
 
 .hero {
     width: 100%;
@@ -30,6 +31,7 @@
     }
     
     &__title {
+        box-sizing: border-box;
         color: colors.$secondary-light;
         font-size: 7.7vw;
         font-weight: 600;
@@ -49,8 +51,8 @@
         }
     }
 };
-
 .bio-intro {
+
     @include mobile-padding;
 
     &__title {
@@ -125,7 +127,6 @@
         aspect-ratio: 16/9;
         width: 100%;
         margin: 0.85rem auto;
-        max-width: 21.301rem;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -141,83 +142,73 @@
     .bio-intro__title {
         @include section-title;
         max-width: 42rem;
-        margin: 1.204rem auto 0.5rem;
+        margin: 5.204vw auto 1.1vw;
     }
-
     .bio-intro__media {
         display: block;
         margin: 1rem auto;
         aspect-ratio: 1.95/1;
         max-width: $tablet-main-max-width;
     }
-
     .bio-intro__quote {
         width:$tablet-half-main-width;
-        margin: 4vw auto 1vw;
+        margin: 2vw auto 1vw;
         font-size: 2.8vw;
         line-height: 4vw;
         letter-spacing: 0.03rem; 
         max-width: 36.063rem ;
         
         &--artist-tag {
-            margin: 1rem auto 1.5rem;
             // @extend .bio-intro__quote;
             
             width:$tablet-half-main-width;
-            margin: 4vw auto 1vw;
+            margin: 2vw auto 1vw;
             font-size: 2.8vw;
             line-height: 4vw;
             letter-spacing: 0.03rem; 
             max-width: 36.063rem ;
 
-            @include tablet-footer-logo {
-                font-size: 2vw;
-            }
         }
     }
     .bio-main {
         @include tablet-padding;
         margin: 0 auto;
     }
-
     .bio-main__title {
         margin: auto;
+        margin-top: 2rem;
         font-size: 3.25vw;
         max-width: 36.063rem;
     }
-
     .bio-main__details-container {    
         max-width: 36.063rem;
         margin: auto;
     }
-
     .bio-main__details {
         font-size: 0.88rem;
         word-spacing: 0.01rem;
         line-height: 1.35rem;
         margin-bottom: 2rem;
     }
-    
-    .gallery {
 
-        padding-bottom: 1.5rem;
-    }
-
-    .gallery__title {
-        @include tablet-padding;
-        padding: 0;
-        margin-bottom: 1.1rem;
-        font-size: 4.5vw;
-    }
-
-    .gallery__media {
-        max-width: initial;
-    }
-}
-
-@include tablet-footer-logo {
     .gallery {
         margin: auto;
+        padding-bottom: 1.5rem;
+        &__title {
+            @include tablet-padding;
+            padding: 0;
+            margin-bottom: 1.1rem;
+            font-size: 4.5vw;
+        }    
+    
+ 
+        &__media {
+            max-width: initial;
+        }
+    }
+}
+@include tablet-footer-logo {
+    .gallery {
         &__container {
             display: flex;
             flex-wrap: wrap;
@@ -240,10 +231,8 @@
 @include tablet-footer {
     .bio-intro {
         &__quote {
-            width: $tablet-main-width;
-            @include tablet-padding-object;
+            max-width: 37rem;
             
-            font-size: 1.344rem;
             &--artist-tag {
                 font-size: 0.96rem;
             }
@@ -252,8 +241,7 @@
     }
     .bio-main {
         &__title {
-            width: $tablet-main-width;
-            // @include tablet-padding-object;
+            max-width: 36rem;
         }
         &__details-container {   
             display: flex;
@@ -291,10 +279,29 @@
         }
         &__quote {
         line-height: 1.8rem;
-        // margin-left: 7.9vw;
+        font-size: 1.344rem;
+        margin-left: 10.5vw;
+        min-width: 37rem;
+        max-width: 63.5%;
+        // margin-left: 16vw;
+        // max-width: 40rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+            &--artist-tag {
+                font-size: 0.959rem;
+                margin-left: 10.5vw;
+                margin-top: 1rem;
+            }
         }
         &__details-container {   
             @include tablet-padding-object;
+        }
+    }
+    .bio-main {
+        &__title {
+            width: 78%;
+            max-width: 52.75rem;
         }
     }
     .gallery {
@@ -305,6 +312,16 @@
     }
 }
 @include desktop-half {
+    .bio-intro{
+        &__quote-container{
+            max-width: 1080px;
+            margin: auto;
+        }
+        &__quote {
+            max-width: 43.959rem;
+            // margin-left: 16vw;
+        }
+    }
     .gallery {
         &__title {
             box-sizing: content-box;
@@ -316,57 +333,87 @@
     }
 }
 @include desktop {
+    .hero {
+        &__title {
+            font-size: 4.62vw;
+            min-width: 68rem;
+            margin: auto;
+            max-width: 85%;
+        }
+    }
 
     .bio-intro {
         &__title {
             max-width: 82%;
-            margin: 1.204rem auto 0.5rem;
+            margin: 2.5vw auto 0.5rem;
             font-size: 2.7vw;
+            min-width: 63.644rem;
+        }
+        &__quote-container {
+            max-width: initial;
+            padding-left: 6.8vw;
         }
         &__media {
             width: $desktop-main-width;
             max-width: initial;
         }
         &__quote {
-            margin-left: 16vw;
+            font-size: 1.68vw;
+            line-height: 2.4vw;
+
+            min-width: 43.959rem;
             max-width: 55%;
             width: $desktop-main-width;
             
             &--artist-tag {
-                max-width: 29.5%;
-                margin-left: 16vw;
-            }
+                min-width: 43.959rem;
+                max-width: 55%;
+
+                font-size: 1.2vw;
+                }
         }
     }
 
     .bio-main {
+        @include mobile-padding;
         &__title {
             width: $desktop-main-width;
+            max-width:82%;
         }
         &__details-container {   
-            width: $desktop-main-width;
+            min-width: 52.75rem;
+            max-width: 57.5%;
+        }
+        &__details {
+            min-width: 25.319rem;
+            font-size: 1.1vw;
+            word-spacing: 0.01vw;
+            line-height: 1.7vw;
+            margin-bottom: 2.5vw;
+
         }
     }
 
     .gallery {
         &__title {
-            width: 100%;
+            max-width:84.5%;
+            width: 91%;
+            min-width: 63.644rem;
+            font-size: 2.7vw;
+
         }
         
         &__container {
             // @extend .gallery; 
             box-sizing: border-box;
+            width: 80%;
+            min-width: 63.75rem;
             max-width: initial;
-            width: 100%;
-            
-
         }
         &__media {
             box-sizing: border-box;
             width: 32%;
         }
-        padding-left: $desktop-main-padding;
-        padding-right: $desktop-main-padding;
     }
     
 }
