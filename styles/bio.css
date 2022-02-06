@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Avenir";
   src: url("../assets/fonts/AvenirNextLTPro-Bold.otf");
-  font-weight: 800;
+  font-weight: 700;
 }
 @font-face {
   font-family: "Avenir";
@@ -46,33 +46,38 @@ p {
 .nav {
   background-color: #323232;
 }
+.nav__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
 @media screen and (min-width: 26.6rem) {
   .nav__container {
-    display: flex;
-    align-items: center;
     justify-content: flex-start;
+    flex-wrap: nowrap;
     padding: 0 3.5%;
     max-width: 62.5rem;
-    margin: auto;
+    width: 25%;
   }
 }
-@media screen and (min-width: 1280px) {
-  .nav__container {
-    min-width: 62.5rem;
-    max-width: initial;
-    width: 78%;
-  }
-}
-.nav__logo {
+.nav__logo-container {
   text-decoration: none;
   box-sizing: border-box;
   display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.7rem auto;
+}
+.nav__logo {
   color: #e1e1e1;
-  text-align: center;
-  display: block;
-  padding-top: 0.7rem;
-  font-size: 1.5rem;
-  margin: auto 0;
+}
+@media screen and (min-width: 26.6rem) {
+  .nav__logo {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }
 .nav__list {
   display: flex;
@@ -80,6 +85,7 @@ p {
   padding: 0;
   margin: 0;
   padding-top: 0.2rem;
+  width: 100%;
 }
 @media screen and (min-width: 26.6rem) {
   .nav__list {
@@ -185,7 +191,8 @@ footer {
     font-weight: 550;
     letter-spacing: 0.03rem;
     word-spacing: 0.2rem;
-    padding: 0.1rem 1rem 0.15rem 0;
+    padding: 0.1rem 0 rem 0.15rem 0;
+    white-space: nowrap;
   }
 }
 .footer-primary__social-container {
@@ -202,6 +209,12 @@ footer {
 }
 .footer-primary__social {
   height: 1.5rem;
+}
+@media screen and (min-width: 1280px) {
+  .footer-primary__social {
+    min-width: 4vw;
+    max-width: 4vw;
+  }
 }
 @media screen and (min-width: 26.6rem) {
   .footer-primary {
@@ -273,9 +286,6 @@ footer {
   }
 }
 .footer__logo--mobile {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #e1e1e1;
   text-decoration: none;
   display: inline-block;
   margin-top: 3.9rem;
@@ -291,11 +301,13 @@ footer {
 @media screen and (min-width: 39.063rem) {
   .footer__logo--tablet {
     display: inline-block;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #e1e1e1;
     text-decoration: none;
     justify-self: flex-end;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__logo--tablet {
+    margin-left: 13.5vw;
   }
 }
 .footer__copyright {
@@ -325,13 +337,14 @@ footer {
 }
 @media screen and (min-width: 1280px) {
   .footer {
-    padding-left: 10vw;
-    padding-right: 10vw;
+    margin: auto;
+    min-width: 74.344rem;
   }
 }
 
 .hero {
   width: 100%;
+  box-sizing: border-box;
   background-image: url(../assets/images/hero-bio.jpg);
   background-size: cover;
   background-position: center;
@@ -339,27 +352,15 @@ footer {
   aspect-ratio: 16/9;
   position: relative;
 }
-.hero--overlay {
-  position: absolute;
-  -webkit-backdrop-filter: brightness(55%);
-          backdrop-filter: brightness(55%);
-  filter: brightness(92.5%);
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 .hero__title {
   box-sizing: border-box;
+  width: 100%;
+  margin: auto;
+  padding-left: 5vw;
   color: #fafafa;
   font-size: 7.7vw;
   font-weight: 600;
   letter-spacing: 0.04rem;
-  width: 100%;
-  margin: auto;
-  padding-left: 5vw;
 }
 @media screen and (min-width: 26.6rem) {
   .hero__title {
@@ -373,41 +374,170 @@ footer {
     margin: auto;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero__title {
+    font-size: 4.62vw;
+    min-width: 68rem;
+    margin: auto;
+    max-width: 85%;
+  }
+}
+.hero--overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  -webkit-backdrop-filter: brightness(55%);
+          backdrop-filter: brightness(55%);
+  filter: brightness(92.5%);
+}
 
 .bio-intro {
   padding-left: 1.45rem;
   padding-right: 1.45rem;
 }
 .bio-intro__title {
-  color: #323232;
   margin-bottom: 0.5rem;
+  color: #323232;
   font-size: 1.45rem;
   font-weight: 600;
+}
+@media screen and (min-width: 26.6rem) {
+  .bio-intro__title {
+    font-size: 4.5vw;
+    font-weight: 550;
+    letter-spacing: 0.03rem;
+    word-spacing: 0.2rem;
+    max-width: 42rem;
+    margin: 5.204vw auto 1.1vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio-intro__title {
+    width: 91%;
+    max-width: 64rem;
+    margin: 2.5vw auto 0.5rem;
+    font-size: 2.16rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-intro__title {
+    max-width: 82%;
+    min-width: 63.644rem;
+    margin: 2.5vw auto 0.5rem;
+    font-size: 2.7vw;
+  }
 }
 .bio-intro__media {
   display: block;
   width: 100%;
-  margin: 0 auto;
   max-width: 389px;
+  margin: 0 auto;
   aspect-ratio: 16/9;
 }
-.bio-intro__quote {
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.01rem;
-  word-spacing: 0.04rem;
-  line-height: 1.4rem;
-  color: #323232;
-  margin: 0.4rem auto;
+@media screen and (min-width: 26.6rem) {
+  .bio-intro__media {
+    margin: 1rem auto;
+    aspect-ratio: 1.95/1;
+    max-width: 36rem;
+  }
 }
-.bio-intro__quote--artist-tag {
-  font-weight: 600;
+@media screen and (min-width: 768px) {
+  .bio-intro__media {
+    width: 78%;
+    max-width: 53rem;
+    min-width: 36rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-intro__media {
+    width: 67.5%;
+    min-width: 53rem;
+    max-width: initial;
+  }
+}
+@media screen and (min-width: 1097px) {
+  .bio-intro__quote-container {
+    max-width: 1080px;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-intro__quote-container {
+    max-width: initial;
+    padding-left: 6.8vw;
+  }
+}
+.bio-intro__quote, .bio-intro__quote--artist-tag {
+  margin: 0.4rem auto;
+  color: #323232;
   font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: 0.01rem;
   word-spacing: 0.04rem;
   line-height: 1.4rem;
-  color: #323232;
-  margin: 0.4rem auto;
+}
+@media screen and (min-width: 26.6rem) {
+  .bio-intro__quote, .bio-intro__quote--artist-tag {
+    width: 89%;
+    margin: 2vw auto 1vw;
+    max-width: 36.063rem;
+    font-size: 2.8vw;
+    line-height: 4vw;
+    letter-spacing: 0.03rem;
+  }
+  .bio-intro__quote--artist-tag {
+    width: 89%;
+    margin: 2vw auto 1vw;
+    max-width: 36.063rem;
+    font-size: 2.8vw;
+    line-height: 4vw;
+    letter-spacing: 0.03rem;
+  }
+}
+@media screen and (min-width: 41.563rem) {
+  .bio-intro__quote, .bio-intro__quote--artist-tag {
+    max-width: 37rem;
+  }
+  .bio-intro__quote--artist-tag {
+    font-size: 0.96rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio-intro__quote, .bio-intro__quote--artist-tag {
+    min-width: 37rem;
+    max-width: 63.5%;
+    margin-top: 1rem auto 1rem 10.5vw;
+    line-height: 1.8rem;
+    font-size: 1.344rem;
+  }
+  .bio-intro__quote--artist-tag {
+    margin-left: 10.5vw;
+    margin-top: 1rem;
+    font-size: 0.959rem;
+  }
+}
+@media screen and (min-width: 1097px) {
+  .bio-intro__quote, .bio-intro__quote--artist-tag {
+    max-width: 43.959rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-intro__quote, .bio-intro__quote--artist-tag {
+    min-width: 43.959rem;
+    max-width: 55%;
+    width: 67.5%;
+    font-size: 1.68vw;
+    line-height: 2.4vw;
+  }
+  .bio-intro__quote--artist-tag {
+    min-width: 43.959rem;
+    max-width: 55%;
+    font-size: 1.2vw;
+  }
 }
 
 .bio-main {
@@ -418,10 +548,93 @@ footer {
   font-size: 0.85rem;
   font-weight: 500;
 }
+@media screen and (min-width: 26.6rem) {
+  .bio-main__title {
+    margin: auto;
+    margin-top: 2rem;
+    font-size: 3.25vw;
+    max-width: 36.063rem;
+  }
+}
+@media screen and (min-width: 41.563rem) {
+  .bio-main__title {
+    max-width: 36rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio-main__title {
+    width: 78%;
+    max-width: 52.75rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-main__title {
+    width: 67.5%;
+    max-width: 82%;
+  }
+}
+@media screen and (min-width: 26.6rem) {
+  .bio-main__details-container {
+    max-width: 36.063rem;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 41.563rem) {
+  .bio-main__details-container {
+    width: 78%;
+    max-width: 53rem;
+    min-width: 36rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-main__details-container {
+    min-width: 52.75rem;
+    max-width: 57.5%;
+  }
+}
 .bio-main__details {
   font-size: 0.82rem;
   line-height: 1.2rem;
 }
+@media screen and (min-width: 26.6rem) {
+  .bio-main__details {
+    font-size: 0.88rem;
+    word-spacing: 0.01rem;
+    line-height: 1.35rem;
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (min-width: 41.563rem) {
+  .bio-main__details {
+    width: 48%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-main__details {
+    min-width: 25.319rem;
+    margin-bottom: 2.5vw;
+    font-size: 1.1vw;
+    word-spacing: 0.01vw;
+    line-height: 1.7vw;
+  }
+}
+@media screen and (min-width: 26.6rem) {
+  .bio-main {
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio-main {
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+  }
+}
+
 .gallery {
   padding: 1rem 3.5vw 0.3rem;
   background-color: #fafafa;
@@ -435,93 +648,29 @@ footer {
   font-size: 1.5rem;
   margin: 0.3rem 0 0.3rem;
 }
-.gallery__container {
-  box-sizing: border-box;
+@media screen and (min-width: 768px) {
+  .gallery__title {
+    font-size: 2.156rem;
+    margin: inherit auto;
+  }
 }
-.gallery__media {
-  aspect-ratio: 16/9;
-  width: 100%;
-  margin: 0.85rem auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  align-content: space-evenly;
-}
-
-@media screen and (min-width: 26.6rem) {
-  .bio-intro__title {
-    font-size: 4.5vw;
-    font-weight: 550;
-    letter-spacing: 0.03rem;
-    word-spacing: 0.2rem;
-    max-width: 42rem;
-    margin: 5.204vw auto 1.1vw;
-  }
-
-  .bio-intro__media {
-    display: block;
-    margin: 1rem auto;
-    aspect-ratio: 1.95/1;
-    max-width: 36rem;
-  }
-
-  .bio-intro__quote {
-    width: 89%;
-    margin: 2vw auto 1vw;
-    font-size: 2.8vw;
-    line-height: 4vw;
-    letter-spacing: 0.03rem;
-    max-width: 36.063rem;
-  }
-  .bio-intro__quote--artist-tag {
-    width: 89%;
-    margin: 2vw auto 1vw;
-    font-size: 2.8vw;
-    line-height: 4vw;
-    letter-spacing: 0.03rem;
-    max-width: 36.063rem;
-  }
-
-  .bio-main {
-    padding-left: 3.5vw;
-    padding-right: 3.5vw;
+@media screen and (min-width: 1097px) {
+  .gallery__title {
+    box-sizing: content-box;
+    width: 1018.31px;
     margin: 0 auto;
   }
-
-  .bio-main__title {
-    margin: auto;
-    margin-top: 2rem;
-    font-size: 3.25vw;
-    max-width: 36.063rem;
-  }
-
-  .bio-main__details-container {
-    max-width: 36.063rem;
-    margin: auto;
-  }
-
-  .bio-main__details {
-    font-size: 0.88rem;
-    word-spacing: 0.01rem;
-    line-height: 1.35rem;
-    margin-bottom: 2rem;
-  }
-
-  .gallery {
-    margin: auto;
-    padding-bottom: 1.5rem;
-  }
+}
+@media screen and (min-width: 1280px) {
   .gallery__title {
-    padding-left: 3.5vw;
-    padding-right: 3.5vw;
-    padding: 0;
-    margin-bottom: 1.1rem;
-    font-size: 4.5vw;
+    max-width: 84.5%;
+    width: 91%;
+    min-width: 63.644rem;
+    font-size: 2.7vw;
   }
-  .gallery__media {
-    max-width: initial;
-  }
+}
+.gallery__container {
+  box-sizing: border-box;
 }
 @media screen and (min-width: 39.063rem) {
   .gallery__container {
@@ -533,6 +682,26 @@ footer {
     max-width: 63.75rem;
     margin: 0 auto;
   }
+}
+@media screen and (min-width: 1280px) {
+  .gallery__container {
+    box-sizing: border-box;
+    width: 80%;
+    min-width: 63.75rem;
+    max-width: initial;
+  }
+}
+.gallery__media {
+  aspect-ratio: 16/9;
+  width: 100%;
+  margin: 0.85rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-evenly;
+}
+@media screen and (min-width: 39.063rem) {
   .gallery__media {
     display: inline-block;
     box-sizing: border-box;
@@ -540,159 +709,23 @@ footer {
     margin: 1vw 0.1vw;
   }
 }
-@media screen and (min-width: 41.563rem) {
-  .bio-intro__quote {
-    max-width: 37rem;
-  }
-  .bio-intro__quote--artist-tag {
-    font-size: 0.96rem;
-  }
-
-  .bio-main__title {
-    max-width: 36rem;
-  }
-  .bio-main__details-container {
-    display: flex;
-    justify-content: space-between;
-    width: 78%;
-    margin: auto;
-    max-width: 52.75rem;
-    min-width: 36rem;
-  }
-  .bio-main__details {
-    width: 48%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .herotitle__ {
-    font-size: 4rem;
-    max-width: 1075px;
-    margin: 0 auto;
-  }
-
-  .bio-intro__title {
-    font-size: 2.16rem;
-    width: 91%;
-    max-width: 64rem;
-    margin: 2.5vw auto 0.5rem;
-  }
-  .bio-intro__media {
-    width: 78%;
-    max-width: 53rem;
-  }
-  .bio-intro__quote {
-    line-height: 1.8rem;
-    font-size: 1.344rem;
-    margin-left: 10.5vw;
-    min-width: 37rem;
-    max-width: 63.5%;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  .bio-intro__quote--artist-tag {
-    font-size: 0.959rem;
-    margin-left: 10.5vw;
-    margin-top: 1rem;
-  }
-  .bio-intro__details-container {
-    max-width: 52.416rem;
-    padding: 0 0;
-  }
-
-  .bio-main__title {
-    width: 78%;
-    max-width: 52.75rem;
-  }
-
-  .gallery__title {
-    font-size: 2.156rem;
-    margin: inherit auto;
-  }
-}
-@media screen and (min-width: 1097px) {
-  .bio-intro__quote-container {
-    max-width: 1080px;
-    margin: auto;
-  }
-  .bio-intro__quote {
-    max-width: 43.959rem;
-  }
-
-  .gallery__title {
-    box-sizing: content-box;
-    width: 1018.31px;
-    margin: 0 auto;
-  }
-}
 @media screen and (min-width: 1280px) {
-  .hero__title {
-    font-size: 4.62vw;
-    min-width: 68rem;
-    margin: auto;
-    max-width: 85%;
-  }
-
-  .bio-intro__title {
-    max-width: 82%;
-    margin: 2.5vw auto 0.5rem;
-    font-size: 2.7vw;
-    min-width: 63.644rem;
-  }
-  .bio-intro__quote-container {
-    max-width: initial;
-    padding-left: 6.8vw;
-  }
-  .bio-intro__media {
-    width: 67.5%;
-    max-width: initial;
-  }
-  .bio-intro__quote {
-    font-size: 1.68vw;
-    line-height: 2.4vw;
-    min-width: 43.959rem;
-    max-width: 55%;
-    width: 67.5%;
-  }
-  .bio-intro__quote--artist-tag {
-    min-width: 43.959rem;
-    max-width: 55%;
-    font-size: 1.2vw;
-  }
-
-  .bio-main {
-    padding-left: 1.45rem;
-    padding-right: 1.45rem;
-  }
-  .bio-main__title {
-    width: 67.5%;
-    max-width: 82%;
-  }
-  .bio-main__details-container {
-    min-width: 52.75rem;
-    max-width: 57.5%;
-  }
-  .bio-main__details {
-    min-width: 25.319rem;
-    font-size: 1.1vw;
-    word-spacing: 0.01vw;
-    line-height: 1.7vw;
-    margin-bottom: 2.5vw;
-  }
-
-  .gallery__title {
-    max-width: 84.5%;
-    width: 91%;
-    min-width: 63.644rem;
-    font-size: 2.7vw;
-  }
-  .gallery__container {
-    box-sizing: border-box;
-    width: 80%;
-    min-width: 63.75rem;
-    max-width: initial;
-  }
   .gallery__media {
     box-sizing: border-box;
     width: 32%;
+  }
+}
+@media screen and (min-width: 26.6rem) {
+  .gallery {
+    margin: auto;
+    padding-bottom: 1.5rem;
+  }
+  .gallery__title {
+    padding: 0;
+    margin-bottom: 1.1rem;
+    font-size: 4.5vw;
+  }
+  .gallery__media {
+    max-width: initial;
   }
 }/*# sourceMappingURL=bio.css.map */

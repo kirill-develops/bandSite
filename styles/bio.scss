@@ -5,124 +5,297 @@
 @use 'partials/breakpoints' as *;
 
 .hero {
+    
+    &__title {
+        box-sizing: border-box;
+        width: 100%;
+        margin: auto;
+        padding-left: 5vw;
+
+        color: colors.$secondary-light;
+        font-size: 7.7vw;
+        font-weight: 600;
+        letter-spacing: 0.04rem;
+
+        @include tablet-half {
+            padding-left: $tablet-main-padding;
+        }
+        @include tablet {
+            font-size: 3.696rem;
+            max-width: 68rem;
+            margin: auto;
+        }
+        @include desktop {
+            font-size: 4.62vw;
+            min-width: 68rem;
+            margin: auto;
+            max-width: 85%;
+        }
+    }
+    &--overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        backdrop-filter: brightness(55%);
+        filter: brightness(92.5%);
+    }
+
     width: 100%;
+    box-sizing: border-box;
     background-image: url(../assets/images/hero-bio.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     aspect-ratio: 16/9;
     position: relative;
-    
-    &--overlay {
-        position: absolute;
-        backdrop-filter: brightness(55%);
-        filter: brightness(92.5%);
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        // padding: 1rem;
-        
-    }
-
-    &__title-padding {
-    }
-    
-    &__title {
-        box-sizing: border-box;
-        color: colors.$secondary-light;
-        font-size: 7.7vw;
-        font-weight: 600;
-        letter-spacing: 0.04rem;
-        width: 100%;
-        margin: auto;
-        padding-left: 5vw;
-
-        @include tablet-half {
-            padding-left: $tablet-main-padding;
-        }
-
-        @include tablet {
-            font-size: 3.696rem;
-            max-width: 68rem;
-            margin: auto;
-        }
-    }
 };
 .bio-intro {
-
-    @include mobile-padding;
-
+    
     &__title {
-        color: colors.$primary-dark;
         margin-bottom: 0.5rem;
+        color: colors.$primary-dark;
         font-size: 1.45rem;
         font-weight: 600;
+        
+        @include tablet-half {
+            @include section-title;
+            max-width: 42rem;
+            margin: 5.204vw auto 1.1vw;
+        }
+        @include tablet {
+            width: 91%;
+            max-width: 64rem;
+            margin: 2.5vw auto 0.5rem;
+            font-size: 2.16rem;
+        }
+        @include desktop {
+            max-width: 82%;
+            min-width: 63.644rem;
+            margin: 2.5vw auto 0.5rem;
+            font-size: 2.7vw;
+        }
     }
     &__media {
         display: block;
         width:100%;
-        margin: 0 auto;
         max-width: 389px;
+        margin: 0 auto;
         aspect-ratio: 16/9;
-    }
 
+        @include tablet-half {
+            margin: 1rem auto;
+            aspect-ratio: 1.95/1;
+            max-width: $tablet-min-max-width;
+        }
+        @include tablet {
+            width: $tablet-main-width;
+            max-width: 53rem;
+            min-width: $tablet-min-max-width;
+        }
+        @include desktop {
+            width: $desktop-main-width;
+            min-width: 53rem;
+            max-width: initial;
+        }
+    }
+    &__quote-container {
+
+        @include desktop-half {
+            max-width: 1080px;
+            margin: auto;
+        }
+        @include desktop {
+            max-width: initial;
+            padding-left: 6.8vw;
+        }
+    }
     &__quote {
-        font-weight: 600;
+
+        &--artist-tag {
+            @extend .bio-intro__quote;
+        }
+        margin: 0.4rem auto;
+        color: colors.$primary-dark;
         font-size: 0.85rem;
+        font-weight: 600;
         letter-spacing: 0.01rem;
         word-spacing: 0.04rem;
         line-height: 1.4rem;
-        color: colors.$primary-dark;
-        margin: 0.4rem auto;
         
-        &--artist-tag {
-            // @extend .bio-intro__quote;
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 0.01rem;
-            word-spacing: 0.04rem;
-            line-height: 1.4rem;
-            color: colors.$primary-dark;
-            margin: 0.4rem auto;
+
+        @include tablet-half {
+            @include tablet-quote-settings;
+            
+            &--artist-tag {
+                @include tablet-quote-settings;
+            }
+        }
+        @include tablet-footer {
+            max-width: 37rem;
+            
+            &--artist-tag {
+                font-size: 0.96rem;
+            }
+        }
+        @include tablet {
+ 
+            &--artist-tag {
+                margin-left: 10.5vw;
+                margin-top: 1rem;
+                font-size: 0.959rem;
+            }
+            min-width: 37rem;
+            max-width: 63.5%;
+            margin-top: 1rem auto 1rem 10.5vw;
+            line-height: 1.8rem;
+            font-size: 1.344rem;
+        }
+        @include desktop-half {
+            max-width: 43.959rem;
+        }
+        @include desktop {
+            min-width: 43.959rem;
+            max-width: 55%;
+            width: $desktop-main-width;
+            
+            font-size: 1.68vw;
+            line-height: 2.4vw;
+
+            &--artist-tag {
+                min-width: 43.959rem;
+                max-width: 55%;
+
+                font-size: 1.2vw;
+            }
         }
     }
-}
 
-.bio-main {
     @include mobile-padding;
+};
+.bio-main {
    
     &__title {
         font-size: 0.85rem;
         font-weight: 500;
+
+        @include tablet-half {
+            margin: auto;
+            margin-top: 2rem;
+            font-size: 3.25vw;
+            max-width: 36.063rem;
+        }
+        @include tablet-footer {
+            max-width: $tablet-min-max-width;
+        }
+        @include tablet {
+            width: 78%;
+            max-width: 52.75rem;
+        }
+        @include desktop {
+            width: $desktop-main-width;
+            max-width:82%;
+        }
     }
-    
+    &__details-container {
+
+        @include tablet-half {
+            max-width: 36.063rem;
+            margin: auto;
+        }
+        @include tablet-footer {
+            width: $tablet-main-width;
+            max-width: 53rem;
+            min-width: $tablet-min-max-width;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        @include desktop {
+            min-width: 52.75rem;
+            max-width: 57.5%;
+        }
+    }
     &__details {
         font-size: 0.82rem;
         line-height: 1.2rem;
+
+        @include tablet-half {
+            font-size: 0.88rem;
+            word-spacing: 0.01rem;
+            line-height: 1.35rem;
+            margin-bottom: 2rem;
+        }
+        @include tablet-footer {
+            width: 48%;
+        }
+        @include desktop {
+            min-width: 25.319rem;
+            margin-bottom: 2.5vw;
+            font-size: 1.1vw;
+            word-spacing: 0.01vw;
+            line-height: 1.7vw;
+        }
     }
-    
+
+    @include mobile-padding;
+
+    @include tablet-half {
+        @include tablet-padding;
+        margin: 0 auto;
+    }
     @include tablet {      
     }
-}
-
+    @include desktop {
+        @include mobile-padding;
+    }
+};
 .gallery {
-    padding: 1rem $tablet-main-padding 0.3rem;
-    background-color: colors.$secondary-light;
-   
+    
     &__title {
         @include section-title;
         color: colors.$primary-dark;
         font-size: 1.5rem;
         margin: 0.3rem 0 0.3rem;
-    }
 
+        @include tablet {
+            font-size: 2.156rem;
+            margin: inherit auto;
+        }
+        @include desktop-half {
+            box-sizing: content-box;
+            width: 1018.310px;
+            margin: 0 auto;
+        }
+        @include desktop {
+            max-width:84.5%;
+            width: 91%;
+            min-width: 63.644rem;
+            font-size: 2.7vw;
+        }
+    }
     &__container {
         box-sizing: border-box;
-    }
 
+        @include tablet-footer-logo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            justify-items: space-between;
+            max-width: 63.75rem;
+            margin: 0 auto;
+        }
+        @include desktop {
+            box-sizing: border-box;
+            width: 80%;
+            min-width: 63.75rem;
+            max-width: initial;
+        }
+    }
     &__media {
         aspect-ratio: 16/9;
         width: 100%;
@@ -132,288 +305,34 @@
         justify-content: space-between;
         align-items: center;
         align-content: space-evenly;
-    }
-}
 
-// media
-
-@include tablet-half {
-
-    .bio-intro__title {
-        @include section-title;
-        max-width: 42rem;
-        margin: 5.204vw auto 1.1vw;
-    }
-    .bio-intro__media {
-        display: block;
-        margin: 1rem auto;
-        aspect-ratio: 1.95/1;
-        max-width: $tablet-main-max-width;
-    }
-    .bio-intro__quote {
-        width:$tablet-half-main-width;
-        margin: 2vw auto 1vw;
-        font-size: 2.8vw;
-        line-height: 4vw;
-        letter-spacing: 0.03rem; 
-        max-width: 36.063rem ;
-        
-        &--artist-tag {
-            // @extend .bio-intro__quote;
-            
-            width:$tablet-half-main-width;
-            margin: 2vw auto 1vw;
-            font-size: 2.8vw;
-            line-height: 4vw;
-            letter-spacing: 0.03rem; 
-            max-width: 36.063rem ;
-
+        @include tablet-footer-logo {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 32%;
+            margin: 1vw 0.1vw;
+        }
+        @include desktop {
+            box-sizing: border-box;
+            width: 32%;
         }
     }
-    .bio-main {
-        @include tablet-padding;
-        margin: 0 auto;
-    }
-    .bio-main__title {
-        margin: auto;
-        margin-top: 2rem;
-        font-size: 3.25vw;
-        max-width: 36.063rem;
-    }
-    .bio-main__details-container {    
-        max-width: 36.063rem;
-        margin: auto;
-    }
-    .bio-main__details {
-        font-size: 0.88rem;
-        word-spacing: 0.01rem;
-        line-height: 1.35rem;
-        margin-bottom: 2rem;
-    }
 
-    .gallery {
+    padding: 1rem $tablet-main-padding 0.3rem;
+    background-color: colors.$secondary-light;
+
+    @include tablet-half {
         margin: auto;
         padding-bottom: 1.5rem;
+
         &__title {
-            @include tablet-padding;
             padding: 0;
             margin-bottom: 1.1rem;
             font-size: 4.5vw;
         }    
     
- 
         &__media {
             max-width: initial;
         }
     }
-}
-@include tablet-footer-logo {
-    .gallery {
-        &__container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            justify-items: space-between;
-            max-width: 63.75rem;
-            margin: 0 auto;
-        }
-        &__media {
-            display: inline-block;
-            box-sizing: border-box;
-            width: 32%;
-            margin: 1vw 0.1vw;
-            
-        }
-    }
-
-}
-@include tablet-footer {
-    .bio-intro {
-        &__quote {
-            max-width: 37rem;
-            
-            &--artist-tag {
-                font-size: 0.96rem;
-            }
-        }
-
-    }
-    .bio-main {
-        &__title {
-            max-width: 36rem;
-        }
-        &__details-container {   
-            display: flex;
-            justify-content: space-between;
-            width: $tablet-main-width;
-            margin: auto;
-            max-width: 52.75rem;
-            min-width: 36rem;
-        }
-        &__details {
-            width: 48%;
-        }
-    }
-}
-@include tablet {
-    .hero {
-        &title__ {
-            font-size: 4rem;
-            max-width: 1075px;
-            margin: 0 auto;
-        }
-    }
-
-    .bio-intro {
-        &__title {
-            font-size: 2.16rem;
-            width: 91%;
-            max-width: 64rem;
-            // margin: 1.204rem auto 0.5rem;
-            margin: 2.5vw auto 0.5rem;
-        }
-        &__media {
-            width: $tablet-main-width;
-            max-width: 53rem;
-        }
-        &__quote {
-        line-height: 1.8rem;
-        font-size: 1.344rem;
-        margin-left: 10.5vw;
-        min-width: 37rem;
-        max-width: 63.5%;
-        // margin-left: 16vw;
-        // max-width: 40rem;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-
-            &--artist-tag {
-                font-size: 0.959rem;
-                margin-left: 10.5vw;
-                margin-top: 1rem;
-            }
-        }
-        &__details-container {   
-            @include tablet-padding-object;
-        }
-    }
-    .bio-main {
-        &__title {
-            width: 78%;
-            max-width: 52.75rem;
-        }
-    }
-    .gallery {
-        &__title {
-            font-size: 2.156rem;
-            margin: inherit auto;
-        }
-    }
-}
-@include desktop-half {
-    .bio-intro{
-        &__quote-container{
-            max-width: 1080px;
-            margin: auto;
-        }
-        &__quote {
-            max-width: 43.959rem;
-            // margin-left: 16vw;
-        }
-    }
-    .gallery {
-        &__title {
-            box-sizing: content-box;
-            width: 1018.310px;
-            margin: 0 auto;
-            // padding-left: $desktop-main-padding;
-            // padding-right: $desktop-main-padding;
-        }
-    }
-}
-@include desktop {
-    .hero {
-        &__title {
-            font-size: 4.62vw;
-            min-width: 68rem;
-            margin: auto;
-            max-width: 85%;
-        }
-    }
-
-    .bio-intro {
-        &__title {
-            max-width: 82%;
-            margin: 2.5vw auto 0.5rem;
-            font-size: 2.7vw;
-            min-width: 63.644rem;
-        }
-        &__quote-container {
-            max-width: initial;
-            padding-left: 6.8vw;
-        }
-        &__media {
-            width: $desktop-main-width;
-            max-width: initial;
-        }
-        &__quote {
-            font-size: 1.68vw;
-            line-height: 2.4vw;
-
-            min-width: 43.959rem;
-            max-width: 55%;
-            width: $desktop-main-width;
-            
-            &--artist-tag {
-                min-width: 43.959rem;
-                max-width: 55%;
-
-                font-size: 1.2vw;
-                }
-        }
-    }
-
-    .bio-main {
-        @include mobile-padding;
-        &__title {
-            width: $desktop-main-width;
-            max-width:82%;
-        }
-        &__details-container {   
-            min-width: 52.75rem;
-            max-width: 57.5%;
-        }
-        &__details {
-            min-width: 25.319rem;
-            font-size: 1.1vw;
-            word-spacing: 0.01vw;
-            line-height: 1.7vw;
-            margin-bottom: 2.5vw;
-
-        }
-    }
-
-    .gallery {
-        &__title {
-            max-width:84.5%;
-            width: 91%;
-            min-width: 63.644rem;
-            font-size: 2.7vw;
-
-        }
-        
-        &__container {
-            // @extend .gallery; 
-            box-sizing: border-box;
-            width: 80%;
-            min-width: 63.75rem;
-            max-width: initial;
-        }
-        &__media {
-            box-sizing: border-box;
-            width: 32%;
-        }
-    }
-    
-}
+};

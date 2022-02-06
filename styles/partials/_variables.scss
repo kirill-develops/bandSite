@@ -1,6 +1,8 @@
 @use 'typography';
 
 // Media Breakpoints
+$tablet-midway-breakpoint: 26.6rem;
+$tablet-footerLogo-breakpoint: 39.063rem;
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
 
@@ -14,11 +16,11 @@ $section-title-font-size: 4.5vw;
 
 $tablet-main-width: 78%;
 $tablet-half-main-width: 89%;
-$tablet-main-max-width: 36rem;
+$tablet-min-max-width: 36rem;
 
 $desktop-main-width: 67.5%;
 
-
+// padding
 $mobile-main-padding: 1.45rem;
 
 $tablet-main-padding: 3.5vw;

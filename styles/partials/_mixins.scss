@@ -2,30 +2,21 @@
 @use 'colors' as colors;
 @use 'breakpoints' as *;
 
-
 @mixin nav-link {
     text-decoration: none;
     box-sizing: border-box;
     display: inline-block;
-}
+} //edited
 @mixin nav-list-item {
     width: 100%;
     color: colors.$secondary-mid;
     font-size: 0.8rem;
     text-align: center;
     padding-bottom: 0.5rem;
-}
+} //edited
 
 @mixin footer-logo {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: colors.$secondary-mid;
     text-decoration: none;
-}
-
-@mixin mobile-padding {
-    padding-left: 0.85rem;
-    padding-right: 0.85rem;
 }
 
 @mixin mobile-padding {
@@ -38,6 +29,16 @@
     padding-right: $tablet-main-padding;
 }
 
+@mixin tablet-quote-settings {
+    width:$tablet-half-main-width;
+    margin: 2vw auto 1vw;
+    max-width: 36.063rem;
+
+    font-size: 2.8vw;
+    line-height: 4vw;
+    letter-spacing: 0.03rem; 
+} //edited
+
 @mixin tablet-padding-object {
     max-width:52.416rem;
     padding: 0 0;
@@ -47,7 +48,6 @@
     padding-left: $desktop-main-padding;
     padding-right: $desktop-main-padding;
 }
-
 
 @mixin section-title {
     font-size: $section-title-font-size;

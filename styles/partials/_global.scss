@@ -23,35 +23,30 @@ p {
     background-color: colors.$primary-dark;    
     
     &__container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items:center;
+        
         @include tablet-half {
-            display: flex;
-            align-items:center;
             justify-content: flex-start;
+            flex-wrap: nowrap;
 
             padding: 0 3.5%;
             max-width: 62.5rem;
-            margin: auto
-        }
-
-        @include desktop {
-            min-width: 62.5rem;
-            max-width: initial;
-            width: 78%;
+            width: 25%;
         }
     }
-    &__logo {
+    &__logo-container {
         @include nav-link;
+        width: fit-content;
+        margin: 0.7rem auto;
+    }
+
+    &__logo {
         color: colors.$secondary-mid;
-        text-align: center;
-        display: block;
-        padding-top: 0.7rem;
-        font-size: 1.5rem;
-        margin: auto 0;
         
         @include tablet-half {
-            // padding: 1rem 0;
-            
-            
+            width: fit-content;
         }
         
         @include desktop {
@@ -65,6 +60,7 @@ p {
         padding: 0;
         margin: 0;
         padding-top: 0.2rem;
+        width: 100%;
         
         @include tablet-half {
             padding-top: 0.9rem;
@@ -134,6 +130,7 @@ footer {
         color: colors.$primary-light;
         max-width: 64.375rem;
         margin: 0 auto;
+
         &__container {
             
             @include tablet-half {
@@ -148,7 +145,6 @@ footer {
 
             }
         }
-
         &__title {
             font-size: 1.5rem;
             font-weight: 500;
@@ -157,10 +153,10 @@ footer {
 
             @include tablet-footer {
                 @include section-title;
-                padding: 0.1rem 1rem 0.15rem 0;
+                padding: 0.1rem 0 rem 0.15rem 0;
+                white-space: nowrap;
             }
         }
-
         &__social-container {
             width: 45%;
             display: flex;
@@ -171,9 +167,14 @@ footer {
                 width: 8rem;
             }
         }
-
         &__social {
             height: 1.5rem;
+
+            @include desktop {
+                min-width: 4vw;
+                max-width: 4vw;
+            }
+
         }
 
         @include tablet-half {
@@ -273,6 +274,10 @@ footer {
                 @include footer-logo; 
                 justify-self: flex-end;
             }
+
+            @include desktop {
+                margin-left: 13.5vw;
+            }
         }
     }
 
@@ -299,6 +304,8 @@ footer {
     }
 
     @include desktop {
-        @include desktop-padding;
+        margin: auto;
+        min-width: 74.344rem;
+
     }
 };

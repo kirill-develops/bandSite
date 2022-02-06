@@ -1,13 +1,13 @@
 @use 'variables' as *;
 
 @mixin tablet-half {
-    @media screen and (min-width: 26.6rem ) {
+    @media screen and (min-width: $tablet-midway-breakpoint ) {
         @content;
     }
 }
 
 @mixin tablet-footer-logo {
-    @media screen and (min-width: 39.063rem){
+    @media screen and (min-width: $tablet-footerLogo-breakpoint){
         @content;
     }
 }
