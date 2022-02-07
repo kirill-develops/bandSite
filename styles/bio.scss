@@ -5,7 +5,6 @@
 @use 'partials/breakpoints' as *;
 
 .hero {
-    
     &__title-container {
         box-sizing: border-box;
         @include mobile-padding;
