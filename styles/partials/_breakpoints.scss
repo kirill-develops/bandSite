@@ -5,32 +5,26 @@
         @content;
     }
 }
-
 @mixin tablet-footer-logo {
-    @media screen and (min-width: $tablet-footerLogo-breakpoint){
+    @media screen and (min-width: $tablet-footerLogo-breakpoint) {
         @content;
     }
 }
-
 @mixin tablet-footer {
-    @media screen and (min-width: 41.563rem ) {
+    @media screen and (min-width: $tablet-footer-breakpoint) {
         @content;
     }
 }
-
-
 @mixin tablet {
     @media screen and (min-width: $tablet-breakpoint) {
         @content;
     }
 }
-
 @mixin desktop-half{
-    @media screen and (min-width: 1097px) {
+    @media screen and (min-width: $desktop-half-breakpoint) {
         @content;
     }
 }
-
 @mixin desktop {
     @media screen and (min-width: $desktop-breakpoint) {
         @content;

@@ -6,77 +6,76 @@
 
 .hero {
     
-    &__title {
+    &__title-container {
         box-sizing: border-box;
-        width: 100%;
-        margin: auto;
-        padding-left: 5vw;
-
-        color: colors.$secondary-light;
-        font-size: 7.7vw;
-        font-weight: 600;
-        letter-spacing: 0.04rem;
+        @include mobile-padding;
 
         @include tablet-half {
-            padding-left: $tablet-main-padding;
+            @include tablet-padding;
+        }
+    }
+    &__title {
+        @include section-title-properties;
+        width: 100%;
+        margin: auto;
+
+        color: colors.$secondary-light;
+        font-size: $mobile-title-font-size;
+        font-weight: 600;
+
+        @include tablet-half {
         }
         @include tablet {
+            @include tablet-min-max;
             font-size: 3.696rem;
-            max-width: 68rem;
-            margin: auto;
+            padding: 0;
         }
         @include desktop {
+            @include desktop-min-max;
             font-size: 4.62vw;
-            min-width: 68rem;
-            margin: auto;
-            max-width: 85%;
         }
     }
     &--overlay {
         position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
         width: 100%;
         height: 100%;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
         backdrop-filter: brightness(55%);
         filter: brightness(92.5%);
     }
 
-    width: 100%;
+    position: relative;
     box-sizing: border-box;
+    width: 100%;
     background-image: url(../assets/images/hero-bio.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     aspect-ratio: 16/9;
-    position: relative;
 };
 .bio-intro {
     
     &__title {
-        margin-bottom: 0.5rem;
+        @include section-title-properties;
+        margin: 5vw auto 3vw;
         color: colors.$primary-dark;
-        font-size: 1.45rem;
-        font-weight: 600;
+        font-size: $mobile-title-font-size;
         
         @include tablet-half {
-            @include section-title;
-            max-width: 42rem;
-            margin: 5.204vw auto 1.1vw;
+            font-size: $tablet-titleGrowing-font-size;
         }
         @include tablet {
-            width: 91%;
-            max-width: 64rem;
-            margin: 2.5vw auto 0.5rem;
-            font-size: 2.16rem;
+            @include tablet-min-max;
+            width: 100%;
+            margin: inherit auto;
+            font-size: $tablet-titleStatic-font-size;
         }
         @include desktop {
-            max-width: 82%;
-            min-width: 63.644rem;
-            margin: 2.5vw auto 0.5rem;
-            font-size: 2.7vw;
+            @include desktop-min-max;
+            font-size: $desktop-title-font-size;
         }
     }
     &__media {
@@ -88,33 +87,31 @@
 
         @include tablet-half {
             margin: 1rem auto;
+            max-width: $tablet-minMax-width;
             aspect-ratio: 1.95/1;
-            max-width: $tablet-min-max-width;
         }
         @include tablet {
             width: $tablet-main-width;
-            max-width: 53rem;
-            min-width: $tablet-min-max-width;
+            min-width: $tablet-minMax-width;
+            max-width: $desktop-minMax-width;
         }
         @include desktop {
             width: $desktop-main-width;
-            min-width: 53rem;
+            min-width: $desktop-minMax-width;
             max-width: initial;
         }
     }
     &__quote-container {
 
         @include desktop-half {
-            max-width: 1080px;
+            max-width: 67.5rem;
             margin: auto;
         }
         @include desktop {
             max-width: initial;
-            padding-left: 6.8vw;
         }
     }
     &__quote {
-
         &--artist-tag {
             @extend .bio-intro__quote;
         }
@@ -123,80 +120,67 @@
         font-size: 0.85rem;
         font-weight: 600;
         letter-spacing: 0.01rem;
-        word-spacing: 0.04rem;
+        word-spacing: 0.02rem;
         line-height: 1.4rem;
         
-
         @include tablet-half {
-            @include tablet-quote-settings;
-            
-            &--artist-tag {
-                @include tablet-quote-settings;
-            }
+            @include tablet-quote-properties;
         }
         @include tablet-footer {
-            max-width: 37rem;
-            
+
             &--artist-tag {
                 font-size: 0.96rem;
+
             }
         }
         @include tablet {
- 
             &--artist-tag {
-                margin-left: 10.5vw;
-                margin-top: 1rem;
                 font-size: 0.959rem;
+                @include tablet-quoteBreak;
             }
-            min-width: 37rem;
-            max-width: 63.5%;
-            margin-top: 1rem auto 1rem 10.5vw;
-            line-height: 1.8rem;
+            @include tablet-quoteBreak;
             font-size: 1.344rem;
-        }
-        @include desktop-half {
-            max-width: 43.959rem;
+            line-height: 1.8rem;
         }
         @include desktop {
-            min-width: 43.959rem;
-            max-width: 55%;
-            width: $desktop-main-width;
-            
-            font-size: 1.68vw;
-            line-height: 2.4vw;
-
             &--artist-tag {
-                min-width: 43.959rem;
-                max-width: 55%;
-
+                min-width: $desktop-minMaxQuote-width;
                 font-size: 1.2vw;
             }
+            min-width: $desktop-minMaxQuote-width;
+            max-width: 60%;
+            font-size: 1.68vw;
+            line-height: 2.4vw;
         }
     }
-
     @include mobile-padding;
+
+    @include tablet-half {
+        @include tablet-padding;
+    }
 };
 .bio-main {
-   
     &__title {
+        color: colors.$secondary-dark;
         font-size: 0.85rem;
         font-weight: 500;
 
         @include tablet-half {
-            margin: auto;
-            margin-top: 2rem;
+            min-width: $tablet-minMax-width;
+            margin: 2rem auto auto;
             font-size: 3.25vw;
-            max-width: 36.063rem;
         }
         @include tablet-footer {
-            max-width: $tablet-min-max-width;
+            max-width: $tablet-minMax-width;
         }
         @include tablet {
             width: 78%;
-            max-width: 52.75rem;
+            min-width: $tablet-minMax-width;
+            max-width: $desktop-minMax-width;
         }
         @include desktop {
             width: $desktop-main-width;
+            min-width: $desktop-minMax-width;
             max-width:82%;
         }
     }
@@ -207,15 +191,15 @@
             margin: auto;
         }
         @include tablet-footer {
-            width: $tablet-main-width;
-            max-width: 53rem;
-            min-width: $tablet-min-max-width;
-            margin: auto;
             display: flex;
             justify-content: space-between;
+            width: $tablet-main-width;
+            max-width: $desktop-minMax-width;
+            min-width: $tablet-minMax-width;
+            margin: auto;
         }
         @include desktop {
-            min-width: 52.75rem;
+            min-width: $desktop-minMax-width;
             max-width: 57.5%;
         }
     }
@@ -224,10 +208,10 @@
         line-height: 1.2rem;
 
         @include tablet-half {
-            font-size: 0.88rem;
-            word-spacing: 0.01rem;
             line-height: 1.35rem;
             margin-bottom: 2rem;
+            font-size: 0.88rem;
+            word-spacing: 0.01rem;
         }
         @include tablet-footer {
             width: 48%;
@@ -240,41 +224,35 @@
             line-height: 1.7vw;
         }
     }
-
     @include mobile-padding;
+    padding-top: 2vw;
 
     @include tablet-half {
         @include tablet-padding;
+        padding-top: initial;
         margin: 0 auto;
-    }
-    @include tablet {      
-    }
-    @include desktop {
-        @include mobile-padding;
     }
 };
 .gallery {
     
     &__title {
-        @include section-title;
+        @include section-title-properties;
+        margin: 5vw auto 3vw;
         color: colors.$primary-dark;
-        font-size: 1.5rem;
-        margin: 0.3rem 0 0.3rem;
+        font-size: $mobile-title-font-size;
 
-        @include tablet {
-            font-size: 2.156rem;
-            margin: inherit auto;
+        @include tablet-half {
+            font-size: $tablet-titleGrowing-font-size;
         }
-        @include desktop-half {
-            box-sizing: content-box;
-            width: 1018.310px;
-            margin: 0 auto;
+        @include tablet {
+            @include tablet-min-max;
+            width: 100%;
+            margin: inherit auto;
+            font-size: $tablet-titleStatic-font-size;
         }
         @include desktop {
-            max-width:84.5%;
-            width: 91%;
-            min-width: 63.644rem;
-            font-size: 2.7vw;
+            @include desktop-min-max;
+            font-size: $desktop-title-font-size;
         }
     }
     &__container {
@@ -297,14 +275,14 @@
         }
     }
     &__media {
-        aspect-ratio: 16/9;
-        width: 100%;
-        margin: 0.85rem auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         align-content: space-evenly;
+        width: 100%;
+        margin: 0.85rem auto;
+        aspect-ratio: 16/9;
 
         @include tablet-footer-logo {
             display: inline-block;
@@ -317,22 +295,13 @@
             width: 32%;
         }
     }
-
-    padding: 1rem $tablet-main-padding 0.3rem;
+    padding: 1rem $mobile-main-padding 0.3rem;
     background-color: colors.$secondary-light;
 
     @include tablet-half {
+        @include tablet-padding;
         margin: auto;
+        padding-top: 0;
         padding-bottom: 1.5rem;
-
-        &__title {
-            padding: 0;
-            margin-bottom: 1.1rem;
-            font-size: 4.5vw;
-        }    
-    
-        &__media {
-            max-width: initial;
-        }
     }
 };

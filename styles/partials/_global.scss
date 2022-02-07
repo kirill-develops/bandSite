@@ -4,163 +4,141 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
+
 html {
     box-sizing: border-box;
+    font-family: $font-stack;
     font-size: $root-font-size;
     line-height: 1.4;
-    font-family: $font-stack;
-}
-
+};
 body {
     margin: 0;
-}
-
+};
 p {
     color: colors.$primary-dark;
-}
-
+};
 .nav {
-    background-color: colors.$primary-dark;    
-    
     &__container {
         display: flex;
         flex-wrap: wrap;
-        align-items:center;
+        align-items: center;
         
         @include tablet-half {
             justify-content: flex-start;
             flex-wrap: nowrap;
-
-            padding: 0 3.5%;
-            max-width: 62.5rem;
             width: 25%;
+            max-width: 62.5rem;
+            padding: 0 3.5%;
         }
     }
     &__logo-container {
-        @include nav-link;
+        @include anchor-properties;
+        display: flex;
+        align-items: center;
         width: fit-content;
-        margin: 0.7rem auto;
+        margin: 3vw auto;
     }
-
     &__logo {
-        color: colors.$secondary-mid;
-        
+        max-width: 7.5rem;
+        max-height: 1.25rem;
         @include tablet-half {
             width: fit-content;
-        }
-        
-        @include desktop {
-            
-        }
+        }   
     }
-    
     &__list {
         display: flex;
         justify-content: space-between;
-        padding: 0;
-        margin: 0;
-        padding-top: 0.2rem;
         width: 100%;
+        margin: 0;
+        padding: 0;
         
         @include tablet-half {
-            padding-top: 0.9rem;
-            padding-left: 2.5rem;
             width: 25%;
             max-width: 11.334rem;
+            padding-top: 0.3rem;
+            padding-left: 2.5rem;
         }
     }
-
     &__item-container {
         width: 50%;
+        margin: auto;
         padding: 0;
-        margin: 0;
         list-style-type: none;
-
+        
         @include tablet-half {
             width: fit-content;
             margin: 0 1.75rem;
         }  
-        
     }
-    
     &__list-item {
-        @include nav-link;
-        @include nav-list-item;
-        
         &--active {
             @extend .nav__list-item;
-            color: colors.$primary-light;
+            color: colors.$secondary-light;
             border-bottom: 3px solid colors.$primary-light;
-            font-weight: 600;
-
+            font-weight: 500;
+            
             @include desktop {
-                font-size: 1.02vw;   
+                font-size: $desktop-nav-fontSize;   
             }
         }
-
-        @include tablet-half {
-            padding: 1.5rem 0 1.3rem;
-        }
-
-        @include tablet {
-            padding: 1.7vw 0 1.7vw;
-        }
+        @include anchor-properties;
+        @include nav-list-item;
         
+        @include tablet-half {
+            padding: $mobile-navLink-padding 0;
+        }
+        @include desktop-half {
+            padding: $tablet-navLink-padding 0;
+
+        }
         @include desktop {
-            padding: 1.7vw 0 1.7vw;
-            // margin: 0 1.2rem;
-            font-size: 1.02vw;
+            font-size: $desktop-nav-fontSize;
+            padding: 2.5vw 0;
         }
     }
+    background-color: colors.$primary-dark;    
     
     @include desktop {
-        height: 6.28vw;
+        padding: 0 4.5%;
     }
-}
-
+};
 footer {
     background-color: colors.$primary-dark;
-}
-
+};
 .footer {
-    padding: 0.85rem 0;
-    @include mobile-padding;
     
     &-primary {
-        color: colors.$primary-light;
-        max-width: 64.375rem;
-        margin: 0 auto;
 
-        &__container {
+        &__left {
             
             @include tablet-half {
                 display: flex;
                 align-items: center;
-                box-sizing: border-box;
-                width: 100%;
-                justify-items: space-between;
-            }
-            @include tablet-footer {
                 justify-items: flex-start;
-
+                box-sizing: border-box;
+                width: fit-content;
             }
         }
         &__title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            letter-spacing: 0.03rem;
-            margin: 0.5rem 0 0.7rem;
+            @include section-title-properties;
+            margin: 0.5rem $mobile-main-padding 0.7rem;
 
-            @include tablet-footer {
-                @include section-title;
-                padding: 0.1rem 0 rem 0.15rem 0;
-                white-space: nowrap;
+            @include tablet-half {
+                margin: 0.5rem 0 0.7rem;
+                font-size: $tablet-titleGrowing-font-size;
+            }
+            @include tablet {
+                font-size: $tablet-titleStatic-font-size;
+            }
+            @include desktop {
+                font-size: $desktop-title-font-size;
             }
         }
         &__social-container {
-            width: 45%;
             display: flex;
             justify-content: space-between;
+            width: 45%;
+            margin: 0 $mobile-main-padding;
 
             @include tablet-half {
                 @include tablet-padding;
@@ -168,144 +146,161 @@ footer {
             }
         }
         &__social {
-            height: 1.5rem;
+            height: 1.8rem;
+            aspect-ratio: 1;
 
             @include desktop {
-                min-width: 4vw;
-                max-width: 4vw;
+                max-width: 9vw;
             }
-
         }
-
+        color: colors.$primary-light;
+        box-sizing: border-box;
+        margin: 0 auto;
+        
         @include tablet-half {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+        @include tablet {
+            @include tablet-min-max;
+        }
+        @include desktop {
+            @include desktop-min-max;
+        }
     }  
-
     &-secondary {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
         
         &__container {
-            max-width: 64.375rem;
-        margin: 0 auto;
-        
-        }
-        
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            min-width: 17.954rem;
+
+            @include tablet-half {
+                max-width: 47.637rem;
+                margin: 0 -1.5vw;
+            }
+            @include desktop {
+                width: 74%;
+                min-width: 47.637rem;
+                max-width: 67.359rem;
+                margin: 0 -1.23rem;
+            }
+        }  
         &__block {
-            margin: 0 0.5rem;
             display: flex;
             flex-direction: column;
-            
-            @include tablet-half {
-            }
+            margin: 0 0.5rem;
 
             @include tablet-footer {        
                 justify-content: space-between;
                 box-sizing: border-box;
                 width: 31%;
             }
-        }
-
-        &__details-container {
-            
-            @include tablet-half {
-                margin: 0.5rem 0;
+            @include desktop {
+                max-width: 16.681rem;
             }
         }
-
+        &__details-container {
+            padding: 1vw;
+            
+            @include desktop {
+                padding: 0.76rem;
+            }
+        }
         &__details {
-            font-size: 0.85rem;
-            line-height: 0.85vw;
-            color: colors.$secondary-mid;
             
             &--strong {
                 @extend .footer-secondary__details;
-                font-weight: 500;
                 color: colors.$secondary-light;
+                font-weight: 500;
             }
+            color: colors.$secondary-mid;
+            font-size: 0.85rem;
+            line-height: 1vw;
 
             @include tablet {
                 font-size: 0.9rem;
             }
         }
+        margin: 0 auto;
 
-        @include tablet-half {
-            margin: 0 -0.5rem;
-            max-width: 47.637rem;
+        @include tablet {
+            @include tablet-min-max;
         }
-
-        @include desktop {
-            max-width: 74%;
+        @include desktop { 
+            @include desktop-min-max;
         }
     }
-
     &__email {
-        text-decoration: none;
+        @include anchor-properties;
         color: colors.$secondary-mid;
         font-size: 0.8rem;
+        padding: 1vw 1vw 2vw;
         
         @include tablet {
             margin: 0.5rem 0 2rem;
             font-size: 0.9rem;
         }
+        @include desktop {
+            padding: 1vw 0.8rem 1.6rem;
+        }
     }
-
     &__logo {
         
         &--mobile {
-            @include footer-logo;
+            @include anchor-properties;
             display: inline-block;
-            margin-top: 3.9rem;
+            margin: 3.9rem 0 0;
+            max-width: 7.5rem;
+            max-height: 1.25rem;
+            padding-left: $mobile-main-padding;
 
             @include tablet-footer-logo {
                 display: none;
             }
         }
-
         &--tablet {
             display: none;
+            max-width: 7.5rem;
+            max-height: 1.25rem;
+            min-height: 1.8rem;
             
             @include tablet-footer-logo {
+                @include anchor-properties; 
                 display: inline-block;
-                @include footer-logo; 
                 justify-self: flex-end;
             }
-
             @include desktop {
                 margin-left: 13.5vw;
             }
         }
     }
-
     &__copyright {
+        margin: 0.8rem $mobile-main-padding 0;
         color: colors.$secondary-mid;
         font-size: 0.69rem;
-        margin-bottom: 0;
 
         @include tablet-half {
-            margin-top: 2.25vw;
-            margin-bottom: 2vw;
-        }
-
-        @include tablet {
-            font-size: 0.9rem;
-            max-width: 64.375rem;
             margin: 2.25vw auto 2vw;
         }
+        @include tablet {
+            @include tablet-min-max;
+            font-size: 0.9rem;
+        }
+        @include desktop {
+            @include desktop-min-max;
+        }
     }
+    @include mobile-padding;
+    padding: 0.85rem 0;
 
     @include tablet-half {
         @include tablet-padding;
         padding-top: 2.1rem;
     }
-
     @include desktop {
         margin: auto;
-        min-width: 74.344rem;
-
     }
 };
