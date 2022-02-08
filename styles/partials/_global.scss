@@ -106,9 +106,7 @@ footer {
     background-color: colors.$primary-dark;
 };
 .footer {
-    
     &-primary {
-
         &__left {
             
             @include tablet-half {
