@@ -22,6 +22,7 @@ p {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        height: fit-content;
         
         @include tablet-half {
             justify-content: flex-start;
@@ -37,6 +38,10 @@ p {
         align-items: center;
         width: fit-content;
         margin: 3vw auto;
+
+        @include desktop-half {
+            margin: 2rem auto;
+        }
     }
     &__logo {
         max-width: 7.5rem;
@@ -89,7 +94,6 @@ p {
         }
         @include desktop-half {
             padding: $tablet-navLink-padding 0;
-
         }
         @include desktop {
             font-size: $desktop-nav-fontSize;

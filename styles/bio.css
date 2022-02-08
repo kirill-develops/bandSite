@@ -50,6 +50,9 @@ p {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 @media screen and (min-width: 26.55rem) {
   .nav__container {
@@ -70,6 +73,11 @@ p {
   width: -moz-fit-content;
   width: fit-content;
   margin: 3vw auto;
+}
+@media screen and (min-width: 68.563rem) {
+  .nav__logo-container {
+    margin: 2rem auto;
+  }
 }
 .nav__logo {
   max-width: 7.5rem;
@@ -139,7 +147,7 @@ p {
 }
 @media screen and (min-width: 68.563rem) {
   .nav__list-item, .nav__list-item--active {
-    padding: 2.58vw 0;
+    padding: 1.76rem 0;
   }
 }
 @media screen and (min-width: 1280px) {
