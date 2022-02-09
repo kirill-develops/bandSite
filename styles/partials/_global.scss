@@ -4,10 +4,9 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-
 html {
     box-sizing: border-box;
-    font-family: $font-stack;
+    font-family: $root-font-stack;
     font-size: $root-font-size;
     line-height: 1.4;
 };
@@ -15,7 +14,7 @@ body {
     margin: 0;
 };
 p {
-    color: colors.$primary-dark;
+    color: $root-primary-dark-font-color;
 };
 .nav {
     &__container {
@@ -78,8 +77,8 @@ p {
     &__list-item {
         &--active {
             @extend .nav__list-item;
-            color: colors.$secondary-light;
-            border-bottom: 3px solid colors.$primary-light;
+            color: $root-primary-light-font-color;
+            border-bottom: 3px solid $root-primary-light-font-color;
             font-weight: 500;
             
             @include desktop {
@@ -100,14 +99,14 @@ p {
             padding: 2.5vw 0;
         }
     }
-    background-color: colors.$primary-dark;    
+    background-color: $root-dark-background-color;    
     
     @include desktop {
         padding: 0 4.5%;
     }
 };
 footer {
-    background-color: colors.$primary-dark;
+    background-color: $root-dark-background-color;
 };
 .footer {
     &-primary {
@@ -155,7 +154,7 @@ footer {
                 max-width: 9vw;
             }
         }
-        color: colors.$primary-light;
+        color: $root-primary-light-font-color;
         box-sizing: border-box;
         margin: 0 auto;
         
@@ -215,10 +214,10 @@ footer {
             
             &--strong {
                 @extend .footer-secondary__details;
-                color: colors.$secondary-light;
+                color: $root-footer-font-color;
                 font-weight: 500;
             }
-            color: colors.$secondary-mid;
+            color: $root-footer-font-color;
             font-size: 0.85rem;
             line-height: 1vw;
 
@@ -237,7 +236,7 @@ footer {
     }
     &__email {
         @include anchor-properties;
-        color: colors.$secondary-mid;
+        color: $root-footer-font-color;
         font-size: 0.8rem;
         padding: 1vw 1vw 2vw;
         
@@ -281,7 +280,7 @@ footer {
     }
     &__copyright {
         margin: 0.8rem $mobile-main-padding 0;
-        color: colors.$secondary-mid;
+        color: $root-footer-font-color;
         font-size: 0.69rem;
 
         @include tablet-half {

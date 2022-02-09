@@ -1,4 +1,5 @@
 @use 'typography';
+@use 'colors' as colors;
 
 // Media Breakpoints
 $tablet-midway-breakpoint: 26.55rem;
@@ -7,16 +8,26 @@ $tablet-footer-breakpoint: 41.563rem;
 $tablet-breakpoint: 48rem;
 $desktop-half-breakpoint: 68.563rem;
 $desktop-breakpoint: 1280px;
-
 // Fonts 
-$font-stack: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
+$root-font-stack: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
 $root-font-size: 100%;
+// font colors
+$root-primary-dark-font-color: colors.$primary-dark;
+$root-primary-light-font-color: colors.$primary-light;
+$root-secondary-light-font-color: colors.$primary-mid;
+$root-footer-font-color: colors.$secondary-mid;
+// font sizes
 $mobile-title-font-size: 7.7vw;
 $tablet-titleGrowing-font-size: 4.5vw;
 $tablet-titleStatic-font-size: 2.16rem;
+$mobile-nav-fontSize: 0.8rem;
 $desktop-nav-fontSize: 1.02vw;
 $desktop-title-font-size: 2.7vw;
-
+// background colors
+$root-dark-background-color: colors.$primary-dark;
+$root-primary-light-background-color: colors.$primary-light;
+$root-secondary-light-background-color: colors.$secondary-light;
+$root-hero-overlay: rgba(50, 50, 50, 0.5);
 //widths
 $tablet-main-width: 78%;
 $tablet-half-main-width: 89%;
@@ -26,7 +37,6 @@ $desktop-main-width: 67.5%;
 $desktop-bioIntroTitle-minMax-width: 64rem;
 $desktop-minMax-width: 53rem;
 $desktop-minMaxQuote-width: 43.959rem;
-
 // padding
 $mobile-main-padding: 3.5vw;
 $mobile-navLink-padding: 2.55vw;

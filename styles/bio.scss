@@ -18,7 +18,7 @@
         width: 100%;
         margin: auto;
 
-        color: colors.$secondary-light;
+        color: $root-primary-light-font-color;
         font-size: $mobile-title-font-size;
         font-weight: 600;
 
@@ -35,17 +35,8 @@
         }
     }
     &--overlay {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-sizing: border-box;
-        width: 100%;
-        height: 100%;
-        backdrop-filter: brightness(55%);
-        filter: brightness(92.5%);
+        @include overlay;
     }
-
     position: relative;
     box-sizing: border-box;
     width: 100%;
@@ -56,11 +47,10 @@
     aspect-ratio: 16/9;
 };
 .bio-intro {
-    
     &__title {
         @include section-title-properties;
         margin: 5vw auto 3vw;
-        color: colors.$primary-dark;
+        color: $root-primary-dark-font-color;
         font-size: $mobile-title-font-size;
         
         @include tablet-half {
@@ -115,7 +105,7 @@
             @extend .bio-intro__quote;
         }
         margin: 0.4rem auto;
-        color: colors.$primary-dark;
+        color: $root-primary-dark-font-color;
         font-size: 0.85rem;
         font-weight: 600;
         letter-spacing: 0.01rem;
@@ -126,10 +116,8 @@
             @include tablet-quote-properties;
         }
         @include tablet-footer {
-
             &--artist-tag {
                 font-size: 0.96rem;
-
             }
         }
         @include tablet {
@@ -160,16 +148,18 @@
 };
 .bio-main {
     &__title {
-        color: colors.$secondary-dark;
+        width: auto;
+        color: $root-primary-dark-font-color;
         font-size: 0.85rem;
         font-weight: 500;
-
+        
         @include tablet-half {
-            min-width: $tablet-minMax-width;
+            box-sizing: border-box;
             margin: 2rem auto auto;
             font-size: 3.25vw;
         }
         @include tablet-footer {
+            min-width: $tablet-minMax-width;
             max-width: $tablet-minMax-width;
         }
         @include tablet {
@@ -184,7 +174,6 @@
         }
     }
     &__details-container {
-
         @include tablet-half {
             max-width: 36.063rem;
             margin: auto;
@@ -237,7 +226,7 @@
     &__title {
         @include section-title-properties;
         margin: 5vw auto 3vw;
-        color: colors.$primary-dark;
+        color: $root-primary-dark-font-color;
         font-size: $mobile-title-font-size;
 
         @include tablet-half {
@@ -294,8 +283,8 @@
             width: 32%;
         }
     }
-    padding: 1rem $mobile-main-padding 0.3rem;
-    background-color: colors.$secondary-light;
+    padding: 1rem $mobile-main-padding 0.01rem;
+    background-color: $root-secondary-light-background-color;
 
     @include tablet-half {
         @include tablet-padding;
@@ -304,3 +293,196 @@
         padding-bottom: 1.5rem;
     }
 };
+.conversation {
+    &__container {
+        padding: 0.01rem $mobile-main-padding 0.01rem;
+        background-color: $root-primary-light-background-color;
+
+        @include tablet-half {
+            @include tablet-padding;
+            margin: 0 auto;
+            padding-bottom: 2vw;
+        }
+    }
+    &__title {
+        @include section-title-properties;
+        margin: 5vw auto 3vw;
+        color: $root-primary-dark-font-color;
+        font-size: $mobile-title-font-size;
+
+        @include tablet-half {
+            font-size: $tablet-titleGrowing-font-size;
+        }
+        @include tablet {
+            @include tablet-min-max;
+            width: 100%;
+            margin: inherit auto;
+            font-size: $tablet-titleStatic-font-size;
+        }
+        @include desktop {
+            @include desktop-min-max;
+            font-size: $desktop-title-font-size;
+        }
+    }
+    &__input {}
+    &__output {}
+}
+.comment {
+    &__card {
+        display: flex;
+        justify-content: space-between;
+        @include divider;
+
+        @include tablet-half {
+            max-width: 36.063rem;
+            margin: auto;
+        }
+        @include tablet-footer {
+            display: flex;
+            justify-content: space-between;
+            width: $tablet-main-width;
+            max-width: $desktop-minMax-width;
+            min-width: $tablet-minMax-width;
+            margin: auto;
+        }
+        @include desktop {
+            min-width: $desktop-minMax-width;
+            max-width: 57.5%;
+        }
+    }
+    &__avatar {
+        @include avatar;
+        margin: 6vw auto;
+        object-fit: cover;
+        object-position: 15%;
+
+        @include tablet-half {
+            max-width: 48px;
+            max-height: 48px;
+            margin: 4.8vw auto;
+            margin-right: 16px;
+        }
+    }
+    &__right {
+        box-sizing: border-box;
+        width: 83%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    &__header {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 3.2vw;
+    }
+    &__form {
+        &--name {}
+        &--comment {
+            min-height: 7rem;
+        }
+
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 24px;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid colors.$secondary-mid;
+        
+        ::focus {
+            border: 1px solid colors.$primary-dark;
+        }
+        @include tablet-half {
+            min-height: 48px;
+            padding: 12px;
+        }
+    }
+    &__button {
+        box-sizing: border-box;
+        width: 100%;
+        margin: $mobile-main-padding auto;
+        margin-right: 0;
+        padding: 10px;
+        background-color: $root-dark-background-color;
+        border-radius: 4px;
+        color: $root-primary-light-font-color;
+        text-align: center;
+        text-decoration: none;
+        
+        :hover {
+            background-color: colors.$secondary-dark;
+        }
+        @include tablet-half {
+            max-width: 150px;
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+    }
+}
+.live-comment {
+    &__avatar {
+        &--blank {
+            @extend .live-comment__avatar;
+        }
+        @include avatar;
+        margin: 5% auto;
+        background-color: colors.$secondary-mid;
+
+        @include tablet-half {
+            min-width: 48px;
+            min-height: 48px;
+            margin: 3.5% auto;
+            margin-right: 16px;
+        }
+    }
+    &__right {
+        box-sizing: border-box;
+        width: 83%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__name {
+        box-sizing: border-box;
+        width: fit-content;
+        margin: 1.5rem 0 0;
+        color: $root-primary-dark-font-color;
+        font-size: 0.87rem;
+        font-weight: 600;
+    }
+    &__date {
+        box-sizing: border-box;
+        width: fit-content;
+        margin: 1.5rem 0 0;
+        color: colors.$primary-mid;
+        text-align: right;
+        font-size: 0.83rem;
+        font-weight: 500;
+    }
+    &__details {
+        margin-top: 0.5rem;
+        color: colors.$secondary-dark;
+        font-size: 0.85rem;
+    }
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    @include divider;
+
+    @include tablet-half {
+        max-width: 36.063rem;
+        margin: auto;
+    }
+    @include tablet-footer {
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        width: 48%;
+        max-width: $desktop-minMax-width;
+        min-width: $tablet-minMax-width;
+    }
+    @include desktop {
+        min-width: $desktop-minMax-width;
+        max-width: 57.5%;
+    }
+}

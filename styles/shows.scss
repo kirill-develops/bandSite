@@ -1,0 +1,78 @@
+@use 'partials/global';
+@use 'partials/colors';
+@use 'partials/variables' as *;
+@use 'partials/mixins' as *;
+@use 'partials/breakpoints' as *;
+
+.hero-shows {
+    &__block {
+
+    }
+    &__title-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: $root-primary-light-font-color;
+    }
+    &__sub-title {
+        @include mobile-padding;
+        font-weight: 400
+    }
+    &__title {
+        @include section-title-properties;
+        @include mobile-padding;
+        width: 100%;
+        margin: auto;
+        font-size: $mobile-title-font-size;
+        font-weight: 600;
+
+        @include tablet-half {
+        }
+        @include tablet {
+            @include tablet-min-max;
+            font-size: 3.696rem;
+            padding: 0;
+        }
+        @include desktop {
+            @include desktop-min-max;
+            font-size: 4.62vw;
+        }
+    }
+    &__soundclound {}
+    &--overlay {
+        @include overlay;
+    }
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    background-image: url('/assets/images/hero-shows.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 16/9;
+};
+.shows-main {
+    &__title {
+        @include section-title-properties;
+        margin: 5vw auto 3vw;
+        color: colors.$secondary-dark;
+        font-size: $mobile-title-font-size;
+        
+        @include tablet-half {
+            font-size: $tablet-titleGrowing-font-size;
+        }
+        @include tablet {
+            @include tablet-min-max;
+            width: 100%;
+            margin: inherit auto;
+            font-size: $tablet-titleStatic-font-size;
+        }
+        @include desktop {
+            @include desktop-min-max;
+            font-size: $desktop-title-font-size;
+        }
+        @include mobile-padding;
+    }
+}
+
+.show__container {}
