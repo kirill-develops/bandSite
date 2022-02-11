@@ -474,6 +474,10 @@ footer {
   background-color: rgba(50, 50, 50, 0.5);
 }
 
+.shows-main {
+  padding-left: 3.5vw;
+  padding-right: 3.5vw;
+}
 .shows-main__title {
   font-size: 7.7vw;
   font-weight: 550;
@@ -482,8 +486,6 @@ footer {
   margin: 5vw auto 3vw;
   color: #000000;
   font-size: 7.7vw;
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
 }
 @media screen and (min-width: 26.55rem) {
   .shows-main__title {
@@ -504,5 +506,28 @@ footer {
     min-width: 64rem;
     max-width: 85%;
     font-size: 2.7vw;
+  }
+}
+
+.show__button {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 3.5vw auto;
+  margin-right: 0;
+  padding: 10px;
+  background-color: #323232;
+  border-radius: 4px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+}
+.show__button:hover {
+  background-color: #000000;
+}
+@media screen and (min-width: 26.55rem) {
+  .show__button {
+    max-width: 150px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }/*# sourceMappingURL=shows.css.map */

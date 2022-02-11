@@ -64,14 +64,34 @@
     letter-spacing: 0.03rem;
     word-spacing: 0.2rem;
 }
-
 @mixin avatar {
     display: inline-block;
+    box-sizing: border-box;
+    min-width: 36px;
+    min-height: 36px;
+    max-width: 36px;
+    max-height: 36px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+}
+@mixin button {
         box-sizing: border-box;
-        min-width: 36px;
-        min-height: 36px;
-        max-width: 36px;
-        max-height: 36px;
-        border-radius: 50%;
-        aspect-ratio: 1;
+        width: 100%;
+        margin: $mobile-main-padding auto;
+        margin-right: 0;
+        padding: 10px;
+        background-color: $root-dark-background-color;
+        border-radius: 4px;
+        color: $root-primary-light-font-color;
+        text-align: center;
+        text-decoration: none;
+        
+        &:hover {
+            background-color: colors.$secondary-dark;
+        }
+        @include tablet-half {
+            max-width: 150px;
+            padding-left: 32px;
+            padding-right: 32px;
+        }
 }

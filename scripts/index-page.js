@@ -1,86 +1,69 @@
-// NEW COMMENT VARIABLES
+// Event Listener for Form Submission
+const newComment = document.getElementById('newComment');
 
-let conversationAvatar = document.createElement('img');
-conversationAvatar.classList.add('comment__avatar');
-conversationAvatar.setAttribute('src', "../assets/images/Mohan-muruge.jpg")
+newComment.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const newName = event.target.userName.value;
+    const newComment = event.target.userComment.value;
+    const newCommentObject = {
+        id: 01,
+        date: todayString,
+        name: newName,
+        avatar: null,
+        comment: newComment
+    };
+    comments.unshift(newCommentObject);
+    updateComments(comments);
+    console.log(comments);
+})
+//Function that erases all old comments
+removeAllChildren = () => {
+    const liveComments = document.getElementById('output');
+    while (liveComments.firstChild) {
+        liveComments.removeChild(liveComments.firstChild);
+    }
+    console.log(liveComments);
+}
+//Function to update Live Comments
+updateComments = (comments) => {
+    removeAllChildren();
+    comments.forEach(comment => displayComment(comment));
+}
 
-let conversationName = document.createElement('label');
-conversationName.classList.add('comment__header');
-conversationName.setAttribute("for", "user-name");
-conversationName.innerText = "NAME"
-console.log(conversationName)
+//create function that converts new Date() into string
+const today = new Date();
+const todayString = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
 
-let conversationNameField = document.createElement('input');
-conversationNameField.type = 'text'
-conversationNameField.id = 'user-name'
-conversationNameField.name = 'user-name'
-conversationNameField.placeholder = 'Enter your name'
-conversationNameField.classList.add('comment__form');
-conversationNameField.classList.add('comment__form--name');
 
-let conversationComment = document.createElement('label');
-conversationComment.classList.add('comment__header');
-conversationComment.setAttribute("for", "user-comment");
-conversationComment.innerText = "COMMENT";
-
-let conversationCommentField = document.createElement('input');
-conversationCommentField.type = 'text'
-conversationCommentField.id = 'user-comment'
-conversationCommentField.name = 'user-comment'
-conversationCommentField.placeholder = 'Add a new comment'
-conversationCommentField.classList.add('comment__form');
-conversationCommentField.classList.add('comment__form--comment');
-
-// let conversationButtonText = document.createElement('h4');
-// conversationButtonText.classList.add('connent__button--text');
-
-let conversationButton = document.createElement('a');
-conversationButton.classList.add('comment__button');
-conversationButton.href = "/";
-conversationButton.innerText = "COMMENT";
-
-let conversationRight = document.createElement('form');
-conversationRight.classList.add('comment__right');
-conversationRight.append(conversationName, conversationNameField, conversationComment, conversationCommentField, conversationButton);
-
-let conversationCard = document.createElement('div');
-conversationCard.classList.add('comment__card');
-conversationCard.append(conversationAvatar, conversationRight);
-
-document.querySelector('.conversation__input').appendChild(conversationCard);
-
-// LIVE COMMENTS VARRIABLES
-
-displayComment = () => {
-    let liveCommentAvatar = document.createElement('div');
+// Function to populate HTML into live comment cards from an array database
+// @parma comments is an array of objects that provide an avatar, name, date & comment details for each entry
+displayComment = (comments) => {
+    const liveCommentAvatar = document.createElement('div');
     liveCommentAvatar.classList.add('live-comment__avatar--blank');
 
-    let liveCommentName = document.createElement('h4');
+    const liveCommentName = document.createElement('h4');
     liveCommentName.classList.add('live-comment__name');
 
-    let liveCommentDate = document.createElement('h4');
+    const liveCommentDate = document.createElement('h4');
     liveCommentDate.classList.add('live-comment__date');
-
-    let liveCommentDetails = document.createElement('p');
+   
+    const liveCommentDetails = document.createElement('p');
     liveCommentDetails.classList.add('live-comment__details');
 
-    let liveCommentRight = document.createElement('div');
+    const liveCommentRight = document.createElement('div');
     liveCommentRight.classList.add('live-comment__right');
     liveCommentRight.append(liveCommentName, liveCommentDate, liveCommentDetails);
 
-    let liveComment = document.createElement('div');
+    const liveComment = document.createElement('div');
     liveComment.classList.add('live-comment');
     liveComment.append(liveCommentAvatar, liveCommentRight);
-    console.log(liveComment);
 
-    liveCommentName.innerText = comments[i].name;
-    liveCommentDate.innerText = comments[i].date;
-    liveCommentDetails.innerText = comments[i].comment;
+    liveCommentName.innerText = comments.name;
+    liveCommentDate.innerText = comments.date;
+    liveCommentDetails.innerText = comments.comment;
 
     document.querySelector('.conversation__output').append(liveComment);
 }
 
-for (i = 0; i < comments.length; i++) {
-    console.log(new Date(comments[i].date));
-    displayComment(comments[i]);
-};
+// Goes through Comment Array and creates comment cards that are appended in to HTML
+comments.forEach(comment => displayComment(comment))

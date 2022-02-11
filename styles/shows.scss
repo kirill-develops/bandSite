@@ -71,8 +71,14 @@
             @include desktop-min-max;
             font-size: $desktop-title-font-size;
         }
-        @include mobile-padding;
     }
+    @include mobile-padding;
 }
 
-.show__container {}
+.show {
+    &__container {}
+    &__button {
+        @include button;
+    }
+
+}

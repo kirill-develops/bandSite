@@ -904,7 +904,7 @@ footer {
 .comment__form--comment {
   min-height: 7rem;
 }
-.comment__form ::focus {
+.comment__form:focus {
   border: 1px solid #323232;
 }
 @media screen and (min-width: 26.55rem) {
@@ -925,7 +925,7 @@ footer {
   text-align: center;
   text-decoration: none;
 }
-.comment__button :hover {
+.comment__button:hover {
   background-color: #000000;
 }
 @media screen and (min-width: 26.55rem) {
@@ -993,6 +993,7 @@ footer {
 }
 .live-comment__details {
   margin-top: 0.5rem;
+  width: 100%;
   color: #000000;
   font-size: 0.85rem;
 }

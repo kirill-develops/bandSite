@@ -388,7 +388,7 @@
         border-radius: 4px;
         border: 1px solid colors.$secondary-mid;
         
-        ::focus {
+        &:focus {
             border: 1px solid colors.$primary-dark;
         }
         @include tablet-half {
@@ -397,25 +397,7 @@
         }
     }
     &__button {
-        box-sizing: border-box;
-        width: 100%;
-        margin: $mobile-main-padding auto;
-        margin-right: 0;
-        padding: 10px;
-        background-color: $root-dark-background-color;
-        border-radius: 4px;
-        color: $root-primary-light-font-color;
-        text-align: center;
-        text-decoration: none;
-        
-        :hover {
-            background-color: colors.$secondary-dark;
-        }
-        @include tablet-half {
-            max-width: 150px;
-            padding-left: 32px;
-            padding-right: 32px;
-        }
+        @include button;
     }
 }
 .live-comment {
@@ -460,6 +442,7 @@
     }
     &__details {
         margin-top: 0.5rem;
+        width: 100%;
         color: colors.$secondary-dark;
         font-size: 0.85rem;
     }
