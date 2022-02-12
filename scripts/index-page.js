@@ -4,14 +4,15 @@ const newComment = document.getElementById('newComment');
 newComment.addEventListener('submit', (e) => {
     e.preventDefault();
     const newName = event.target.userName.value;
-    const newComment = event.target.userComment.value;
+    const newCommentField = event.target.userComment.value;
     const newCommentObject = {
         id: 01,
         date: todayString,
         name: newName,
         avatar: null,
-        comment: newComment
+        comment: newCommentField
     };
+    newComment.reset();
     comments.unshift(newCommentObject);
     updateComments(comments);
     console.log(comments);
