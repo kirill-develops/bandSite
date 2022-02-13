@@ -30,8 +30,7 @@
     <!-- hero banner  -->
     <div class="hero">
         <div class="hero--overlay">
-            <div class="hero__title-container">
-                <h1 class="hero__title">The Bees Knees
+            <h1 class="hero__title">The Bees Knees</h1>
             </div>
         </div>
     </div>
@@ -95,12 +94,12 @@
                 <img class="comment__avatar" src="../assets/images/Mohan-muruge.jpg">
                 <form class="comment__right" id="newComment">
                     <label class="comment__header">NAME
-                        <input type="text" id="userName" name="userName" placeholder="Enter your name"
+                        <input required type="text" id="userName" name="userName" placeholder="Enter your name"
                             class="comment__form comment__form--name">
                     </label>
                     <label class="comment__header" for="userComment">COMMENT
-                        <input type="text" id="userComment" name="userComment" placeholder="Add a new comment"
-                            class="comment__form comment__form--comment">
+                        <textarea required id="userComment" name="userComment" placeholder="Add a new comment"
+                        class="comment__form comment__form--comment" rows="5"></textarea>
                     </label>
                     <button class="comment__button" type="submit">COMMENT</button>
                 </form>

@@ -16,6 +16,13 @@ body {
 p {
     color: $root-primary-dark-font-color;
 };
+a {
+    transition: 0.5s;
+
+    &:hover {
+        color: $root-secondary-light-font-color
+    }
+}
 .nav {
     &__container {
         display: flex;

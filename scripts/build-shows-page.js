@@ -1,6 +1,6 @@
 createShowTabletHeaders = () => {
     const dateHeader = document.createElement('h4');
-    dateHeader.classList.add('show__header--tablet');
+    dateHeader.classList.add('show__header--tablet','show__header--tablet-first');
     dateHeader.innerText = 'DATE';
 
     const venueHeader = document.createElement('h4');

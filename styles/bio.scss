@@ -5,29 +5,22 @@
 @use 'partials/breakpoints' as *;
 
 .hero {
-    &__title-container {
-        box-sizing: border-box;
-        @include mobile-padding;
-
-        @include tablet-half {
-            @include tablet-padding;
-        }
-    }
     &__title {
         @include section-title-properties;
+        @include mobile-padding;
         width: 100%;
         margin: auto;
-
+        box-sizing: border-box;
         color: $root-primary-light-font-color;
         font-size: $mobile-title-font-size;
         font-weight: 600;
 
         @include tablet-half {
+            @include tablet-padding;
         }
         @include tablet {
             @include tablet-min-max;
             font-size: 3.696rem;
-            padding: 0;
         }
         @include desktop {
             @include desktop-min-max;
@@ -36,6 +29,7 @@
     }
     &--overlay {
         @include overlay;
+        display: flex;
     }
     position: relative;
     box-sizing: border-box;
@@ -222,7 +216,6 @@
     }
 };
 .gallery {
-    
     &__title {
         @include section-title-properties;
         margin: 5vw auto 3vw;
@@ -271,6 +264,12 @@
         width: 100%;
         margin: 0.85rem auto;
         aspect-ratio: 16/9;
+        filter: grayscale(1);
+        transition: 0.5s;
+        
+        &:hover {
+            filter: grayscale(0);
+        }
 
         @include tablet-footer-logo {
             display: inline-block;
@@ -303,6 +302,9 @@
             margin: 0 auto;
             padding-bottom: 2vw;
         }
+        @include tablet {
+            padding-bottom: 2rem;
+        }
     }
     &__title {
         @include section-title-properties;
@@ -324,8 +326,6 @@
             font-size: $desktop-title-font-size;
         }
     }
-    &__input {}
-    &__output {}
 }
 .comment {
     &__card {
@@ -334,20 +334,21 @@
         @include divider;
 
         @include tablet-half {
-            max-width: 36.063rem;
+            // max-width: 36.063rem;
             margin: auto;
         }
         @include tablet-footer {
             display: flex;
-            justify-content: space-between;
-            width: $tablet-main-width;
+            justify-content: flex-end;
+            width: 81.3%;
+            margin-right: 4.4rem;
             max-width: $desktop-minMax-width;
             min-width: $tablet-minMax-width;
-            margin: auto;
         }
         @include desktop {
-            min-width: $desktop-minMax-width;
-            max-width: 57.5%;
+            min-width: initial;
+            max-width: 45%;
+            margin: auto;
         }
     }
     &__avatar {
@@ -355,41 +356,57 @@
         margin: 6vw auto;
         object-fit: cover;
         object-position: 15%;
-
+        margin-right: 16px;
+        
         @include tablet-half {
             max-width: 48px;
             max-height: 48px;
-            margin: 4.8vw auto;
+            min-width: 48px;
+            min-height: 48px;
+            margin: 4.8vw 0;
             margin-right: 16px;
         }
     }
     &__right {
         box-sizing: border-box;
-        width: 83%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
     }
     &__header {
         display: block;
-        margin-bottom: 4px;
-        font-size: 3.2vw;
-    }
-    &__form {
-        &--name {}
-        &--comment {
-            min-height: 7rem;
+        margin-bottom: 18px;
+        color: colors.$primary-mid;
+        font-size: 0.65rem;
+        font-weight: 500;
+        @include tablet {
+            font-size: 0.74rem;
+            
         }
-
+    }
+    &__form {   
         box-sizing: border-box;
         width: 100%;
         min-height: 24px;
+        margin-top: 0.4rem;
         padding: 10px;
         border-radius: 4px;
         border: 1px solid colors.$secondary-mid;
+        font-family: $root-font-stack;
+        font-size: 0.8rem;
+        resize: none;
         
-        &:focus {
+        &::placeholder {
+            vertical-align: bottom;
+        }
+        &::focus {
             border: 1px solid colors.$primary-dark;
+        }
+        &--name {
+        }
+        &--comment {
+            
         }
         @include tablet-half {
             min-height: 48px;
@@ -398,30 +415,40 @@
     }
     &__button {
         @include button;
+        margin-top: 0;
     }
 }
 .live-comment {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    @include divider;
+
     &__avatar {
         &--blank {
             @extend .live-comment__avatar;
         }
         @include avatar;
         margin: 5% auto;
+        margin-right: 16px;
         background-color: colors.$secondary-mid;
-
+        
         @include tablet-half {
             min-width: 48px;
             min-height: 48px;
-            margin: 3.5% auto;
+            margin: 3.5% 0;
             margin-right: 16px;
         }
     }
     &__right {
         box-sizing: border-box;
-        width: 83%;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        @include tablet {
+        }
     }
     &__name {
         box-sizing: border-box;
@@ -446,26 +473,26 @@
         color: colors.$secondary-dark;
         font-size: 0.85rem;
     }
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    width: 100%;
-    @include divider;
-
     @include tablet-half {
-        max-width: 36.063rem;
+        // max-width: 36.063rem;
         margin: auto;
     }
     @include tablet-footer {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         margin: auto;
-        width: 48%;
+        // padding-right: 7.969rem;
         max-width: $desktop-minMax-width;
         min-width: $tablet-minMax-width;
     }
+    @include tablet {
+        box-sizing: border-box;
+        width: 81.3%;
+        margin-right: 4.4rem;
+    }
     @include desktop {
-        min-width: $desktop-minMax-width;
-        max-width: 57.5%;
+        min-width: initial;
+        max-width: 45%;
+        margin: auto;
     }
 }
