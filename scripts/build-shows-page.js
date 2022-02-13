@@ -69,18 +69,29 @@ createShowBlock = (show) => {
 
 const tabletHeaders = createShowTabletHeaders();
 //append tabletHeaders to shows-main__container
-console.log(tabletHeaders)
 
 const showStructure = createShowStructure();
 showStructure[0].append(tabletHeaders);
-console.log(showStructure[1]);
 
 futureDates.forEach(show => {
     const newshow = createShowBlock(show);
-    console.log(newshow)
     showStructure[0].append(newshow);
-    console.log(showStructure[0])
 });
-
+//attach shows to HTML through DOM
 const htmlContainer = document.getElementById('shows');
 htmlContainer.append(showStructure[1], showStructure[0]);
+
+
+// active rows
+const rowsArray = document.querySelectorAll('.show__block');
+let currentRow = null;
+rowsArray.forEach(row => {
+    row.addEventListener('click', () => {
+        if (currentRow !== null) {
+            currentRow.classList.remove('show__block--active')
+        }
+        row.classList.add('show__block--active');
+        currentRow = row;
+    })
+})
+

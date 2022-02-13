@@ -656,6 +656,10 @@ footer {
 .show__block {
   display: flex;
   flex-direction: column;
+  transition: 0.1s;
+}
+.show__block:hover {
+  background-color: #fafafa;
 }
 @media screen and (min-width: 48rem) {
   .show__block {
@@ -668,6 +672,9 @@ footer {
     padding-right: 1.5vw;
     border-bottom: 1px solid #e1e1e1;
   }
+}
+.show__block--active {
+  background-color: #e1e1e1;
 }
 .show__block--tablet {
   display: none;
@@ -729,6 +736,8 @@ footer {
   margin: 0.3rem 0 0.8rem;
   font-size: 0.8rem;
   font-weight: 400;
+  letter-spacing: initial;
+  word-spacing: initial;
 }
 @media screen and (min-width: 48rem) {
   .show__details {

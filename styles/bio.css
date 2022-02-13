@@ -923,6 +923,7 @@ footer {
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #e1e1e1;
+  outline: none;
   font-family: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
   font-size: 0.8rem;
   resize: none;
@@ -936,7 +937,7 @@ footer {
 .comment__form::placeholder {
   vertical-align: bottom;
 }
-.comment__form::focus {
+.comment__form:focus {
   border: 1px solid #323232;
 }
 @media screen and (min-width: 26.55rem) {

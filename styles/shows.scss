@@ -189,11 +189,19 @@
     &__block {
         display: flex;
         flex-direction: column;
+        transition: 0.1s;
+        &:hover {
+            background-color: rgb(250,250,250);
+        }
         @include tablet {
             flex-direction: row;
             align-items: baseline;
             @include showBlockTablet;
             @include divider;
+
+        }
+        &--active {
+             background-color: colors.$secondary-mid;
         }
         &--tablet {
             display: none;
@@ -241,6 +249,8 @@
         margin: 0.3rem 0 0.8rem;
         font-size: 0.8rem;
         font-weight: 400;
+        letter-spacing: initial;
+        word-spacing: initial;
         @include tablet {
             flex: 1;
             font-size: 0.87rem;
