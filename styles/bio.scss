@@ -406,8 +406,11 @@
         }
         &--name {
         }
-        &--comment {
-            
+        &--comment {   
+        }
+        &--error {
+            border: 1px solid #d22d2d;
+
         }
         @include tablet-half {
             min-height: 48px;

@@ -940,6 +940,9 @@ footer {
 .comment__form:focus {
   border: 1px solid #323232;
 }
+.comment__form--error {
+  border: 1px solid #d22d2d;
+}
 @media screen and (min-width: 26.55rem) {
   .comment__form {
     min-height: 48px;
