@@ -4,60 +4,28 @@ convert2Timestamp = (myDate) => {
     var newDate = new Date(myDate[2], myDate[0], myDate[1]-1);
     return newDate;
 }
-// Event Listener for Form Submission
-const newComment = document.getElementById('newComment');
-newComment.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const newName = event.target.userName.value;
-    const newNameEl = event.target.userName;
-    console.log(newName);
-    const newCommentValue = event.target.userComment.value;
-    const newCommentEl = event.target.userComment;
-    console.log(newCommentValue);
-    if (newName != "" && newCommentValue != "") {
-        newNameEl.classList.remove('comment__form--error');
-        newCommentEl.classList.remove('comment__form--error');
-        const newCommentObject = {
-            id: 01,
-            date: todayString,
-            name: newName,
-            avatar: null,
-            comment: newCommentValue
-        };
-        newComment.reset();
-        comments.unshift(newCommentObject);
-        updateComments(comments);
-        console.log(comments);
-    }
-    else if (newName != "" && newCommentValue == "") {
-        newNameEl.classList.remove('comment__form--error');
-        newCommentEl.classList.add('comment__form--error');
-    }
-    else if (newName == "" && newCommentValue != "") {
-        newNameEl.classList.add('comment__form--error');
-        newCommentEl.classList.remove('comment__form--error');
-    }
-    else {
-        newNameEl.classList.add('comment__form--error');
-        newCommentEl.classList.add('comment__form--error');
-    }
-})
+
+
 //Function that erases all old comments
 removeAllChildren = () => {
     const liveComments = document.getElementById('output');
     while (liveComments.firstChild) {
         liveComments.removeChild(liveComments.firstChild);
     }
-    console.log(liveComments);
 }
+
 //Function to update Live Comments
 updateComments = (comments) => {
     removeAllChildren();
     comments.forEach(comment => displayComment(comment));
 }
+
 //function that converts new Date() into string
-const commentTime = new Date();
-const todayString = `${commentTime.getMonth()}/${commentTime.getDate() + 1}/${commentTime.getFullYear()}`;
+getTime = () => {
+    const commentTime = new Date();
+    // const todayString = `${commentTime.getMonth()}/${commentTime.getDate() + 1}/${commentTime.getFullYear()}`;
+    return commentTime;
+}
 
 // Function to populate HTML into live comment cards from an array database
 // @parma comments is an array of objects that provide an avatar, name, date & comment details for each entry
@@ -82,19 +50,26 @@ displayComment = (comments) => {
     liveComment.classList.add('live-comment');
     liveComment.append(liveCommentAvatar, liveCommentRight);
 
-    const timestamp = convert2Timestamp(comments.date);
-    const relative = timeDifference(timestamp);
+    const timeDate = new Date(comments.timestamp);
+    const relative = timeDifference(timeDate);
 
     liveCommentName.innerText = comments.name;
-    liveCommentDate.innerText = relative;
+    liveCommentDate.innerText = `${timeDate.getMonth()+1}/${timeDate.getDate()}/${timeDate.getFullYear()}`;
     liveCommentDetails.innerText = comments.comment;
 
     document.querySelector('.conversation__output').append(liveComment);
 }
-// Goes through Comment Array and creates comment cards that are appended in to HTML
-comments.forEach(comment => displayComment(comment))
 
-//function returning string value of 
+// Goes through Comment Array and creates comment cards that are appended in to HTML
+const apiCommentsObj = axios.get(apiCommentsPage + apiKey)
+apiCommentsObj.then(result => {
+        result.data.forEach(comment => displayComment(comment));
+})
+    .catch(error => {
+        comments.forEach(comment => displayComment(comment));
+    })
+
+//provides a relative time difference from a time provided through the attributes
 function timeDifference(previous) {
     
     const current = new Date();
@@ -122,25 +97,75 @@ function timeDifference(previous) {
         return Math.round(elapsed / msPerYear) + ' years ago';
     }
 }
-
-//event listener to convert timestamp to relative time DOSNT WORK
-//only cycles options once, after the first time element, each element cycled through timestamp,relative,timestamp returns the first time element value cycled.
-//ideally set it up so when you click one time, all of them change
-//leaving, to play with for sprint 3
+// Event Listener for Form Submission
+const newComment = document.getElementById('newComment');
+newComment.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const newName = event.target.userName.value;
+    const newNameEl = event.target.userName;
+    const newCommentValue = event.target.userComment.value;
+    const newCommentEl = event.target.userComment;
+    const timestamp = getTime();
+    if (newName != "" && newCommentValue != "") {
+        newNameEl.classList.remove('comment__form--error');
+        newCommentEl.classList.remove('comment__form--error');
+        const newCommentObject = {
+            id: 01,
+            timestamp: timestamp,
+            name: newName,
+            comment: newCommentValue
+        };
+        newComment.reset();
+        const apiCommentsPost = axios.post(apiCommentsPage + apiKey)
+        apiCommentsPost.then(result => {
+            console.log(result)
+        }).catch(error => {
+            comments.unshift(newCommentObject);
+            updateComments(comments);
+            console.log(comments);
+        })
+    }
+    else if (newName != "" && newCommentValue == "") {
+        newNameEl.classList.remove('comment__form--error');
+        newCommentEl.classList.add('comment__form--error');
+    }
+    else if (newName == "" && newCommentValue != "") {
+        newNameEl.classList.add('comment__form--error');
+        newCommentEl.classList.remove('comment__form--error');
+    }
+    else {
+        newNameEl.classList.add('comment__form--error');
+        newCommentEl.classList.add('comment__form--error');
+    }
+})
+//event listener to convert timestamp to relative time
 const timeEl = document.querySelectorAll('.live-comment__date');
-timeEl.forEach((el, i) => {
+timeEl.forEach((el, i, node) => {
     el.setAttribute('timeActive', 'false');
-    const timestamp = convert2Timestamp(comments[i].date);
-    const relative = timeDifference(timestamp);
+    arrayIndex = Array.prototype.slice.call(node);
     el.addEventListener('click', (e) => {
         if (e.target.attributes.timeActive.value == 'true') {
-            el.innerText = `${relative}`;
-            e.target.attributes.timeActive.value = 'false';
+            node.forEach(item => {
+                arrayIndexItem = arrayIndex.indexOf(item);
+                timestamp = convert2Timestamp(comments[arrayIndexItem].date);
+                relative = timeDifference(timestamp);
+                item.innerText = `${relative}`;
+                item.attributes.timeActive.value = 'false';
+            })
+            // el.innerText = `${relative}`;
+            // e.target.attributes.timeActive.value = 'false';
             return;
         } else if (e.target.attributes.timeActive.value == 'false') {
-            el.innerText = `${comments[i].date}`;
-            e.target.attributes.timeActive.value = 'true';
+            node.forEach(item => {
+                // arrayIndex = Array.prototype.slice.call(node);
+                arrayIndexItem = arrayIndex.indexOf(item);
+                item.innerText = `${comments[arrayIndexItem].date}`;
+                item.attributes.timeActive.value = 'true';
+            })
+            // el.innerText = `${comments[i].date}`;
+            // e.target.attributes.timeActive.value = 'true';
             return;
         }
     })
 })
+
