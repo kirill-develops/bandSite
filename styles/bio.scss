@@ -435,15 +435,52 @@
         }
         @include avatar;
         margin: 5% auto;
-        margin-right: 16px;
+        // margin-right: 16px;
         background-color: colors.$secondary-mid;
+        display: block;
+        width: 100%;
         
         @include tablet-half {
             min-width: 48px;
             min-height: 48px;
-            margin: 3.5% 0;
-            margin-right: 16px;
+            // margin: 3.5% 0;
+            // margin-right: 16px;
         }
+    }
+    &__icon {
+        max-height: 14px;
+        &--like {
+            flex: 1; 
+        }
+        &--delete {
+            margin: auto;
+        }
+    }
+    &__like-count {
+        display: inline-block;
+        flex: 1;
+        margin: 0;
+        text-align: left;
+    }
+    &__likes-container {
+        // white-space: nowrap;
+        flex-basis: 100%;
+        min-width: 2.8rem;
+        min-height: 1rem;
+        max-height: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0.5rem 0;
+    }
+    &__left {
+        display: flex;
+        // flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        padding: 8px;
     }
     &__right {
         box-sizing: border-box;
