@@ -179,10 +179,10 @@ apiCommentsObj.then((result) => {
 const newComment = document.getElementById('newComment');
 newComment.addEventListener('submit', (e) => {
     e.preventDefault();
-    const newName = event.target.userName.value;
-    const newNameEl = event.target.userName;
-    const newCommentValue = event.target.userComment.value;
-    const newCommentEl = event.target.userComment;
+    const newName = e.target.userName.value;
+    const newNameEl = e.target.userName;
+    const newCommentValue = e.target.userComment.value;
+    const newCommentEl = e.target.userComment;
     const timestamp = new Date();
     if (newName != "" && newCommentValue != "") {
         newNameEl.classList.remove('comment__form--error');

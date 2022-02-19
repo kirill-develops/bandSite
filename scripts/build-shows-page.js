@@ -30,7 +30,6 @@ createShowStructure = () => {
     showContainer.appendChild(showTitle);
     return [showContainer,showTitle];
 }
-
 createShowBlock = (show) => {
     const dateHeader = document.createElement('h4');
     dateHeader.classList.add('show__header');
@@ -102,12 +101,26 @@ createShowBlockApi = (show) => {
     container.append(dateHeader, dateInfo, venueHeader, venueInfo, locationHeader, locationInfo, button);
     return container;
 }
+// event listener to apply active row class on click
+activeRowListener = () => {
+    const rowsArray = document.querySelectorAll('.show__block');
+    let currentRow = null;
+    rowsArray.forEach(row => {
+        row.addEventListener('click', () => {
+            if (currentRow !== null) {
+                currentRow.classList.remove('show__block--active')
+            }
+            row.classList.add('show__block--active');
+            currentRow = row;
+        })
+    })
+}
+
 
 const tabletHeaders = createShowTabletHeaders();
-//append tabletHeaders to shows-main__container
 
-const showStructure = createShowStructure();
-showStructure[0].append(tabletHeaders);
+const showEl = createShowStructure();
+showEl[0].append(tabletHeaders);
 
 
 const apiShowObj = axios.get(apiShowPage + apiKey);
@@ -115,33 +128,21 @@ apiShowObj.then(result => {
     console.log(result);
     result.data.forEach(show => {
         const newShow = createShowBlockApi(show);
-        showStructure[0].append(newShow)
+        showEl[0].append(newShow);
     })
+    activeRowListener();
 })
     .catch(error => {
         console.log(error)
         //use exsisting database
         futureDates.forEach(show => {
             const newShow = createShowBlock(show);
-            showStructure[0].append(newShow);
+            showEl[0].append(newShow);
     })
 
 });
 //attach shows to HTML through DOM
 const htmlContainer = document.getElementById('shows');
-htmlContainer.append(showStructure[1], showStructure[0]);
+htmlContainer.append(showEl[1], showEl[0]);
 
-
-// active rows
-const rowsArray = document.querySelectorAll('.show__block');
-let currentRow = null;
-rowsArray.forEach(row => {
-    row.addEventListener('click', () => {
-        if (currentRow !== null) {
-            currentRow.classList.remove('show__block--active')
-        }
-        row.classList.add('show__block--active');
-        currentRow = row;
-    })
-})
 

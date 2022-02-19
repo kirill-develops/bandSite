@@ -1,36 +1,21 @@
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/fonts/AvenirNextLTPro-Bold.otf");
+  src: url("../assets/fonts/AvenirNextLTPro-Bold.otf"), "../assets/fonts/alternatives/AvenirNextLtProBold.ttf";
   font-weight: 700;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/fonts/AvenirNextLTPro-Demi.otf");
+  src: url("../assets/fonts/AvenirNextLTPro-Demi.otf"), "../assets/fonts/alternatives/AvenirNextLtProDemi.ttf";
   font-weight: 600;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/fonts/AvenirNextLTPro-Regular.otf");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Avenir-Alt";
-  src: url("../assets/fonts/alternatives/AvenirNextLtProBold.ttf");
-  font-weight: 800;
-}
-@font-face {
-  font-family: "Avenir-Alt";
-  src: url("../assets/fonts/alternatives/AvenirNextLtProDemi.ttf");
-  font-weight: 600;
-}
-@font-face {
-  font-family: "Avenir-Alt";
-  src: url("../assets/fonts/alternatives/AvenirNextLtPro.ttf");
+  src: url("../assets/fonts/AvenirNextLTPro-Regular.otf"), "../assets/fonts/alternatives/AvenirNextLtPro.ttf";
   font-weight: 400;
 }
 html {
   box-sizing: border-box;
-  font-family: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
+  font-family: "Avenir", "Montserrat", sans-serif;
   font-size: 100%;
   line-height: 1.4;
 }
@@ -48,6 +33,10 @@ a {
 }
 a:hover {
   color: #afafaf;
+}
+
+footer {
+  background-color: #323232;
 }
 
 .nav {
@@ -112,14 +101,14 @@ a:hover {
     padding-left: 2.5rem;
   }
 }
-.nav__item-container {
+.nav__list-item-container {
   width: 50%;
   margin: auto;
   padding: 0;
   list-style-type: none;
 }
 @media screen and (min-width: 26.55rem) {
-  .nav__item-container {
+  .nav__list-item-container {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -167,10 +156,6 @@ a:hover {
   .nav {
     padding: 0 4.5%;
   }
-}
-
-footer {
-  background-color: #323232;
 }
 
 .footer {
@@ -281,20 +266,20 @@ footer {
     margin: 0 -1.23rem;
   }
 }
-.footer-secondary__block {
+.footer-secondary__contact {
   display: flex;
   flex-direction: column;
   margin: 0 0.5rem;
 }
 @media screen and (min-width: 41.563rem) {
-  .footer-secondary__block {
+  .footer-secondary__contact {
     justify-content: space-between;
     box-sizing: border-box;
     width: 31%;
   }
 }
 @media screen and (min-width: 1280px) {
-  .footer-secondary__block {
+  .footer-secondary__contact {
     max-width: 16.681rem;
   }
 }
@@ -429,6 +414,12 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.hero-shows--overlay {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50, 50, 50, 0.5);
+}
 .hero-shows__block {
   display: flex;
   flex-direction: column;
@@ -519,12 +510,6 @@ footer {
     font-size: 4.62vw;
   }
 }
-.hero-shows--overlay {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(50, 50, 50, 0.5);
-}
 @media screen and (min-width: 48rem) {
   .hero-shows__soundcloud-housing {
     min-width: 42rem;
@@ -571,7 +556,7 @@ footer {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-family: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
+  font-family: "Avenir", "Montserrat", sans-serif;
   font-weight: 100;
 }
 @media screen and (min-width: 48rem) {
@@ -580,6 +565,7 @@ footer {
     max-height: 40rem;
   }
 }
+
 .shows-main {
   font-size: 7.7vw;
   font-weight: 550;
@@ -674,6 +660,9 @@ footer {
   }
 }
 .show__block--active {
+  background-color: #e1e1e1;
+}
+.show__block--active:hover {
   background-color: #e1e1e1;
 }
 .show__block--tablet {

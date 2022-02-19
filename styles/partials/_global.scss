@@ -20,10 +20,15 @@ a {
     transition: 0.5s;
 
     &:hover {
-        color: $root-secondary-light-font-color
-    }
-}
+        color: $root-secondary-light-font-color;
+    };
+};
+footer {
+    background-color: $root-dark-background-color;
+};
 .nav {
+    background-color: $root-dark-background-color;
+
     &__container {
         display: flex;
         flex-wrap: wrap;
@@ -36,8 +41,8 @@ a {
             width: 25%;
             max-width: 62.5rem;
             padding: 0 3.5%;
-        }
-    }
+        };
+    };
     &__logo-container {
         @include anchor-properties;
         display: flex;
@@ -47,15 +52,16 @@ a {
 
         @include desktop-half {
             margin: 2rem auto;
-        }
-    }
+        };
+    };
     &__logo {
         max-width: 7.5rem;
         max-height: 1.25rem;
+
         @include tablet-half {
             width: fit-content;
-        }   
-    }
+        };
+    };
     &__list {
         display: flex;
         justify-content: space-between;
@@ -68,9 +74,9 @@ a {
             max-width: 11.334rem;
             padding-top: 0.3rem;
             padding-left: 2.5rem;
-        }
-    }
-    &__item-container {
+        };
+    };
+    &__list-item-container {
         width: 50%;
         margin: auto;
         padding: 0;
@@ -79,8 +85,8 @@ a {
         @include tablet-half {
             width: fit-content;
             margin: 0 1.75rem;
-        }  
-    }
+        };
+    };
     &__list-item {
         &--active {
             @extend .nav__list-item;
@@ -105,28 +111,29 @@ a {
             font-size: $desktop-nav-fontSize;
             padding: 2.5vw 0;
         }
-    }
-    background-color: $root-dark-background-color;    
-    
+    };
     @include desktop {
         padding: 0 4.5%;
-    }
+    };
 };
-footer {
-    background-color: $root-dark-background-color;
-};
+
 .footer {
+    @include mobile-padding;
+    padding: 0.85rem 0;
+
     &-primary {
-        &__left {
-            
+        color: $root-primary-light-font-color;
+        box-sizing: border-box;
+        margin: 0 auto;
+        &__left {  
             @include tablet-half {
                 display: flex;
                 align-items: center;
                 justify-items: flex-start;
                 box-sizing: border-box;
                 width: fit-content;
-            }
-        }
+            };
+        };
         &__title {
             @include section-title-properties;
             margin: 0.5rem $mobile-main-padding 0.7rem;
@@ -134,14 +141,14 @@ footer {
             @include tablet-half {
                 margin: 0.5rem 0 0.7rem;
                 font-size: $tablet-titleGrowing-font-size;
-            }
+            };
             @include tablet {
                 font-size: $tablet-titleStatic-font-size;
-            }
+            };
             @include desktop {
                 font-size: $desktop-title-font-size;
-            }
-        }
+            };
+        };
         &__social-container {
             display: flex;
             justify-content: space-between;
@@ -151,34 +158,31 @@ footer {
             @include tablet-half {
                 @include tablet-padding;
                 width: 8rem;
-            }
-        }
+            };
+        };
         &__social {
             height: 1.8rem;
             aspect-ratio: 1;
 
             @include desktop {
                 max-width: 9vw;
-            }
-        }
-        color: $root-primary-light-font-color;
-        box-sizing: border-box;
-        margin: 0 auto;
-        
+            };
+        };
         @include tablet-half {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
+        };
         @include tablet {
             @include tablet-min-max;
-        }
+        };
         @include desktop {
             @include desktop-min-max;
-        }
+        };
     }  
     &-secondary {
-        
+        margin: 0 auto;
+
         &__container {
             display: flex;
             flex-wrap: wrap;
@@ -188,15 +192,15 @@ footer {
             @include tablet-half {
                 max-width: 47.637rem;
                 margin: 0 -1.5vw;
-            }
+            };
             @include desktop {
                 width: 74%;
                 min-width: 47.637rem;
                 max-width: 67.359rem;
                 margin: 0 -1.23rem;
             }
-        }  
-        &__block {
+        };
+        &__contact {
             display: flex;
             flex-direction: column;
             margin: 0 0.5rem;
@@ -205,42 +209,40 @@ footer {
                 justify-content: space-between;
                 box-sizing: border-box;
                 width: 31%;
-            }
+            };
             @include desktop {
                 max-width: 16.681rem;
-            }
-        }
+            };
+        };
         &__details-container {
             padding: 1vw;
             
             @include desktop {
                 padding: 0.76rem;
-            }
-        }
+            };
+        };
         &__details {
             
             &--strong {
                 @extend .footer-secondary__details;
                 color: $root-footer-font-color;
                 font-weight: 500;
-            }
+            };
             color: $root-footer-font-color;
             font-size: 0.85rem;
             line-height: 1vw;
 
             @include tablet {
                 font-size: 0.9rem;
-            }
-        }
-        margin: 0 auto;
-
+            };
+        };
         @include tablet {
             @include tablet-min-max;
-        }
+        };
         @include desktop { 
             @include desktop-min-max;
-        }
-    }
+        };
+    };
     &__email {
         @include anchor-properties;
         color: $root-footer-font-color;
@@ -250,13 +252,12 @@ footer {
         @include tablet {
             margin: 0.5rem 0 2rem;
             font-size: 0.9rem;
-        }
+        };
         @include desktop {
             padding: 1vw 0.8rem 1.6rem;
-        }
-    }
-    &__logo {
-        
+        };
+    };
+    &__logo {   
         &--mobile {
             @include anchor-properties;
             display: inline-block;
@@ -267,8 +268,8 @@ footer {
 
             @include tablet-footer-logo {
                 display: none;
-            }
-        }
+            };
+        };
         &--tablet {
             display: none;
             max-width: 7.5rem;
@@ -279,12 +280,12 @@ footer {
                 @include anchor-properties; 
                 display: inline-block;
                 justify-self: flex-end;
-            }
+            };
             @include desktop {
                 margin-left: 13.5vw;
-            }
-        }
-    }
+            };
+        };
+    };
     &__copyright {
         margin: 0.8rem $mobile-main-padding 0;
         color: $root-footer-font-color;
@@ -292,23 +293,20 @@ footer {
 
         @include tablet-half {
             margin: 2.25vw auto 2vw;
-        }
+        };
         @include tablet {
             @include tablet-min-max;
             font-size: 0.9rem;
-        }
+        };
         @include desktop {
             @include desktop-min-max;
-        }
-    }
-    @include mobile-padding;
-    padding: 0.85rem 0;
-
+        };
+    };
     @include tablet-half {
         @include tablet-padding;
         padding-top: 2.1rem;
-    }
+    };
     @include desktop {
         margin: auto;
-    }
+    };
 };

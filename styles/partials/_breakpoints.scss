@@ -1,5 +1,16 @@
 @use 'variables' as *;
 
+@mixin tablet {
+    @media screen and (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}
+//gotta delete
 @mixin tablet-half {
     @media screen and (min-width: $tablet-midway-breakpoint ) {
         @content;
@@ -15,18 +26,8 @@
         @content;
     }
 }
-@mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-        @content;
-    }
-}
 @mixin desktop-half{
     @media screen and (min-width: $desktop-half-breakpoint) {
-        @content;
-    }
-}
-@mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
         @content;
     }
 }

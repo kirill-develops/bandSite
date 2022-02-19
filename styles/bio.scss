@@ -5,6 +5,15 @@
 @use 'partials/breakpoints' as *;
 
 .hero {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    background-image: url(../assets/images/hero-bio.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 16/9;
+
     &__title {
         @include section-title-properties;
         @include mobile-padding;
@@ -17,30 +26,24 @@
 
         @include tablet-half {
             @include tablet-padding;
-        }
+        };
         @include tablet {
             @include tablet-min-max;
             font-size: 3.696rem;
-        }
+        };
         @include desktop {
             @include desktop-min-max;
             font-size: 4.62vw;
-        }
-    }
+        };
+    };
     &--overlay {
         @include overlay;
         display: flex;
-    }
-    position: relative;
-    box-sizing: border-box;
-    width: 100%;
-    background-image: url(../assets/images/hero-bio.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    aspect-ratio: 16/9;
+    };
 };
 .bio-intro {
+    @include mobile-padding;
+
     &__title {
         @include section-title-properties;
         margin: 5vw auto 3vw;
@@ -49,18 +52,18 @@
         
         @include tablet-half {
             font-size: $tablet-titleGrowing-font-size;
-        }
+        };
         @include tablet {
             @include tablet-min-max;
             width: 100%;
             margin: inherit auto;
             font-size: $tablet-titleStatic-font-size;
-        }
+        };
         @include desktop {
             @include desktop-min-max;
             font-size: $desktop-title-font-size;
-        }
-    }
+        };
+    };
     &__media {
         display: block;
         width:100%;
@@ -72,32 +75,29 @@
             margin: 1rem auto;
             max-width: $tablet-minMax-width;
             aspect-ratio: 1.95/1;
-        }
+        };
         @include tablet {
             width: $tablet-main-width;
             min-width: $tablet-minMax-width;
             max-width: $desktop-minMax-width;
-        }
+        };
         @include desktop {
             width: $desktop-main-width;
             min-width: $desktop-minMax-width;
             max-width: initial;
-        }
-    }
+        };
+    };
     &__quote-container {
 
         @include desktop-half {
             max-width: 67.5rem;
             margin: auto;
-        }
+        };
         @include desktop {
             max-width: initial;
-        }
-    }
+        };
+    };
     &__quote {
-        &--artist-tag {
-            @extend .bio-intro__quote;
-        }
         margin: 0.4rem auto;
         color: $root-primary-dark-font-color;
         font-size: 0.85rem;
@@ -105,37 +105,40 @@
         letter-spacing: 0.01rem;
         word-spacing: 0.02rem;
         line-height: 1.4rem;
-        
+
+        &--artist-tag {
+            @extend .bio-intro__quote;
+        };
         @include tablet-half {
             @include tablet-quote-properties;
-        }
+        };
         @include tablet-footer {
             &--artist-tag {
                 font-size: 0.96rem;
-            }
-        }
+            };
+        };
         @include tablet {
-            &--artist-tag {
-                font-size: 0.959rem;
-                @include tablet-quoteBreak;
-            }
             @include tablet-quoteBreak;
             font-size: 1.344rem;
             line-height: 1.8rem;
-        }
-        @include desktop {
+
             &--artist-tag {
-                min-width: $desktop-minMaxQuote-width;
-                font-size: 1.2vw;
-            }
+                font-size: 0.959rem;
+                @include tablet-quoteBreak;
+            };
+        };
+        @include desktop {
             min-width: $desktop-minMaxQuote-width;
             max-width: 60%;
             font-size: 1.68vw;
             line-height: 2.4vw;
-        }
-    }
-    @include mobile-padding;
 
+            &--artist-tag {
+                min-width: $desktop-minMaxQuote-width;
+                font-size: 1.2vw;
+            };
+        };
+    };
     @include tablet-half {
         @include tablet-padding;
     }
@@ -151,27 +154,27 @@
             box-sizing: border-box;
             margin: 2rem auto auto;
             font-size: 3.25vw;
-        }
+        };
         @include tablet-footer {
             min-width: $tablet-minMax-width;
             max-width: $tablet-minMax-width;
-        }
+        };
         @include tablet {
             width: 78%;
             min-width: $tablet-minMax-width;
             max-width: $desktop-minMax-width;
-        }
+        };
         @include desktop {
             width: $desktop-main-width;
             min-width: $desktop-minMax-width;
             max-width:82%;
-        }
-    }
+        };
+    };
     &__details-container {
         @include tablet-half {
             max-width: 36.063rem;
             margin: auto;
-        }
+        };
         @include tablet-footer {
             display: flex;
             justify-content: space-between;
@@ -179,13 +182,15 @@
             max-width: $desktop-minMax-width;
             min-width: $tablet-minMax-width;
             margin: auto;
-        }
+        };
         @include desktop {
             min-width: $desktop-minMax-width;
             max-width: 57.5%;
-        }
-    }
+        };
+    };
     &__details {
+        @include mobile-padding;
+        padding-top: 2vw;
         font-size: 0.82rem;
         line-height: 1.2rem;
 
@@ -194,28 +199,27 @@
             margin-bottom: 2rem;
             font-size: 0.88rem;
             word-spacing: 0.01rem;
-        }
+        };
         @include tablet-footer {
             width: 48%;
-        }
+        };
         @include desktop {
             min-width: 25.319rem;
             margin-bottom: 2.5vw;
             font-size: 1.1vw;
             word-spacing: 0.01vw;
             line-height: 1.7vw;
-        }
-    }
-    @include mobile-padding;
-    padding-top: 2vw;
-
+        };
+    };    
     @include tablet-half {
         @include tablet-padding;
         padding-top: initial;
         margin: 0 auto;
-    }
+    };
 };
 .gallery {
+    padding: 1rem $mobile-main-padding 0.01rem;
+    background-color: $root-secondary-light-background-color;
     &__title {
         @include section-title-properties;
         margin: 5vw auto 3vw;
@@ -224,18 +228,18 @@
 
         @include tablet-half {
             font-size: $tablet-titleGrowing-font-size;
-        }
+        };
         @include tablet {
             @include tablet-min-max;
             width: 100%;
             margin: inherit auto;
             font-size: $tablet-titleStatic-font-size;
-        }
+        };
         @include desktop {
             @include desktop-min-max;
             font-size: $desktop-title-font-size;
-        }
-    }
+        };
+    };
     &__container {
         box-sizing: border-box;
 
@@ -247,14 +251,14 @@
             justify-items: space-between;
             max-width: 63.75rem;
             margin: 0 auto;
-        }
+        };
         @include desktop {
             box-sizing: border-box;
             width: 80%;
             min-width: 63.75rem;
             max-width: initial;
-        }
-    }
+        };
+    };
     &__media {
         display: flex;
         flex-wrap: wrap;
@@ -269,28 +273,24 @@
         
         &:hover {
             filter: grayscale(0);
-        }
-
+        };
         @include tablet-footer-logo {
             display: inline-block;
             box-sizing: border-box;
             width: 32%;
             margin: 1vw 0.1vw;
-        }
+        };
         @include desktop {
             box-sizing: border-box;
             width: 32%;
-        }
-    }
-    padding: 1rem $mobile-main-padding 0.01rem;
-    background-color: $root-secondary-light-background-color;
-
+        };
+    };
     @include tablet-half {
         @include tablet-padding;
         margin: auto;
         padding-top: 0;
         padding-bottom: 1.5rem;
-    }
+    };
 };
 .conversation {
     &__container {
@@ -301,11 +301,11 @@
             @include tablet-padding;
             margin: 0 auto;
             padding-bottom: 2vw;
-        }
+        };
         @include tablet {
             padding-bottom: 2rem;
-        }
-    }
+        };
+    };
     &__title {
         @include section-title-properties;
         margin: 5vw auto 3vw;
@@ -314,29 +314,28 @@
 
         @include tablet-half {
             font-size: $tablet-titleGrowing-font-size;
-        }
+        };
         @include tablet {
             @include tablet-min-max;
             width: 100%;
             margin: inherit auto;
             font-size: $tablet-titleStatic-font-size;
-        }
+        };
         @include desktop {
             @include desktop-min-max;
             font-size: $desktop-title-font-size;
-        }
-    }
-}
+        };
+    };
+};
 .comment {
     &__card {
+        @include divider;
         display: flex;
         justify-content: space-between;
-        @include divider;
 
         @include tablet-half {
-            // max-width: 36.063rem;
             margin: auto;
-        }
+        };
         @include tablet-footer {
             display: flex;
             justify-content: flex-end;
@@ -344,13 +343,13 @@
             margin-right: 4.4rem;
             max-width: $desktop-minMax-width;
             min-width: $tablet-minMax-width;
-        }
+        };
         @include desktop {
             min-width: initial;
             max-width: 45%;
             margin: auto;
-        }
-    }
+        };
+    };
     &__avatar {
         @include avatar;
         margin: 6vw auto;
@@ -365,26 +364,26 @@
             min-height: 48px;
             margin: 4.8vw 0;
             margin-right: 16px;
-        }
-    }
+        };
+    };
     &__right {
         box-sizing: border-box;
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-    }
+    };
     &__header {
         display: block;
         margin-bottom: 18px;
         color: colors.$primary-mid;
         font-size: 0.65rem;
         font-weight: 500;
+
         @include tablet {
             font-size: 0.74rem;
-            
-        }
-    }
+        };
+    };
     &__form {   
         box-sizing: border-box;
         width: 100%;
@@ -400,28 +399,23 @@
         
         &::placeholder {
             vertical-align: bottom;
-        }
+        };
         &:focus {
             border: 1px solid colors.$primary-dark;
-        }
-        &--name {
-        }
-        &--comment {   
-        }
+        };
         &--error {
             border: 1px solid #d22d2d;
-
-        }
+        };
         @include tablet-half {
             min-height: 48px;
             padding: 12px;
-        }
-    }
+        };
+    };
     &__button {
         @include button;
         margin-top: 0;
-    }
-}
+    };
+};
 .live-comment {
     display: flex;
     justify-content: space-between;
@@ -430,38 +424,36 @@
     @include divider;
 
     &__avatar {
-        &--blank {
-            @extend .live-comment__avatar;
-        }
         @include avatar;
         margin: 5% auto;
-        // margin-right: 16px;
         background-color: colors.$secondary-mid;
         display: block;
         width: 100%;
         
+        &--blank {
+            @extend .live-comment__avatar;
+        }
         @include tablet-half {
             min-width: 48px;
             min-height: 48px;
-            // margin: 3.5% 0;
-            // margin-right: 16px;
-        }
-    }
+        };
+    };
     &__icon {
         max-height: 14px;
+
         &--like {
             flex: 1; 
-        }
+        };
         &--delete {
             margin: auto;
-        }
-    }
+        };
+    };
     &__like-count {
         display: inline-block;
         flex: 1;
         margin: 0;
         text-align: left;
-    }
+    };
     &__likes-container {
         // white-space: nowrap;
         flex-basis: 100%;
@@ -472,25 +464,21 @@
         justify-content: space-between;
         align-items: center;
         margin: 0.5rem 0;
-    }
+    };
     &__left {
         display: flex;
-        // flex-wrap: wrap;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-end;
-
         padding: 8px;
-    }
+    };
     &__right {
         box-sizing: border-box;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        @include tablet {
-        }
-    }
+    };
     &__name {
         box-sizing: border-box;
         width: fit-content;
@@ -498,7 +486,7 @@
         color: $root-primary-dark-font-color;
         font-size: 0.87rem;
         font-weight: 600;
-    }
+    };
     &__date {
         box-sizing: border-box;
         width: fit-content;
@@ -507,33 +495,31 @@
         text-align: right;
         font-size: 0.83rem;
         font-weight: 500;
-    }
+    };
     &__details {
         margin-top: 0.5rem;
         width: 100%;
         color: colors.$secondary-dark;
         font-size: 0.85rem;
-    }
+    };
     @include tablet-half {
-        // max-width: 36.063rem;
         margin: auto;
-    }
+    };
     @include tablet-footer {
         display: flex;
         justify-content: center;
         margin: auto;
-        // padding-right: 7.969rem;
         max-width: $desktop-minMax-width;
         min-width: $tablet-minMax-width;
-    }
+    };
     @include tablet {
         box-sizing: border-box;
         width: 81.3%;
         margin-right: 4.4rem;
-    }
+    };
     @include desktop {
         min-width: initial;
         max-width: 45%;
         margin: auto;
-    }
-}
+    };
+};

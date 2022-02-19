@@ -2,14 +2,15 @@
 @use 'colors' as colors;
 
 // Media Breakpoints
+$tablet-breakpoint: 48rem;
+$desktop-breakpoint: 1280px;
+//delete these breakpoints
 $tablet-midway-breakpoint: 26.55rem;
 $tablet-footerLogo-breakpoint: 39.063rem;
 $tablet-footer-breakpoint: 41.563rem;
-$tablet-breakpoint: 48rem;
 $desktop-half-breakpoint: 68.563rem;
-$desktop-breakpoint: 1280px;
 // Fonts 
-$root-font-stack: "Avenir", "Avenir-Alt", "Montserrat", sans-serif;
+$root-font-stack: "Avenir", "Montserrat", sans-serif;
 $root-font-size: 100%;
 // font colors
 $root-primary-dark-font-color: colors.$primary-dark;
