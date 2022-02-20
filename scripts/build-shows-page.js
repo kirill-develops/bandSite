@@ -116,12 +116,10 @@ activeRowListener = () => {
    })
 }
 
-
 const tabletHeaders = createShowTabletHeaders();
 
 const showEl = createShowStructure();
 showEl[0].append(tabletHeaders);
-
 
 const apiShowObj = axios.get(apiShowPage + apiKey);
 apiShowObj.then(result => {
@@ -139,10 +137,7 @@ apiShowObj.then(result => {
          const newShow = createShowBlock(show);
          showEl[0].append(newShow);
       })
-
    });
 //attach shows to HTML through DOM
 const htmlContainer = document.getElementById('shows');
 htmlContainer.append(showEl[1], showEl[0]);
-
-
