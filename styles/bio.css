@@ -50,7 +50,7 @@ footer {
   height: -moz-fit-content;
   height: fit-content;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .nav__container {
     justify-content: flex-start;
     flex-wrap: nowrap;
@@ -70,7 +70,7 @@ footer {
   width: fit-content;
   margin: 3vw auto;
 }
-@media screen and (min-width: 68.563rem) {
+@media screen and (min-width: 1280px) {
   .nav__logo-container {
     margin: 2rem auto;
   }
@@ -79,7 +79,7 @@ footer {
   max-width: 7.5rem;
   max-height: 1.25rem;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .nav__logo {
     width: -webkit-fit-content;
     width: -moz-fit-content;
@@ -93,7 +93,7 @@ footer {
   margin: 0;
   padding: 0;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .nav__list {
     width: 25%;
     max-width: 11.334rem;
@@ -107,7 +107,7 @@ footer {
   padding: 0;
   list-style-type: none;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .nav__list-item-container {
     width: -webkit-fit-content;
     width: -moz-fit-content;
@@ -136,14 +136,9 @@ footer {
     font-size: 1.02vw;
   }
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .nav__list-item, .nav__list-item--active {
     padding: 2.55vw 0;
-  }
-}
-@media screen and (min-width: 68.563rem) {
-  .nav__list-item, .nav__list-item--active {
-    padding: 1.76rem 0;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -168,7 +163,7 @@ footer {
   box-sizing: border-box;
   margin: 0 auto;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .footer-primary__left {
     display: flex;
     align-items: center;
@@ -185,15 +180,12 @@ footer {
   letter-spacing: 0.03rem;
   word-spacing: 0.2rem;
   margin: 0.5rem 3.5vw 0.7rem;
-}
-@media screen and (min-width: 26.55rem) {
-  .footer-primary__title {
-    margin: 0.5rem 0 0.7rem;
-    font-size: 4.5vw;
-  }
+  white-space: nowrap;
+  flex: 1;
 }
 @media screen and (min-width: 48rem) {
   .footer-primary__title {
+    margin: 0.5rem 0 0.7rem;
     font-size: 2.16rem;
   }
 }
@@ -208,7 +200,7 @@ footer {
   width: 45%;
   margin: 0 3.5vw;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .footer-primary__social-container {
     padding-left: 3.5vw;
     padding-right: 3.5vw;
@@ -224,15 +216,11 @@ footer {
     max-width: 9vw;
   }
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .footer-primary {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-}
-@media screen and (min-width: 48rem) {
-  .footer-primary {
     min-width: 42rem;
     max-width: 64rem;
   }
@@ -252,7 +240,7 @@ footer {
   justify-content: flex-start;
   min-width: 17.954rem;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .footer-secondary__container {
     max-width: 47.637rem;
     margin: 0 -1.5vw;
@@ -271,7 +259,7 @@ footer {
   flex-direction: column;
   margin: 0 0.5rem;
 }
-@media screen and (min-width: 41.563rem) {
+@media screen and (min-width: 48rem) {
   .footer-secondary__contact {
     justify-content: space-between;
     box-sizing: border-box;
@@ -283,25 +271,25 @@ footer {
     max-width: 16.681rem;
   }
 }
-.footer-secondary__details-container {
+.footer-secondary__contact-details-block {
   padding: 1vw;
 }
 @media screen and (min-width: 1280px) {
-  .footer-secondary__details-container {
+  .footer-secondary__contact-details-block {
     padding: 0.76rem;
   }
 }
-.footer-secondary__details, .footer-secondary__details--strong {
+.footer-secondary__contact-details, .footer-secondary__contact-details--strong {
   color: #e1e1e1;
   font-size: 0.85rem;
   line-height: 1vw;
 }
-.footer-secondary__details--strong {
+.footer-secondary__contact-details--strong {
   color: #e1e1e1;
   font-weight: 500;
 }
 @media screen and (min-width: 48rem) {
-  .footer-secondary__details, .footer-secondary__details--strong {
+  .footer-secondary__contact-details, .footer-secondary__contact-details--strong {
     font-size: 0.9rem;
   }
 }
@@ -341,12 +329,11 @@ footer {
   box-sizing: border-box;
   text-decoration: none;
   display: inline-block;
-  margin: 3.9rem 0 0;
+  margin: 3.9rem 2.5vw 0;
   max-width: 7.5rem;
   max-height: 1.25rem;
-  padding-left: 3.5vw;
 }
-@media screen and (min-width: 39.063rem) {
+@media screen and (min-width: 48rem) {
   .footer__logo--mobile {
     display: none;
   }
@@ -357,7 +344,7 @@ footer {
   max-height: 1.25rem;
   min-height: 1.8rem;
 }
-@media screen and (min-width: 39.063rem) {
+@media screen and (min-width: 48rem) {
   .footer__logo--tablet {
     display: inline-block;
     box-sizing: border-box;
@@ -372,19 +359,15 @@ footer {
   }
 }
 .footer__copyright {
-  margin: 0.8rem 3.5vw 0;
+  margin: 0.8rem 2.5vw 0;
   color: #e1e1e1;
   font-size: 0.69rem;
-}
-@media screen and (min-width: 26.55rem) {
-  .footer__copyright {
-    margin: 2.25vw auto 2vw;
-  }
 }
 @media screen and (min-width: 48rem) {
   .footer__copyright {
     min-width: 42rem;
     max-width: 64rem;
+    margin: 0.8rem 0 0;
     font-size: 0.9rem;
   }
 }
@@ -394,7 +377,7 @@ footer {
     max-width: 85%;
   }
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .footer {
     padding-left: 3.5vw;
     padding-right: 3.5vw;
@@ -431,14 +414,10 @@ footer {
   font-size: 7.7vw;
   font-weight: 600;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .hero__title {
     padding-left: 3.5vw;
     padding-right: 3.5vw;
-  }
-}
-@media screen and (min-width: 48rem) {
-  .hero__title {
     min-width: 42rem;
     max-width: 64rem;
     font-size: 3.696rem;
@@ -472,11 +451,6 @@ footer {
   color: #323232;
   font-size: 7.7vw;
 }
-@media screen and (min-width: 26.55rem) {
-  .bio-intro__title {
-    font-size: 4.5vw;
-  }
-}
 @media screen and (min-width: 48rem) {
   .bio-intro__title {
     min-width: 42rem;
@@ -499,16 +473,15 @@ footer {
   max-width: 389px;
   margin: 0 auto;
   aspect-ratio: 16/9;
+  transition: 0.5s;
 }
-@media screen and (min-width: 26.55rem) {
-  .bio-intro__media {
-    margin: 1rem auto;
-    max-width: 36rem;
-    aspect-ratio: 1.95/1;
-  }
+.bio-intro__media:hover {
+  filter: brightness(2) saturate(1.25) contrast(1.5);
 }
 @media screen and (min-width: 48rem) {
   .bio-intro__media {
+    margin: 1rem auto;
+    aspect-ratio: 1.95/1;
     width: 78%;
     min-width: 36rem;
     max-width: 53rem;
@@ -521,14 +494,9 @@ footer {
     max-width: initial;
   }
 }
-@media screen and (min-width: 68.563rem) {
-  .bio-intro__quote-container {
-    max-width: 67.5rem;
-    margin: auto;
-  }
-}
 @media screen and (min-width: 1280px) {
   .bio-intro__quote-container {
+    margin: auto;
     max-width: initial;
   }
 }
@@ -541,7 +509,7 @@ footer {
   word-spacing: 0.02rem;
   line-height: 1.4rem;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .bio-intro__quote, .bio-intro__quote--artist-tag {
     width: 89%;
     margin: 2vw auto 1vw;
@@ -549,15 +517,6 @@ footer {
     font-size: 2.8vw;
     line-height: 4vw;
     letter-spacing: 0.03rem;
-  }
-}
-@media screen and (min-width: 41.563rem) {
-  .bio-intro__quote--artist-tag {
-    font-size: 0.96rem;
-  }
-}
-@media screen and (min-width: 48rem) {
-  .bio-intro__quote, .bio-intro__quote--artist-tag {
     width: 78%;
     min-width: 36rem;
     max-width: 43.959rem;
@@ -583,7 +542,7 @@ footer {
     font-size: 1.2vw;
   }
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .bio-intro {
     padding-left: 3.5vw;
     padding-right: 3.5vw;
@@ -591,26 +550,18 @@ footer {
 }
 
 .bio-main__title {
+  padding-left: 3.5vw;
+  padding-right: 3.5vw;
   width: auto;
   color: #323232;
   font-size: 0.85rem;
   font-weight: 500;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .bio-main__title {
     box-sizing: border-box;
     margin: 2rem auto auto;
     font-size: 3.25vw;
-  }
-}
-@media screen and (min-width: 41.563rem) {
-  .bio-main__title {
-    min-width: 36rem;
-    max-width: 36rem;
-  }
-}
-@media screen and (min-width: 48rem) {
-  .bio-main__title {
     width: 78%;
     min-width: 36rem;
     max-width: 53rem;
@@ -623,14 +574,10 @@ footer {
     max-width: 82%;
   }
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .bio-main__details-container {
     max-width: 36.063rem;
     margin: auto;
-  }
-}
-@media screen and (min-width: 41.563rem) {
-  .bio-main__details-container {
     display: flex;
     justify-content: space-between;
     width: 78%;
@@ -652,16 +599,12 @@ footer {
   font-size: 0.82rem;
   line-height: 1.2rem;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .bio-main__details {
     line-height: 1.35rem;
     margin-bottom: 2rem;
     font-size: 0.88rem;
     word-spacing: 0.01rem;
-  }
-}
-@media screen and (min-width: 41.563rem) {
-  .bio-main__details {
     width: 48%;
   }
 }
@@ -674,7 +617,7 @@ footer {
     line-height: 1.7vw;
   }
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .bio-main {
     padding-left: 3.5vw;
     padding-right: 3.5vw;
@@ -696,11 +639,6 @@ footer {
   color: #323232;
   font-size: 7.7vw;
 }
-@media screen and (min-width: 26.55rem) {
-  .gallery__title {
-    font-size: 4.5vw;
-  }
-}
 @media screen and (min-width: 48rem) {
   .gallery__title {
     min-width: 42rem;
@@ -720,7 +658,7 @@ footer {
 .gallery__container {
   box-sizing: border-box;
 }
-@media screen and (min-width: 39.063rem) {
+@media screen and (min-width: 48rem) {
   .gallery__container {
     display: flex;
     flex-wrap: wrap;
@@ -754,7 +692,7 @@ footer {
 .gallery__media:hover {
   filter: grayscale(0);
 }
-@media screen and (min-width: 39.063rem) {
+@media screen and (min-width: 48rem) {
   .gallery__media {
     display: inline-block;
     box-sizing: border-box;
@@ -768,7 +706,7 @@ footer {
     width: 32%;
   }
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .gallery {
     padding-left: 3.5vw;
     padding-right: 3.5vw;
@@ -782,7 +720,7 @@ footer {
   padding: 0.01rem 3.5vw 0.01rem;
   background-color: #ffffff;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .conversation__container {
     padding-left: 3.5vw;
     padding-right: 3.5vw;
@@ -803,11 +741,6 @@ footer {
   margin: 5vw auto 3vw;
   color: #323232;
   font-size: 7.7vw;
-}
-@media screen and (min-width: 26.55rem) {
-  .conversation__title {
-    font-size: 4.5vw;
-  }
 }
 @media screen and (min-width: 48rem) {
   .conversation__title {
@@ -831,13 +764,9 @@ footer {
   display: flex;
   justify-content: space-between;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .comment__card {
     margin: auto;
-  }
-}
-@media screen and (min-width: 41.563rem) {
-  .comment__card {
     display: flex;
     justify-content: flex-end;
     width: 81.3%;
@@ -869,13 +798,13 @@ footer {
      object-position: 15%;
   margin-right: 16px;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .comment__avatar {
     max-width: 48px;
     max-height: 48px;
     min-width: 48px;
     min-height: 48px;
-    margin: 4.8vw 0;
+    margin: 22px 0;
     margin-right: 16px;
   }
 }
@@ -926,7 +855,7 @@ footer {
 .comment__form--error {
   border: 1px solid #d22d2d;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .comment__form {
     min-height: 48px;
     padding: 12px;
@@ -980,7 +909,7 @@ footer {
   display: block;
   width: 100%;
 }
-@media screen and (min-width: 26.55rem) {
+@media screen and (min-width: 48rem) {
   .live-comment__avatar, .live-comment__avatar--blank {
     min-width: 48px;
     min-height: 48px;
@@ -1052,24 +981,15 @@ footer {
   color: #000000;
   font-size: 0.85rem;
 }
-@media screen and (min-width: 26.55rem) {
-  .live-comment {
-    margin: auto;
-  }
-}
-@media screen and (min-width: 41.563rem) {
+@media screen and (min-width: 48rem) {
   .live-comment {
     display: flex;
     justify-content: center;
-    margin: auto;
-    max-width: 53rem;
-    min-width: 36rem;
-  }
-}
-@media screen and (min-width: 48rem) {
-  .live-comment {
     box-sizing: border-box;
     width: 81.3%;
+    max-width: 53rem;
+    min-width: 36rem;
+    margin: auto;
     margin-right: 4.4rem;
   }
 }

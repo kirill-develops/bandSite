@@ -10,24 +10,3 @@
         @content;
     }
 }
-//gotta delete
-@mixin tablet-half {
-    @media screen and (min-width: $tablet-midway-breakpoint ) {
-        @content;
-    }
-}
-@mixin tablet-footer-logo {
-    @media screen and (min-width: $tablet-footerLogo-breakpoint) {
-        @content;
-    }
-}
-@mixin tablet-footer {
-    @media screen and (min-width: $tablet-footer-breakpoint) {
-        @content;
-    }
-}
-@mixin desktop-half{
-    @media screen and (min-width: $desktop-half-breakpoint) {
-        @content;
-    }
-}
