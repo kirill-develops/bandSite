@@ -367,7 +367,7 @@ footer {
   .footer__copyright {
     min-width: 42rem;
     max-width: 64rem;
-    margin: 0.8rem 0 0;
+    margin: 0.8rem auto 0;
     font-size: 0.9rem;
   }
 }
@@ -476,12 +476,12 @@ footer {
   transition: 0.5s;
 }
 .bio-intro__media:hover {
-  filter: brightness(2) saturate(1.25) contrast(1.5);
+  filter: brightness(1.75) contrast(1.25);
 }
 @media screen and (min-width: 48rem) {
   .bio-intro__media {
-    margin: 1rem auto;
     aspect-ratio: 1.95/1;
+    margin: 1rem auto;
     width: 78%;
     min-width: 36rem;
     max-width: 53rem;
@@ -493,6 +493,9 @@ footer {
     min-width: 53rem;
     max-width: initial;
   }
+}
+.bio-intro__quote-container {
+  margin-top: 1rem;
 }
 @media screen and (min-width: 1280px) {
   .bio-intro__quote-container {
@@ -511,34 +514,34 @@ footer {
 }
 @media screen and (min-width: 48rem) {
   .bio-intro__quote, .bio-intro__quote--artist-tag {
-    width: 89%;
-    margin: 2vw auto 1vw;
-    max-width: 36.063rem;
-    font-size: 2.8vw;
-    line-height: 4vw;
-    letter-spacing: 0.03rem;
+    margin: 1rem auto;
     width: 78%;
     min-width: 36rem;
-    max-width: 43.959rem;
+    max-width: 53rem;
+    margin: 2vw auto 1vw;
     font-size: 1.344rem;
     line-height: 1.8rem;
   }
   .bio-intro__quote--artist-tag {
     font-size: 0.959rem;
+    margin: 1rem auto;
     width: 78%;
     min-width: 36rem;
-    max-width: 43.959rem;
+    max-width: 53rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .bio-intro__quote, .bio-intro__quote--artist-tag {
-    min-width: 43.959rem;
-    max-width: 60%;
+    width: 67.5%;
+    min-width: 53rem;
+    max-width: initial;
     font-size: 1.68vw;
     line-height: 2.4vw;
   }
   .bio-intro__quote--artist-tag {
-    min-width: 43.959rem;
+    width: 67.5%;
+    min-width: 53rem;
+    max-width: initial;
     font-size: 1.2vw;
   }
 }
@@ -560,8 +563,9 @@ footer {
 @media screen and (min-width: 48rem) {
   .bio-main__title {
     box-sizing: border-box;
-    margin: 2rem auto auto;
     font-size: 3.25vw;
+    padding: 0;
+    margin: 1rem auto;
     width: 78%;
     min-width: 36rem;
     max-width: 53rem;
@@ -576,14 +580,12 @@ footer {
 }
 @media screen and (min-width: 48rem) {
   .bio-main__details-container {
-    max-width: 36.063rem;
-    margin: auto;
     display: flex;
     justify-content: space-between;
+    margin: 1rem auto;
     width: 78%;
-    max-width: 53rem;
     min-width: 36rem;
-    margin: auto;
+    max-width: 53rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -601,16 +603,16 @@ footer {
 }
 @media screen and (min-width: 48rem) {
   .bio-main__details {
-    line-height: 1.35rem;
     margin-bottom: 2rem;
+    padding: 0;
     font-size: 0.88rem;
+    line-height: 1.35rem;
     word-spacing: 0.01rem;
-    width: 48%;
+    width: 47%;
   }
 }
 @media screen and (min-width: 1280px) {
   .bio-main__details {
-    min-width: 25.319rem;
     margin-bottom: 2.5vw;
     font-size: 1.1vw;
     word-spacing: 0.01vw;
@@ -711,7 +713,7 @@ footer {
     padding-left: 3.5vw;
     padding-right: 3.5vw;
     margin: auto;
-    padding-top: 0;
+    padding-top: 0.01;
     padding-bottom: 1.5rem;
   }
 }
@@ -766,18 +768,17 @@ footer {
 }
 @media screen and (min-width: 48rem) {
   .comment__card {
-    margin: auto;
     display: flex;
-    justify-content: flex-end;
+    box-sizing: border-box;
+    margin: auto;
     width: 81.3%;
-    margin-right: 4.4rem;
-    max-width: 53rem;
+    max-width: 36rem;
     min-width: 36rem;
+    justify-content: flex-end;
   }
 }
 @media screen and (min-width: 1280px) {
   .comment__card {
-    min-width: initial;
     max-width: 45%;
     margin: auto;
   }
@@ -984,18 +985,16 @@ footer {
 @media screen and (min-width: 48rem) {
   .live-comment {
     display: flex;
-    justify-content: center;
     box-sizing: border-box;
-    width: 81.3%;
-    max-width: 53rem;
-    min-width: 36rem;
     margin: auto;
-    margin-right: 4.4rem;
+    width: 81.3%;
+    max-width: 36rem;
+    min-width: 36rem;
+    justify-content: center;
   }
 }
 @media screen and (min-width: 1280px) {
   .live-comment {
-    min-width: initial;
     max-width: 45%;
     margin: auto;
   }

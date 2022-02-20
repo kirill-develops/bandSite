@@ -39,7 +39,7 @@
       color: $root-primary-light-font-color;
       
       @include tablet {
-         @include tablet-min-max;
+         @include tablet-title-min-max;
          width: 100%;
          margin: auto;
       };
@@ -78,7 +78,7 @@
       font-weight: 600;
       
       @include tablet {
-         @include tablet-min-max;
+         @include tablet-title-min-max;
          max-width: 30rem;
          font-size: 3.696rem;
          line-height: 4.2rem;
@@ -86,7 +86,7 @@
       };
 
       @include desktop {
-         @include desktop-min-max;
+         @include desktop-title-min-max;
          min-width: 31.5rem;
          width: 50%;
          padding: 0;
@@ -97,7 +97,7 @@
    &__soundcloud-housing {
 
       @include tablet {
-         @include tablet-min-max;
+         @include tablet-title-min-max;
          width: 100%;
          margin: auto;
       };
@@ -160,14 +160,14 @@
       font-size: $mobile-title-font-size;
       
       @include tablet {
-         @include tablet-min-max;
+         @include tablet-title-min-max;
          width: 100%;
          margin: inherit auto;
          font-size: $tablet-titleStatic-font-size;
       };
 
       @include desktop {
-         @include desktop-min-max;
+         @include desktop-title-min-max;
          color: $root-primary-dark-font-color;
          font-size: $desktop-title-font-size;
          width: 31%;
@@ -218,7 +218,7 @@
       @include tablet {
          flex-direction: row;
          align-items: baseline;
-         @include showBlockTablet;
+         @include tablet-show-block;
          @include divider;
       };
 
@@ -233,7 +233,7 @@
          display: none;
 
          @include tablet {
-               @include showBlockTablet;
+               @include tablet-show-block;
                color: colors.$primary-mid;
                font-size: 0.8rem;
                font-weight: 400;

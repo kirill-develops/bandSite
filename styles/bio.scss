@@ -26,12 +26,12 @@
       
       @include tablet {
          @include tablet-padding;
-         @include tablet-min-max;
+         @include tablet-title-min-max;
          font-size: 3.696rem;
       };
 
       @include desktop {
-         @include desktop-min-max;
+         @include desktop-title-min-max;
          font-size: 4.62vw;
       };
    };
@@ -52,14 +52,14 @@
       font-size: $mobile-title-font-size;
 
       @include tablet {
-         @include tablet-min-max;
+         @include tablet-title-min-max;
          width: 100%;
          margin: inherit auto;
          font-size: $tablet-titleStatic-font-size;
       };
 
       @include desktop {
-         @include desktop-min-max;
+         @include desktop-title-min-max;
          font-size: $desktop-title-font-size;
       };
    };
@@ -72,25 +72,21 @@
       transition: 0.5s;
 
       &:hover {
-         filter: brightness(2) saturate(1.25) contrast(1.5);
+         filter: brightness(1.75) contrast(1.25);
          // filter: ;
       }
       
       @include tablet {
-         margin: 1rem auto;
          aspect-ratio: 1.95/1;
-         width: $tablet-main-width;
-         min-width: $tablet-minMax-width;
-         max-width: $desktop-minMax-width;
+         @include tablet-bio-body;
       };
 
       @include desktop {
-         width: $desktop-main-width;
-         min-width: $desktop-minMax-width;
-         max-width: initial;
+         @include desktop-bio-body;
       };
    };
    &__quote-container {
+      margin-top: 1rem;
       
       @include desktop {
          margin: auto;
@@ -112,26 +108,25 @@
       };
       
       @include tablet {
-         @include tablet-quote-properties;
-         @include tablet-quoteBreak;
+         @include tablet-bio-body;
+         margin: 2vw auto 1vw;
          font-size: 1.344rem;
          line-height: 1.8rem;
 
          &--artist-tag {
-               font-size: 0.959rem;
-               @include tablet-quoteBreak;
+            font-size: 0.959rem;
+            @include tablet-bio-body;
          };
       };
       
       @include desktop {
-         min-width: $desktop-minMaxQuote-width;
-         max-width: 60%;
+         @include desktop-bio-body;
          font-size: 1.68vw;
          line-height: 2.4vw;
-
+         
          &--artist-tag {
-               min-width: $desktop-minMaxQuote-width;
-               font-size: 1.2vw;
+            @include desktop-bio-body;
+            font-size: 1.2vw;
          };
       };
    };
@@ -152,11 +147,13 @@
       
       @include tablet {
          box-sizing: border-box;
-         margin: 2rem auto auto;
+         // margin: 2rem auto auto;
          font-size: 3.25vw;
-         width: 78%;
-         min-width: $tablet-minMax-width;
-         max-width: $desktop-minMax-width;
+         padding: 0;
+         // width: 78%;
+         // min-width: $tablet-minMax-width;
+         // max-width: $desktop-minMax-width;
+         @include tablet-bio-body;
       };
 
       @include desktop {
@@ -169,14 +166,10 @@
    &__details-container {
 
       @include tablet {
-         max-width: 36.063rem;
-         margin: auto;
          display: flex;
          justify-content: space-between;
-         width: $tablet-main-width;
-         max-width: $desktop-minMax-width;
-         min-width: $tablet-minMax-width;
-         margin: auto;
+         @include tablet-bio-body;
+
       };
 
       @include desktop {
@@ -192,15 +185,16 @@
       line-height: 1.2rem;
 
       @include tablet {
-         line-height: 1.35rem;
          margin-bottom: 2rem;
+         padding: 0;
          font-size: 0.88rem;
+         line-height: 1.35rem;
          word-spacing: 0.01rem;
-         width: 48%;
+         width: 47%
       };
 
       @include desktop {
-         min-width: 25.319rem;
+         // min-width: 25.319rem;
          margin-bottom: 2.5vw;
          font-size: 1.1vw;
          word-spacing: 0.01vw;
@@ -226,14 +220,14 @@
       font-size: $mobile-title-font-size;
 
       @include tablet {
-         @include tablet-min-max;
+         @include tablet-title-min-max;
          width: 100%;
          margin: inherit auto;
          font-size: $tablet-titleStatic-font-size;
       };
       
       @include desktop {
-         @include desktop-min-max;
+         @include desktop-title-min-max;
          font-size: $desktop-title-font-size;
       };
    };
@@ -291,7 +285,7 @@
    @include tablet {
       @include tablet-padding;
       margin: auto;
-      padding-top: 0;
+      padding-top: 0.01;
       padding-bottom: 1.5rem;
    };
 };
@@ -320,14 +314,14 @@
       font-size: $mobile-title-font-size;
 
       @include tablet {
-         @include tablet-min-max;
+         @include tablet-title-min-max;
          width: 100%;
          margin: inherit auto;
          font-size: $tablet-titleStatic-font-size;
       };
 
       @include desktop {
-         @include desktop-min-max;
+         @include desktop-title-min-max;
          font-size: $desktop-title-font-size;
       };
    };
@@ -341,17 +335,11 @@
       justify-content: space-between;
 
       @include tablet {
-         margin: auto;
-         display: flex;
+         @include tablet-comment-properties;
          justify-content: flex-end;
-         width: 81.3%;
-         margin-right: 4.4rem;
-         max-width: $desktop-minMax-width;
-         min-width: $tablet-minMax-width;
       };
 
       @include desktop {
-         min-width: initial;
          max-width: 45%;
          margin: auto;
       };
@@ -525,18 +513,11 @@
    };
    
    @include tablet {
-      display: flex;
+      @include tablet-comment-properties;
       justify-content: center;
-      box-sizing: border-box;
-      width: 81.3%;
-      max-width: $desktop-minMax-width;
-      min-width: $tablet-minMax-width;
-      margin: auto;
-      margin-right: 4.4rem;
    };
 
    @include desktop {
-      min-width: initial;
       max-width: 45%;
       margin: auto;
    };

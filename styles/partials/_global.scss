@@ -188,11 +188,11 @@ footer {
          display: flex;
          justify-content: space-between;
          align-items: center;
-         @include tablet-min-max;
+         @include tablet-title-min-max;
       };
       
       @include desktop {
-         @include desktop-min-max;
+         @include desktop-title-min-max;
       };
    }  
 
@@ -259,11 +259,11 @@ footer {
       };
 
       @include tablet {
-         @include tablet-min-max;
+         @include tablet-title-min-max;
       };
 
       @include desktop { 
-         @include desktop-min-max;
+         @include desktop-title-min-max;
       };
    };
 
@@ -321,13 +321,13 @@ footer {
       font-size: 0.69rem;
       
       @include tablet {
-         @include tablet-min-max;
-         margin: 0.8rem 0 0;
+         @include tablet-title-min-max;
+         margin: 0.8rem auto 0;
          font-size: 0.9rem;
       };
 
       @include desktop {
-         @include desktop-min-max;
+         @include desktop-title-min-max;
       };
    };
 

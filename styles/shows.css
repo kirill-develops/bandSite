@@ -367,7 +367,7 @@ footer {
   .footer__copyright {
     min-width: 42rem;
     max-width: 64rem;
-    margin: 0.8rem 0 0;
+    margin: 0.8rem auto 0;
     font-size: 0.9rem;
   }
 }
