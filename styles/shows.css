@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/fonts/AvenirNextLTPro-Bold.otf"), "../assets/fonts/alternatives/AvenirNextLtProBold.ttf";
+  src: url("../assets/fonts/AvenirNextLTPro-Bold.otf"), url("../assets/fonts/alternatives/AvenirNextLtProBold.ttf");
   font-weight: 700;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/fonts/AvenirNextLTPro-Demi.otf"), "../assets/fonts/alternatives/AvenirNextLtProDemi.ttf";
+  src: url("../assets/fonts/AvenirNextLTPro-Demi.otf"), url("../assets/fonts/alternatives/AvenirNextLtProDemi.ttf");
   font-weight: 600;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/fonts/AvenirNextLTPro-Regular.otf"), "../assets/fonts/alternatives/AvenirNextLtPro.ttf";
+  src: url("../assets/fonts/AvenirNextLTPro-Regular.otf"), url("../assets/fonts/alternatives/AvenirNextLtPro.ttf");
   font-weight: 400;
 }
 html {
@@ -393,7 +393,7 @@ footer {
 .hero-shows {
   box-sizing: border-box;
   width: 100%;
-  background-image: url("/assets/images/hero-shows.jpg");
+  background-image: url("../assets/images/hero-shows.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -623,7 +623,7 @@ footer {
   transition: 0.1s;
 }
 .show__block:hover {
-  background-color: #fafafa;
+  background-color: rgb(250, 250, 250);
 }
 @media screen and (min-width: 48rem) {
   .show__block {
