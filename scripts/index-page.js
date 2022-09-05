@@ -16,7 +16,7 @@ displayComment = (comment) => {
    const like = document.createElement('img');
    like.classList.add('live-comment__icon', 'live-comment__icon--like');
    like.id = comment.id;
-   like.src = './assets/icons/svg/icon-like.svg';
+   like.src = './assets/icons/SVG/icon-like.svg';
    like.alt = 'like icon';
 
    const likeCount = document.createElement('h5');
@@ -30,7 +30,7 @@ displayComment = (comment) => {
 
    const cDelete = document.createElement('img');
    cDelete.classList.add('live-comment__icon', 'live-comment__icon--delete');
-   cDelete.src = './assets/icons/svg/icon-delete.svg';
+   cDelete.src = './assets/icons/SVG/icon-delete.svg';
    cDelete.id = comment.id;
    cDelete.alt = 'delete icon';
 
@@ -73,7 +73,7 @@ insertComment = (comment) => {
    const like = document.createElement('img');
    like.classList.add('live-comment__icon', 'live-comment__icon--like');
    like.id = comment.id;
-   like.src = './assets/icons/svg/icon-like.svg';
+   like.src = './assets/icons/SVG/icon-like.svg';
    like.alt = 'like icon';
 
    const likeCount = document.createElement('h5');
@@ -87,7 +87,7 @@ insertComment = (comment) => {
 
    const cDelete = document.createElement('img');
    cDelete.classList.add('live-comment__icon', 'live-comment__icon--delete');
-   cDelete.src = './assets/icons/svg/icon-delete.svg';
+   cDelete.src = './assets/icons/SVG/icon-delete.svg';
    cDelete.id = comment.id;
    cDelete.alt = 'delete icon';
 
