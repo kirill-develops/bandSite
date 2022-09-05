@@ -167,14 +167,14 @@ apiCallComments = () => {
       sorted.forEach(comment => displayComment(comment));
       const likeEl = document.querySelectorAll('.live-comment__icon--like');
       likeEl.forEach((el) => listenForLikes(el));
-      
+
       const trashEl = document.querySelectorAll('.live-comment__icon--delete');
-      trashEl.forEach((el, i, node) => listenForTrash(el));
+      trashEl.forEach((el) => listenForTrash(el));
    })
-   .catch(error => {
-      comments.forEach(comment => displayComment(comment));
-      console.warn(error)
-   })
+      .catch(error => {
+         comments.forEach(comment => displayComment(comment));
+         console.warn(error)
+      })
 }
 // Delete old comments
 clearComments = () => {
@@ -234,40 +234,3 @@ newComment.addEventListener('submit', (e) => {
       newCommentEl.classList.add('comment__form--error');
    }
 })
-
-
-// If possible ignore this, I'm leaving it as reference for myself (if not, there go some free marks lol)
-//event listener to convert timestamp to relative time
-    // const timeEl = document.querySelectorAll('.live-comment__date');
-    // console.log(timeEl);
-    // timeEl.forEach((el, i, node) => attachTimeEvent(el, i, node));
-
-    // const attachTimeEvent = (el, i, node) => {
-//     el.setAttribute('timeActive', 'false');
-//     const arrayIndex = Array.prototype.slice.call(node);
-//     el.addEventListener('click', (e) => {
-//         console.log(e);
-//         if (e.target.attributes.timeActive.value == 'true') {
-//             node.forEach(item => {
-//                 const arrayIndexItem = arrayIndex.indexOf(item);
-//                 relative = timeDifference(comments[arrayIndexItem].timestamp);
-//                 item.innerText = `${relative}`;
-//                 item.attributes.timeActive.value = 'false';
-//             })
-//             // el.innerText = `${relative}`;
-//             // e.target.attributes.timeActive.value = 'false';
-//             return;
-//         } else if (e.target.attributes.timeActive.value == 'false') {
-//             node.forEach(item => {
-//                 // arrayIndex = Array.prototype.slice.call(node);
-//                 const arrayIndexItem = arrayIndex.indexOf(item);
-//                 item.innerText = `${comments[arrayIndexItem].timestamp}`;
-//                 item.attributes.timeActive.value = 'true';
-//             })
-//             // el.innerText = `${comments[i].date}`;
-//             // e.target.attributes.timeActive.value = 'true';
-//             return;
-//         }
-//     })
-// }
-
