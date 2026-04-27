@@ -1,0 +1,11 @@
+{
+  "name": "kirill-tchentsov-bandsite",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node tools/check-scss.mjs && node tools/serve.mjs --root . --port 8080",
+    "build": "node tools/check-scss.mjs && node tools/build.mjs",
+    "preview": "node tools/serve.mjs --root dist --port 4173",
+    "check:scss": "node tools/check-scss.mjs"
+  }
+}
