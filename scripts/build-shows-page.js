@@ -30,30 +30,42 @@ createShowStructure = () => {
    showContainer.appendChild(showTitle);
    return [showContainer, showTitle];
 }
+
+getShowVenue = (show) => show.place || show.venue || '';
+
+getShowLocation = (show) => show.location || show.city || '';
+
+formatShowDate = (dateValue) => {
+   const parsed = new Date(Number(dateValue));
+   if (Number.isNaN(parsed.getTime())) {
+      return dateValue;
+   }
+   return parsed.toDateString();
+}
+
+createShowField = (label, value, isStrong = false) => {
+   const header = document.createElement('h4');
+   header.classList.add('show__header');
+   header.innerText = label;
+
+   const details = document.createElement('h4');
+   details.classList.add('show__details');
+   if (isStrong) {
+      details.classList.add('show__details--strong');
+   }
+   details.innerText = value;
+
+   return [header, details];
+}
+
 createShowBlock = (show) => {
-   const dateHeader = document.createElement('h4');
-   dateHeader.classList.add('show__header');
-   dateHeader.innerText = 'DATE';
+   const dateValue = formatShowDate(show.date);
+   const venueValue = getShowVenue(show);
+   const locationValue = getShowLocation(show);
 
-   const dateInfo = document.createElement('h4');
-   dateInfo.classList.add('show__details', 'show__details--strong');
-   dateInfo.innerText = show.date;
-
-   const venueHeader = document.createElement('h4');
-   venueHeader.classList.add('show__header');
-   venueHeader.innerText = 'VENUE';
-
-   const venueInfo = document.createElement('h4');
-   venueInfo.classList.add('show__details')
-   venueInfo.innerText = show.venue;
-
-   const locationHeader = document.createElement('h4');
-   locationHeader.classList.add('show__header');
-   locationHeader.innerText = 'LOCATION';
-
-   const locationInfo = document.createElement('h4');
-   locationInfo.classList.add('show__details')
-   locationInfo.innerText = show.city;
+   const [dateHeader, dateInfo] = createShowField('DATE', dateValue, true);
+   const [venueHeader, venueInfo] = createShowField('VENUE', venueValue);
+   const [locationHeader, locationInfo] = createShowField('LOCATION', locationValue);
 
    const button = document.createElement('button');
    button.classList.add('show__button');
@@ -64,43 +76,20 @@ createShowBlock = (show) => {
    container.append(dateHeader, dateInfo, venueHeader, venueInfo, locationHeader, locationInfo, button);
    return container;
 }
-createShowBlockApi = (show) => {
-   const dateHeader = document.createElement('h4');
-   dateHeader.classList.add('show__header');
-   dateHeader.innerText = 'DATE';
 
-   const dateInfo = document.createElement('h4');
-   dateInfo.classList.add('show__details', 'show__details--strong');
-   const date = new Date(Number(show.date)).toDateString();
-   console.log(date)
-   const timeDateString = `${date}`
-   dateInfo.innerText = timeDateString;
-
-   const venueHeader = document.createElement('h4');
-   venueHeader.classList.add('show__header');
-   venueHeader.innerText = 'VENUE';
-
-   const venueInfo = document.createElement('h4');
-   venueInfo.classList.add('show__details')
-   venueInfo.innerText = show.place;
-
-   const locationHeader = document.createElement('h4');
-   locationHeader.classList.add('show__header');
-   locationHeader.innerText = 'LOCATION';
-
-   const locationInfo = document.createElement('h4');
-   locationInfo.classList.add('show__details')
-   locationInfo.innerText = show.location;
-
-   const button = document.createElement('button');
-   button.classList.add('show__button');
-   button.innerText = "BUY TICKETS";
-
-   const container = document.createElement('div');
-   container.classList.add('show__block');
-   container.append(dateHeader, dateInfo, venueHeader, venueInfo, locationHeader, locationInfo, button);
-   return container;
+renderShowList = (showsList) => {
+   showsList.forEach(show => {
+      const newShow = createShowBlock(show);
+      showEl[0].append(newShow);
+   });
+   activeRowListener();
 }
+
+clearShows = () => {
+   const rows = showEl[0].querySelectorAll('.show__block');
+   rows.forEach((row) => row.remove());
+}
+
 // event listener to apply active row class on click
 activeRowListener = () => {
    const rowsArray = document.querySelectorAll('.show__block');
@@ -123,20 +112,14 @@ showEl[0].append(tabletHeaders);
 
 const apiShowObj = axios.get(apiShowPage + apiKey);
 apiShowObj.then(result => {
-   console.log(result);
-   result.data.forEach(show => {
-      const newShow = createShowBlockApi(show);
-      showEl[0].append(newShow);
-   })
-   activeRowListener();
+   clearShows();
+   renderShowList(result.data);
 })
    .catch(error => {
       console.log(error)
       //use exsisting database
-      futureDates.forEach(show => {
-         const newShow = createShowBlock(show);
-         showEl[0].append(newShow);
-      })
+      clearShows();
+      renderShowList(futureDates);
    });
 //attach shows to HTML through DOM
 const htmlContainer = document.getElementById('shows');

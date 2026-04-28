@@ -1,8 +1,8 @@
-@use 'partials/global';
-@use 'partials/colors';
-@use 'partials/variables' as *;
-@use 'partials/mixins' as *;
-@use 'partials/breakpoints' as *;
+@use "partials/global";
+@use "partials/colors";
+@use "partials/variables" as *;
+@use "partials/mixins" as *;
+@use "partials/breakpoints" as *;
 
 .hero {
    position: relative;
@@ -23,24 +23,24 @@
       color: $root-primary-light-font-color;
       font-size: $mobile-title-font-size;
       font-weight: 600;
-      
+
       @include tablet {
          @include tablet-padding;
          @include tablet-title-min-max;
          font-size: 3.696rem;
-      };
+      }
 
       @include desktop {
          @include desktop-title-min-max;
          font-size: 4.62vw;
-      };
-   };
+      }
+   }
 
    &--overlay {
       @include overlay;
       display: flex;
-   };
-};
+   }
+}
 
 .bio-intro {
    @include mobile-padding;
@@ -56,16 +56,16 @@
          width: 100%;
          margin: inherit auto;
          font-size: $tablet-titleStatic-font-size;
-      };
+      }
 
       @include desktop {
          @include desktop-title-min-max;
          font-size: $desktop-title-font-size;
-      };
-   };
+      }
+   }
    &__media {
       display: block;
-      width:100%;
+      width: 100%;
       max-width: 389px;
       margin: 0 auto;
       aspect-ratio: 16/9;
@@ -74,25 +74,25 @@
       &:hover {
          filter: brightness(1.75) contrast(1.25);
       }
-      
+
       @include tablet {
          aspect-ratio: 1.95/1;
          @include tablet-bio-body;
-      };
+      }
 
       @include desktop {
          @include desktop-bio-body;
-      };
-   };
+      }
+   }
    &__quote-container {
       margin-top: 1rem;
-      
+
       @include desktop {
          margin: auto;
          max-width: initial;
-      };
-   };
-   
+      }
+   }
+
    &__quote {
       margin: 0.4rem auto;
       color: $root-primary-dark-font-color;
@@ -104,8 +104,8 @@
 
       &--artist-tag {
          @extend .bio-intro__quote;
-      };
-      
+      }
+
       @include tablet {
          @include tablet-bio-body;
          margin: 2vw auto 1vw;
@@ -115,63 +115,60 @@
          &--artist-tag {
             font-size: 0.959rem;
             @include tablet-bio-body;
-         };
-      };
-      
+         }
+      }
+
       @include desktop {
          @include desktop-bio-body;
          font-size: 1.68vw;
          line-height: 2.4vw;
-         
+
          &--artist-tag {
             @include desktop-bio-body;
             font-size: 1.2vw;
-         };
-      };
-   };
+         }
+      }
+   }
 
    @include tablet {
       @include tablet-padding;
    }
-};
+}
 
 .bio-main {
-
    &__title {
       @include mobile-padding;
       width: auto;
       color: $root-primary-dark-font-color;
       font-size: 0.85rem;
       font-weight: 500;
-      
+
       @include tablet {
          @include tablet-bio-body;
          box-sizing: border-box;
          padding: 0;
          font-size: 3.25vw;
-      };
+      }
 
       @include desktop {
          width: $desktop-main-width;
          min-width: $desktop-minMax-width;
-         max-width:82%;
-      };
-   };
+         max-width: 82%;
+      }
+   }
 
    &__details-container {
-
       @include tablet {
          display: flex;
          justify-content: space-between;
          @include tablet-bio-body;
-
-      };
+      }
 
       @include desktop {
          min-width: $desktop-minMax-width;
          max-width: 57.5%;
-      };
-   };
+      }
+   }
 
    &__details {
       @include mobile-padding;
@@ -185,23 +182,23 @@
          font-size: 0.88rem;
          line-height: 1.35rem;
          word-spacing: 0.01rem;
-         width: 47%
-      };
+         width: 47%;
+      }
 
       @include desktop {
          margin-bottom: 2.5vw;
          font-size: 1.1vw;
          word-spacing: 0.01vw;
          line-height: 1.7vw;
-      };
-   };  
+      }
+   }
 
    @include tablet {
       @include tablet-padding;
       padding-top: initial;
       margin: 0 auto;
-   };
-};
+   }
+}
 
 .gallery {
    padding: 1rem $mobile-main-padding 0.01rem;
@@ -218,13 +215,13 @@
          width: 100%;
          margin: inherit auto;
          font-size: $tablet-titleStatic-font-size;
-      };
-      
+      }
+
       @include desktop {
          @include desktop-title-min-max;
          font-size: $desktop-title-font-size;
-      };
-   };
+      }
+   }
 
    &__container {
       box-sizing: border-box;
@@ -237,15 +234,15 @@
          justify-items: space-between;
          max-width: 63.75rem;
          margin: 0 auto;
-      };
+      }
 
       @include desktop {
          box-sizing: border-box;
          width: 80%;
          min-width: 63.75rem;
          max-width: initial;
-      };
-   };
+      }
+   }
 
    &__media {
       display: flex;
@@ -258,34 +255,33 @@
       aspect-ratio: 16/9;
       filter: grayscale(1);
       transition: 0.5s;
-      
+
       &:hover {
          filter: grayscale(0);
-      };
+      }
 
       @include tablet {
          display: inline-block;
          box-sizing: border-box;
          width: 32%;
          margin: 1vw 0.1vw;
-      };
+      }
 
       @include desktop {
          box-sizing: border-box;
          width: 32%;
-      };
-   };
+      }
+   }
 
    @include tablet {
       @include tablet-padding;
       margin: auto;
       padding-top: 0.01;
       padding-bottom: 1.5rem;
-   };
-};
+   }
+}
 
 .conversation {
-   
    &__container {
       padding: 0.01rem $mobile-main-padding 0.01rem;
       background-color: $root-primary-light-background-color;
@@ -294,12 +290,12 @@
          @include tablet-padding;
          margin: 0 auto;
          padding-bottom: 2vw;
-      };
+      }
 
       @include tablet {
          padding-bottom: 2rem;
-      };
-   };
+      }
+   }
 
    &__title {
       @include section-title-properties;
@@ -312,17 +308,16 @@
          width: 100%;
          margin: inherit auto;
          font-size: $tablet-titleStatic-font-size;
-      };
+      }
 
       @include desktop {
          @include desktop-title-min-max;
          font-size: $desktop-title-font-size;
-      };
-   };
-};
+      }
+   }
+}
 
 .comment {
-
    &__card {
       @include divider;
       display: flex;
@@ -331,13 +326,13 @@
       @include tablet {
          @include tablet-comment-properties;
          justify-content: flex-end;
-      };
+      }
 
       @include desktop {
          max-width: 45%;
          margin: auto;
-      };
-   };
+      }
+   }
 
    &__avatar {
       @include avatar;
@@ -345,7 +340,7 @@
       object-fit: cover;
       object-position: 15%;
       margin-right: 16px;
-      
+
       @include tablet {
          max-width: 48px;
          max-height: 48px;
@@ -353,8 +348,8 @@
          min-height: 48px;
          margin: 22px 0;
          margin-right: 16px;
-      };
-   };
+      }
+   }
 
    &__right {
       box-sizing: border-box;
@@ -362,7 +357,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-   };
+   }
 
    &__header {
       display: block;
@@ -373,10 +368,10 @@
 
       @include tablet {
          font-size: 0.74rem;
-      };
-   };
+      }
+   }
 
-   &__form {   
+   &__form {
       box-sizing: border-box;
       width: 100%;
       min-height: 24px;
@@ -388,27 +383,27 @@
       font-family: $root-font-stack;
       font-size: 0.8rem;
       resize: none;
-      
+
       &::placeholder {
          vertical-align: bottom;
-      };
+      }
       &:focus {
          border: 1px solid colors.$primary-dark;
-      };
+      }
       &--error {
          border: 1px solid #d22d2d;
-      };
+      }
       @include tablet {
          min-height: 48px;
          padding: 12px;
-      };
-   };
+      }
+   }
 
    &__button {
       @include button;
       margin-top: 0;
-   };
-};
+   }
+}
 
 .live-comment {
    display: flex;
@@ -423,7 +418,7 @@
       background-color: colors.$secondary-mid;
       display: block;
       width: 100%;
-      
+
       &--blank {
          @extend .live-comment__avatar;
       }
@@ -431,46 +426,64 @@
       @include tablet {
          min-width: 48px;
          min-height: 48px;
-      };
-   };
+      }
+   }
 
    &__icon {
+      width: 14px;
+      height: 14px;
       max-height: 14px;
+      display: block;
+      object-fit: contain;
+      cursor: pointer;
 
       &--like {
-         flex: 1; 
-      };
+         flex: none;
+         margin: 0;
+         grid-column: 1;
+         grid-row: 3;
+      }
 
       &--delete {
-         margin: auto;
-      };
-   };
+         flex: none;
+         margin: 0;
+         grid-column: 2;
+         grid-row: 3;
+      }
+   }
 
    &__like-count {
       display: inline-block;
-      flex: 1;
       margin: 0;
-      text-align: left;
-   };
+      min-width: 2ch;
+      text-align: center;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      grid-column: 1 / 3;
+      grid-row: 2;
+   }
 
    &__likes-container {
-      flex-basis: 100%;
-      min-width: 2.8rem;
-      min-height: 1rem;
-      max-height: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0.5rem 0;
-   };
+      display: contents;
+   }
 
    &__left {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-end;
+      display: grid;
+      grid-template-columns: 24px 24px;
+      grid-template-rows: auto auto auto;
+      justify-items: center;
+      align-items: center;
+      justify-content: center;
+      column-gap: 0.5rem;
       padding: 8px;
-   };
+   }
+
+   &__avatar,
+   &__avatar--blank {
+      grid-column: 1 / 3;
+      grid-row: 1;
+      justify-self: center;
+   }
 
    &__right {
       box-sizing: border-box;
@@ -478,7 +491,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-   };
+   }
 
    &__name {
       box-sizing: border-box;
@@ -487,7 +500,7 @@
       color: $root-primary-dark-font-color;
       font-size: 0.87rem;
       font-weight: 600;
-   };
+   }
 
    &__date {
       box-sizing: border-box;
@@ -497,22 +510,22 @@
       text-align: right;
       font-size: 0.83rem;
       font-weight: 500;
-   };
+   }
 
    &__details {
       margin-top: 0.5rem;
       width: 100%;
       color: colors.$secondary-dark;
       font-size: 0.85rem;
-   };
-   
+   }
+
    @include tablet {
       @include tablet-comment-properties;
       justify-content: center;
-   };
+   }
 
    @include desktop {
       max-width: 45%;
       margin: auto;
-   };
-};
+   }
+}

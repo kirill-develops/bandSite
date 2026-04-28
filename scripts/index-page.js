@@ -1,28 +1,87 @@
 // Function to populate HTML into live comment cards from an array database
 // @parma comments is an array of objects that provide an avatar, name, date & comment details for each entry
-displayComment = (comment) => {
+const commentsOutput = document.querySelector('.conversation__output');
+let generatedCommentId = 0;
+
+getLikeCount = (likes) => {
+   const parsedLikes = Number(likes);
+   if (Number.isNaN(parsedLikes)) {
+      return 0;
+   }
+   return parsedLikes;
+}
+
+getCommentId = (comment) => {
+   if (comment.id === undefined || comment.id === null || comment.id === '') {
+      generatedCommentId += 1;
+      comment.id = `local-${generatedCommentId}`;
+   }
+   return String(comment.id);
+}
+
+isLocalCommentId = (commentId) => String(commentId).startsWith('local-');
+
+findCommentInLocalStore = (commentId) =>
+   comments.find((comment) => String(comment.id) === String(commentId));
+
+updateLocalCommentLikes = (commentId) => {
+   const localComment = findCommentInLocalStore(commentId);
+   if (!localComment) {
+      return null;
+   }
+   localComment.likes = getLikeCount(localComment.likes) + 1;
+   return localComment.likes;
+}
+
+removeLocalComment = (commentId) => {
+   const index = comments.findIndex((comment) => String(comment.id) === String(commentId));
+   if (index === -1) {
+      return false;
+   }
+   comments.splice(index, 1);
+   return true;
+}
+
+createAvatar = (comment) => {
+   if (comment.avatar) {
+      const avatar = document.createElement('img');
+      avatar.classList.add('live-comment__avatar');
+      avatar.src = comment.avatar;
+      avatar.alt = `${comment.name || 'Commenter'} avatar`;
+      avatar.loading = 'lazy';
+      return avatar;
+   }
+
    const avatar = document.createElement('div');
    avatar.classList.add('live-comment__avatar--blank');
+   return avatar;
+}
 
-   const name = document.createElement('h4');
-   name.classList.add('live-comment__name');
+createCommentText = (tag, className, text = '') => {
+   const element = document.createElement(tag);
+   element.classList.add(className);
+   element.innerText = text;
+   return element;
+}
 
-   const date = document.createElement('h4');
-   date.classList.add('live-comment__date');
+createCommentCard = (comment) => {
+   const commentId = getCommentId(comment);
+   const avatar = createAvatar(comment);
 
-   const details = document.createElement('p');
-   details.classList.add('live-comment__details');
+   const name = createCommentText('h4', 'live-comment__name');
+   const date = createCommentText('h4', 'live-comment__date');
+   const details = createCommentText('p', 'live-comment__details');
 
    const like = document.createElement('img');
    like.classList.add('live-comment__icon', 'live-comment__icon--like');
-   like.id = comment.id;
+   like.id = commentId;
    like.src = './assets/icons/svg/icon-like.svg';
    like.alt = 'like icon';
 
    const likeCount = document.createElement('h5');
    likeCount.classList.add('live-comment__like-count');
-   likeCount.id = comment.id;
-   likeCount.innerText = comment.likes;
+   likeCount.id = commentId;
+   likeCount.innerText = getLikeCount(comment.likes);
 
    const likeBlock = document.createElement('div');
    likeBlock.classList.add('live-comment__likes-container');
@@ -31,7 +90,7 @@ displayComment = (comment) => {
    const cDelete = document.createElement('img');
    cDelete.classList.add('live-comment__icon', 'live-comment__icon--delete');
    cDelete.src = './assets/icons/svg/icon-delete.svg';
-   cDelete.id = comment.id;
+   cDelete.id = commentId;
    cDelete.alt = 'delete icon';
 
    const left = document.createElement('div');
@@ -47,70 +106,32 @@ displayComment = (comment) => {
    liveComment.append(left, right);
 
    const timeDate = new Date(comment.timestamp);
-   const timeDateString = `${timeDate.getMonth() + 1}/${timeDate.getDate()}/${timeDate.getFullYear()}`
    const relative = timeDifference(timeDate);
 
    name.innerText = comment.name;
    date.innerText = relative;
    details.innerText = comment.comment;
 
-   document.querySelector('.conversation__output').append(liveComment);
+   return liveComment;
+}
+
+renderComment = (comment, position = 'append') => {
+   const liveComment = createCommentCard(comment);
+   if (position === 'prepend') {
+      commentsOutput.prepend(liveComment);
+   }
+   else {
+      commentsOutput.append(liveComment);
+   }
+   attachCommentActionListeners(liveComment);
+}
+
+displayComment = (comment) => {
+   renderComment(comment, 'append');
 }
 //prepend new comment to top of comments
 insertComment = (comment) => {
-   const avatar = document.createElement('div');
-   avatar.classList.add('live-comment__avatar--blank');
-
-   const name = document.createElement('h4');
-   name.classList.add('live-comment__name');
-
-   const date = document.createElement('h4');
-   date.classList.add('live-comment__date');
-
-   const details = document.createElement('p');
-   details.classList.add('live-comment__details');
-
-   const like = document.createElement('img');
-   like.classList.add('live-comment__icon', 'live-comment__icon--like');
-   like.id = comment.id;
-   like.src = './assets/icons/svg/icon-like.svg';
-   like.alt = 'like icon';
-
-   const likeCount = document.createElement('h5');
-   likeCount.classList.add('live-comment__like-count');
-   likeCount.id = comment.id;
-   likeCount.innerText = comment.likes;
-
-   const likeBlock = document.createElement('div');
-   likeBlock.classList.add('live-comment__likes-container');
-   likeBlock.append(likeCount, like);
-
-   const cDelete = document.createElement('img');
-   cDelete.classList.add('live-comment__icon', 'live-comment__icon--delete');
-   cDelete.src = './assets/icons/svg/icon-delete.svg';
-   cDelete.id = comment.id;
-   cDelete.alt = 'delete icon';
-
-   const left = document.createElement('div');
-   left.classList.add('live-comment__left');
-   left.append(avatar, likeBlock, cDelete);
-
-   const right = document.createElement('div');
-   right.classList.add('live-comment__right');
-   right.append(name, date, details);
-
-   const liveComment = document.createElement('div');
-   liveComment.classList.add('live-comment');
-   liveComment.append(left, right);
-
-   const timeDate = new Date(comment.timestamp);
-   const relative = timeDifference(timeDate);
-
-   name.innerText = comment.name;
-   date.innerText = relative;
-   details.innerText = comment.comment;
-
-   document.querySelector('.conversation__output').prepend(liveComment);
+   renderComment(comment, 'prepend');
 }
 //provides a relative time difference from a time provided through the attributes
 timeDifference = (previous) => {
@@ -139,46 +160,117 @@ timeDifference = (previous) => {
       return Math.round(elapsed / msPerYear) + ' years ago';
    }
 }
+
+updateCommentLikeCounter = (button, likes) => {
+   const likesContainer = button.parentNode;
+   const likeCounter = likesContainer.querySelector('.live-comment__like-count');
+   likeCounter.innerText = getLikeCount(likes);
+}
+
+removeCommentElement = (button) => {
+   const commentCard = button.closest('.live-comment');
+   if (commentCard) {
+      commentCard.remove();
+   }
+}
 //function to create an event listener for 'like' clicks. sends put to api and updates html element innerText to current count
 listenForLikes = (button) => {
    button.addEventListener('click', (e) => {
       e.preventDefault();
-      const addLike = axios.put(`${apiCommentsPage}${e.target.id}/like${apiKey}`);
+      const commentId = button.id;
+      if (isLocalCommentId(commentId)) {
+         const updatedLikes = updateLocalCommentLikes(commentId);
+         updateCommentLikeCounter(button, updatedLikes);
+         return;
+      }
+
+      const addLike = axios.put(`${apiCommentsPage}${commentId}/like${apiKey}`);
       addLike
-         .then(result => e.path[1].querySelector('.live-comment__like-count').innerText = result.data.likes)
-         .catch(error => console.warn(error))
+         .then(result => {
+            updateCommentLikeCounter(button, result.data.likes);
+         })
+         .catch(error => {
+            const updatedLikes = updateLocalCommentLikes(commentId);
+            if (updatedLikes !== null) {
+               updateCommentLikeCounter(button, updatedLikes);
+            }
+            else {
+               const likesContainer = button.parentNode;
+               const likeCounter = likesContainer.querySelector('.live-comment__like-count');
+               const optimisticLikeValue = getLikeCount(likeCounter.innerText) + 1;
+               updateCommentLikeCounter(button, optimisticLikeValue);
+            }
+            console.warn(error)
+         })
    })
 }
 //function creating event listener for 'delete' clicks. send delete method to api and update html to reflect new comment section
 listenForTrash = (button) => {
    button.addEventListener('click', (e) => {
       e.preventDefault();
-      const deleteComment = axios.delete(apiCommentsPage + e.target.id + apiKey);
+      const commentId = button.id;
+      if (isLocalCommentId(commentId)) {
+         removeLocalComment(commentId);
+         removeCommentElement(button);
+         return;
+      }
+
+      const deleteComment = axios.delete(apiCommentsPage + commentId + apiKey);
       deleteComment
-         .then(() => e.target.parentNode.parentNode.innerHTML = "")
-         .catch(error => console.warn(error))
+         .then(() => {
+            removeLocalComment(commentId);
+            removeCommentElement(button);
+         })
+         .catch(error => {
+            removeLocalComment(commentId);
+            removeCommentElement(button);
+            console.warn(error)
+         })
    })
+}
+
+attachCommentActionListeners = (root = document) => {
+   const likeEl = root.querySelectorAll('.live-comment__icon--like');
+   likeEl.forEach((el) => listenForLikes(el));
+
+   const trashEl = root.querySelectorAll('.live-comment__icon--delete');
+   trashEl.forEach((el) => listenForTrash(el));
+}
+
+renderCommentList = (commentList) => {
+   commentList.forEach(comment => displayComment(comment));
 }
 // API requesting COMMENTS, sorts by timestamp
 apiCallComments = () => {
    const apiCommentsObj = axios.get(apiCommentsPage + apiKey)
    apiCommentsObj.then((result) => {
+      clearComments();
       const sorted = result.data.sort((a, b) => (b.timestamp - a.timestamp));
-      sorted.forEach(comment => displayComment(comment));
-      const likeEl = document.querySelectorAll('.live-comment__icon--like');
-      likeEl.forEach((el) => listenForLikes(el));
-
-      const trashEl = document.querySelectorAll('.live-comment__icon--delete');
-      trashEl.forEach((el) => listenForTrash(el));
+      renderCommentList(sorted);
    })
       .catch(error => {
-         comments.forEach(comment => displayComment(comment));
+         clearComments();
+         renderCommentList(comments);
          console.warn(error)
       })
 }
 // Delete old comments
 clearComments = () => {
    document.getElementById('output').innerHTML = "";
+}
+
+setFieldErrorState = (fieldEl, hasError) => {
+   fieldEl.classList.toggle('comment__form--error', hasError);
+}
+
+validateNewComment = (nameValue, commentValue) => {
+   const hasName = nameValue !== "";
+   const hasComment = commentValue !== "";
+   return {
+      hasName,
+      hasComment,
+      isValid: hasName && hasComment
+   };
 }
 
 apiCallComments();
@@ -191,15 +283,18 @@ newComment.addEventListener('submit', (e) => {
    const newCommentValue = e.target.userComment.value;
    const newCommentEl = e.target.userComment;
    const timestamp = new Date();
-   if (newName != "" && newCommentValue != "") {
-      newNameEl.classList.remove('comment__form--error');
-      newCommentEl.classList.remove('comment__form--error');
+   const validation = validateNewComment(newName, newCommentValue);
+   setFieldErrorState(newNameEl, !validation.hasName);
+   setFieldErrorState(newCommentEl, !validation.hasComment);
+
+   if (validation.isValid) {
 
       const newCommentObject = {
-         id: 01,
+         id: '',
          timestamp: timestamp,
          name: newName,
-         comment: newCommentValue
+         comment: newCommentValue,
+         likes: 0
       };
       const apiCommentsPost = axios.post(apiCommentsPage + apiKey, {
          'name': newName,
@@ -208,29 +303,11 @@ newComment.addEventListener('submit', (e) => {
       apiCommentsPost.then(result => {
          clearComments();
          apiCallComments();
-
-         const likeEl = document.querySelectorAll('.live-comment__icon--like');
-         likeEl.forEach((el) => listenForLikes(el));
-
-         const trashEl = document.querySelectorAll('.live-comment__icon--delete');
-         trashEl.forEach((el, i, node) => listenForTrash(el));
       }).catch(error => {
          comments.unshift(newCommentObject);
          insertComment(newCommentObject);
          console.warn(error);
       })
       newComment.reset();
-   }
-   else if (newName != "" && newCommentValue == "") {
-      newNameEl.classList.remove('comment__form--error');
-      newCommentEl.classList.add('comment__form--error');
-   }
-   else if (newName == "" && newCommentValue != "") {
-      newNameEl.classList.add('comment__form--error');
-      newCommentEl.classList.remove('comment__form--error');
-   }
-   else {
-      newNameEl.classList.add('comment__form--error');
-      newCommentEl.classList.add('comment__form--error');
    }
 })
